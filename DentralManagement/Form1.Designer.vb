@@ -42,14 +42,15 @@ Partial Class Form1
         Me.Home = New System.Windows.Forms.Panel()
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
         Me.Menu_Tool = New System.Windows.Forms.Panel()
+        Me.Smenu = New System.Windows.Forms.Panel()
+        Me.btn_admin = New System.Windows.Forms.PictureBox()
+        Me.btn_emp = New System.Windows.Forms.PictureBox()
+        Me.btn_finan = New System.Windows.Forms.PictureBox()
+        Me.btn_drug = New System.Windows.Forms.PictureBox()
+        Me.btn_record = New System.Windows.Forms.PictureBox()
         Me.namesuser = New System.Windows.Forms.Panel()
         Me.label_name = New System.Windows.Forms.Label()
-        Me.Smenu = New System.Windows.Forms.Panel()
-        Me.btn_record = New System.Windows.Forms.PictureBox()
-        Me.btn_drug = New System.Windows.Forms.PictureBox()
-        Me.btn_finan = New System.Windows.Forms.PictureBox()
-        Me.btn_emp = New System.Windows.Forms.PictureBox()
-        Me.btn_admin = New System.Windows.Forms.PictureBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Login_p.SuspendLayout()
@@ -60,13 +61,13 @@ Partial Class Form1
         Me.Home.SuspendLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Menu_Tool.SuspendLayout()
-        Me.namesuser.SuspendLayout()
         Me.Smenu.SuspendLayout()
-        CType(Me.btn_record, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btn_drug, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btn_finan, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btn_emp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_admin, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btn_emp, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btn_finan, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btn_drug, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btn_record, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.namesuser.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -263,6 +264,7 @@ Partial Class Form1
         'Home
         '
         Me.Home.BackColor = System.Drawing.Color.Transparent
+        Me.Home.Controls.Add(Me.Panel4)
         Me.Home.Controls.Add(Me.AxWindowsMediaPlayer1)
         Me.Home.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Home.Location = New System.Drawing.Point(251, 0)
@@ -295,6 +297,67 @@ Partial Class Form1
         Me.Menu_Tool.Size = New System.Drawing.Size(251, 723)
         Me.Menu_Tool.TabIndex = 0
         '
+        'Smenu
+        '
+        Me.Smenu.BackColor = System.Drawing.Color.Transparent
+        Me.Smenu.Controls.Add(Me.btn_admin)
+        Me.Smenu.Controls.Add(Me.btn_emp)
+        Me.Smenu.Controls.Add(Me.btn_finan)
+        Me.Smenu.Controls.Add(Me.btn_drug)
+        Me.Smenu.Controls.Add(Me.btn_record)
+        Me.Smenu.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Smenu.Location = New System.Drawing.Point(0, 153)
+        Me.Smenu.Name = "Smenu"
+        Me.Smenu.Size = New System.Drawing.Size(251, 287)
+        Me.Smenu.TabIndex = 1
+        '
+        'btn_admin
+        '
+        Me.btn_admin.BackColor = System.Drawing.Color.LightSlateGray
+        Me.btn_admin.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btn_admin.Location = New System.Drawing.Point(0, 224)
+        Me.btn_admin.Name = "btn_admin"
+        Me.btn_admin.Size = New System.Drawing.Size(251, 63)
+        Me.btn_admin.TabIndex = 4
+        Me.btn_admin.TabStop = False
+        '
+        'btn_emp
+        '
+        Me.btn_emp.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btn_emp.Location = New System.Drawing.Point(0, 168)
+        Me.btn_emp.Name = "btn_emp"
+        Me.btn_emp.Size = New System.Drawing.Size(251, 56)
+        Me.btn_emp.TabIndex = 3
+        Me.btn_emp.TabStop = False
+        '
+        'btn_finan
+        '
+        Me.btn_finan.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btn_finan.Location = New System.Drawing.Point(0, 112)
+        Me.btn_finan.Name = "btn_finan"
+        Me.btn_finan.Size = New System.Drawing.Size(251, 56)
+        Me.btn_finan.TabIndex = 2
+        Me.btn_finan.TabStop = False
+        '
+        'btn_drug
+        '
+        Me.btn_drug.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btn_drug.Location = New System.Drawing.Point(0, 56)
+        Me.btn_drug.Name = "btn_drug"
+        Me.btn_drug.Size = New System.Drawing.Size(251, 56)
+        Me.btn_drug.TabIndex = 1
+        Me.btn_drug.TabStop = False
+        '
+        'btn_record
+        '
+        Me.btn_record.BackColor = System.Drawing.Color.Transparent
+        Me.btn_record.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btn_record.Location = New System.Drawing.Point(0, 0)
+        Me.btn_record.Name = "btn_record"
+        Me.btn_record.Size = New System.Drawing.Size(251, 56)
+        Me.btn_record.TabIndex = 0
+        Me.btn_record.TabStop = False
+        '
         'namesuser
         '
         Me.namesuser.BackColor = System.Drawing.Color.Transparent
@@ -315,66 +378,13 @@ Partial Class Form1
         Me.label_name.TabIndex = 0
         Me.label_name.Text = "นาย รัชกร ภัทรนาวิก"
         '
-        'Smenu
+        'Panel4
         '
-        Me.Smenu.BackColor = System.Drawing.Color.Transparent
-        Me.Smenu.Controls.Add(Me.btn_admin)
-        Me.Smenu.Controls.Add(Me.btn_emp)
-        Me.Smenu.Controls.Add(Me.btn_finan)
-        Me.Smenu.Controls.Add(Me.btn_drug)
-        Me.Smenu.Controls.Add(Me.btn_record)
-        Me.Smenu.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Smenu.Location = New System.Drawing.Point(0, 153)
-        Me.Smenu.Name = "Smenu"
-        Me.Smenu.Size = New System.Drawing.Size(251, 287)
-        Me.Smenu.TabIndex = 1
-        '
-        'btn_record
-        '
-        Me.btn_record.BackColor = System.Drawing.Color.Transparent
-        Me.btn_record.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btn_record.Location = New System.Drawing.Point(0, 0)
-        Me.btn_record.Name = "btn_record"
-        Me.btn_record.Size = New System.Drawing.Size(251, 56)
-        Me.btn_record.TabIndex = 0
-        Me.btn_record.TabStop = False
-        '
-        'btn_drug
-        '
-        Me.btn_drug.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btn_drug.Location = New System.Drawing.Point(0, 56)
-        Me.btn_drug.Name = "btn_drug"
-        Me.btn_drug.Size = New System.Drawing.Size(251, 56)
-        Me.btn_drug.TabIndex = 1
-        Me.btn_drug.TabStop = False
-        '
-        'btn_finan
-        '
-        Me.btn_finan.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btn_finan.Location = New System.Drawing.Point(0, 112)
-        Me.btn_finan.Name = "btn_finan"
-        Me.btn_finan.Size = New System.Drawing.Size(251, 56)
-        Me.btn_finan.TabIndex = 2
-        Me.btn_finan.TabStop = False
-        '
-        'btn_emp
-        '
-        Me.btn_emp.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btn_emp.Location = New System.Drawing.Point(0, 168)
-        Me.btn_emp.Name = "btn_emp"
-        Me.btn_emp.Size = New System.Drawing.Size(251, 56)
-        Me.btn_emp.TabIndex = 3
-        Me.btn_emp.TabStop = False
-        '
-        'btn_admin
-        '
-        Me.btn_admin.BackColor = System.Drawing.Color.LightSlateGray
-        Me.btn_admin.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btn_admin.Location = New System.Drawing.Point(0, 224)
-        Me.btn_admin.Name = "btn_admin"
-        Me.btn_admin.Size = New System.Drawing.Size(251, 63)
-        Me.btn_admin.TabIndex = 4
-        Me.btn_admin.TabStop = False
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel4.Location = New System.Drawing.Point(0, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(773, 723)
+        Me.Panel4.TabIndex = 1
         '
         'Form1
         '
@@ -409,14 +419,14 @@ Partial Class Form1
         Me.Home.ResumeLayout(False)
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Menu_Tool.ResumeLayout(False)
+        Me.Smenu.ResumeLayout(False)
+        CType(Me.btn_admin, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btn_emp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btn_finan, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btn_drug, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btn_record, System.ComponentModel.ISupportInitialize).EndInit()
         Me.namesuser.ResumeLayout(False)
         Me.namesuser.PerformLayout()
-        Me.Smenu.ResumeLayout(False)
-        CType(Me.btn_record, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btn_drug, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btn_finan, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btn_emp, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btn_admin, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -449,4 +459,5 @@ Partial Class Form1
     Friend WithEvents btn_finan As PictureBox
     Friend WithEvents btn_drug As PictureBox
     Friend WithEvents btn_record As PictureBox
+    Friend WithEvents Panel4 As Panel
 End Class
