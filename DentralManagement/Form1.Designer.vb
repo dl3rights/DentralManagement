@@ -23,12 +23,20 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.Taskbar = New System.Windows.Forms.Panel()
-        Me.Tool = New System.Windows.Forms.Panel()
-        Me.btn_Exit = New System.Windows.Forms.Button()
-        Me.btn_MaxRe = New System.Windows.Forms.Button()
-        Me.btn_Min = New System.Windows.Forms.Button()
         Me.U = New DentralManagement.DblBufferedPanel()
+        Me.Admin = New DentralManagement.DblBufferedPanel()
+        Me.Finan = New DentralManagement.DblBufferedPanel()
+        Me.Drug = New DentralManagement.DblBufferedPanel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Button9 = New System.Windows.Forms.Button()
         Me.Record_2 = New DentralManagement.DblBufferedPanel()
         Me.Button_add = New DentralManagement.DblBufferedPanel()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -82,6 +90,16 @@ Partial Class Form1
         Me.Label17 = New System.Windows.Forms.Label()
         Me.rec_id_card = New System.Windows.Forms.Label()
         Me.label00123 = New System.Windows.Forms.Label()
+        Me.Record_3 = New DentralManagement.DblBufferedPanel()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.lname = New System.Windows.Forms.Label()
+        Me.fname = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.ชื่อ = New System.Windows.Forms.Label()
         Me.Record_1 = New DentralManagement.DblBufferedPanel()
         Me.btn_search_rec = New System.Windows.Forms.Button()
         Me.tb_idcard_search = New System.Windows.Forms.TextBox()
@@ -93,7 +111,6 @@ Partial Class Form1
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Record_4 = New DentralManagement.DblBufferedPanel()
-        Me.Record_3 = New DentralManagement.DblBufferedPanel()
         Me.Home = New DentralManagement.DblBufferedPanel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Menu_Tool = New DentralManagement.DblBufferedPanel()
@@ -104,9 +121,10 @@ Partial Class Form1
         Me.btn_drug = New System.Windows.Forms.PictureBox()
         Me.btn_record = New System.Windows.Forms.PictureBox()
         Me.User_g = New DentralManagement.DblBufferedPanel()
+        Me.btn_logout = New System.Windows.Forms.Button()
         Me.usern = New System.Windows.Forms.Label()
         Me.Login_p = New DentralManagement.DblBufferedPanel()
-        Me.DblBufferedPanel1 = New DentralManagement.DblBufferedPanel()
+        Me.Login_gui = New DentralManagement.DblBufferedPanel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Username = New System.Windows.Forms.ComboBox()
@@ -115,36 +133,22 @@ Partial Class Form1
         Me.Password = New System.Windows.Forms.TextBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.btn_Login = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.lname = New System.Windows.Forms.Label()
-        Me.fname = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.ชื่อ = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Drug = New DentralManagement.DblBufferedPanel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Taskbar.SuspendLayout()
-        Me.Tool.SuspendLayout()
+        Me.Taskbar = New DentralManagement.DblBufferedPanel()
+        Me.Tool = New DentralManagement.DblBufferedPanel()
+        Me.btn_Min = New System.Windows.Forms.Button()
+        Me.btn_Exit = New System.Windows.Forms.Button()
+        Me.btn_MaxRe = New System.Windows.Forms.Button()
+        Me.Employee = New DentralManagement.DblBufferedPanel()
         Me.U.SuspendLayout()
+        Me.Drug.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Record_2.SuspendLayout()
         Me.Button_add.SuspendLayout()
         Me.Detail.SuspendLayout()
+        Me.Record_3.SuspendLayout()
         Me.Record_1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Record_3.SuspendLayout()
         Me.Home.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Menu_Tool.SuspendLayout()
@@ -156,79 +160,18 @@ Partial Class Form1
         CType(Me.btn_record, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.User_g.SuspendLayout()
         Me.Login_p.SuspendLayout()
-        Me.DblBufferedPanel1.SuspendLayout()
+        Me.Login_gui.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Drug.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Taskbar.SuspendLayout()
+        Me.Tool.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Taskbar
-        '
-        Me.Taskbar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Taskbar.BackColor = System.Drawing.Color.Transparent
-        Me.Taskbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Taskbar.Controls.Add(Me.Tool)
-        Me.Taskbar.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Taskbar.Location = New System.Drawing.Point(0, 0)
-        Me.Taskbar.Margin = New System.Windows.Forms.Padding(4, 6, 4, 60)
-        Me.Taskbar.Name = "Taskbar"
-        Me.Taskbar.Size = New System.Drawing.Size(1024, 45)
-        Me.Taskbar.TabIndex = 0
-        '
-        'Tool
-        '
-        Me.Tool.BackColor = System.Drawing.Color.Transparent
-        Me.Tool.Controls.Add(Me.btn_Exit)
-        Me.Tool.Controls.Add(Me.btn_MaxRe)
-        Me.Tool.Controls.Add(Me.btn_Min)
-        Me.Tool.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Tool.Location = New System.Drawing.Point(911, 0)
-        Me.Tool.Name = "Tool"
-        Me.Tool.Size = New System.Drawing.Size(113, 45)
-        Me.Tool.TabIndex = 3
-        '
-        'btn_Exit
-        '
-        Me.btn_Exit.BackColor = System.Drawing.Color.Transparent
-        Me.btn_Exit.BackgroundImage = Global.DentralManagement.My.Resources.Resources.Exit_Default
-        Me.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn_Exit.FlatAppearance.BorderSize = 0
-        Me.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Exit.Location = New System.Drawing.Point(76, 6)
-        Me.btn_Exit.Name = "btn_Exit"
-        Me.btn_Exit.Size = New System.Drawing.Size(31, 30)
-        Me.btn_Exit.TabIndex = 0
-        Me.btn_Exit.UseVisualStyleBackColor = False
-        '
-        'btn_MaxRe
-        '
-        Me.btn_MaxRe.BackColor = System.Drawing.Color.Transparent
-        Me.btn_MaxRe.BackgroundImage = Global.DentralManagement.My.Resources.Resources.Max_Default
-        Me.btn_MaxRe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn_MaxRe.FlatAppearance.BorderSize = 0
-        Me.btn_MaxRe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_MaxRe.Location = New System.Drawing.Point(39, 6)
-        Me.btn_MaxRe.Name = "btn_MaxRe"
-        Me.btn_MaxRe.Size = New System.Drawing.Size(31, 30)
-        Me.btn_MaxRe.TabIndex = 1
-        Me.btn_MaxRe.UseVisualStyleBackColor = False
-        '
-        'btn_Min
-        '
-        Me.btn_Min.BackColor = System.Drawing.Color.Transparent
-        Me.btn_Min.BackgroundImage = Global.DentralManagement.My.Resources.Resources.Min_Default
-        Me.btn_Min.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn_Min.FlatAppearance.BorderSize = 0
-        Me.btn_Min.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_Min.Location = New System.Drawing.Point(2, 6)
-        Me.btn_Min.Name = "btn_Min"
-        Me.btn_Min.Size = New System.Drawing.Size(31, 30)
-        Me.btn_Min.TabIndex = 2
-        Me.btn_Min.UseVisualStyleBackColor = False
         '
         'U
         '
+        Me.U.Controls.Add(Me.Employee)
+        Me.U.Controls.Add(Me.Admin)
+        Me.U.Controls.Add(Me.Finan)
         Me.U.Controls.Add(Me.Drug)
         Me.U.Controls.Add(Me.Record_2)
         Me.U.Controls.Add(Me.Record_3)
@@ -242,6 +185,138 @@ Partial Class Form1
         Me.U.Size = New System.Drawing.Size(1024, 723)
         Me.U.TabIndex = 1
         Me.U.Visible = False
+        '
+        'Admin
+        '
+        Me.Admin.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Admin.Location = New System.Drawing.Point(200, 0)
+        Me.Admin.Name = "Admin"
+        Me.Admin.Size = New System.Drawing.Size(824, 723)
+        Me.Admin.TabIndex = 0
+        '
+        'Finan
+        '
+        Me.Finan.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Finan.Location = New System.Drawing.Point(200, 0)
+        Me.Finan.Name = "Finan"
+        Me.Finan.Size = New System.Drawing.Size(824, 723)
+        Me.Finan.TabIndex = 23
+        '
+        'Drug
+        '
+        Me.Drug.Controls.Add(Me.DataGridView1)
+        Me.Drug.Controls.Add(Me.DateTimePicker1)
+        Me.Drug.Controls.Add(Me.Label34)
+        Me.Drug.Controls.Add(Me.CheckBox1)
+        Me.Drug.Controls.Add(Me.Button6)
+        Me.Drug.Controls.Add(Me.Button7)
+        Me.Drug.Controls.Add(Me.Button8)
+        Me.Drug.Controls.Add(Me.TextBox2)
+        Me.Drug.Controls.Add(Me.Label35)
+        Me.Drug.Controls.Add(Me.Button9)
+        Me.Drug.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Drug.Location = New System.Drawing.Point(200, 0)
+        Me.Drug.Name = "Drug"
+        Me.Drug.Size = New System.Drawing.Size(824, 723)
+        Me.Drug.TabIndex = 166
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(43, 184)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(682, 150)
+        Me.DataGridView1.TabIndex = 22
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(273, 395)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(140, 34)
+        Me.DateTimePicker1.TabIndex = 21
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(230, 392)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(37, 27)
+        Me.Label34.TabIndex = 20
+        Me.Label34.Text = "วันที่"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.Location = New System.Drawing.Point(43, 391)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(169, 31)
+        Me.CheckBox1.TabIndex = 19
+        Me.CheckBox1.Text = "ลงเวลานัดหมายครั้งต่อไป"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button6.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(631, 436)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(94, 34)
+        Me.Button6.TabIndex = 18
+        Me.Button6.Text = "เสร็จสิ้น"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button7.Font = New System.Drawing.Font("RSU TEXT", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(140, 340)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(91, 30)
+        Me.Button7.TabIndex = 17
+        Me.Button7.Text = "ลบรายการ"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button8.Font = New System.Drawing.Font("RSU TEXT", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Location = New System.Drawing.Point(43, 340)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(91, 30)
+        Me.Button8.TabIndex = 13
+        Me.Button8.Text = "เพิ่มรายการ"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(140, 147)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(193, 34)
+        Me.TextBox2.TabIndex = 16
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(38, 147)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(96, 27)
+        Me.Label35.TabIndex = 15
+        Me.Label35.Text = "ใบรายการเลขที่"
+        '
+        'Button9
+        '
+        Me.Button9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button9.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.Location = New System.Drawing.Point(30, 24)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(104, 33)
+        Me.Button9.TabIndex = 14
+        Me.Button9.Text = "ย้อนกลับ"
+        Me.Button9.UseVisualStyleBackColor = True
         '
         'Record_2
         '
@@ -795,6 +870,115 @@ Partial Class Form1
         Me.label00123.TabIndex = 119
         Me.label00123.Text = "เลขบัตรประชาชน :"
         '
+        'Record_3
+        '
+        Me.Record_3.Controls.Add(Me.Button4)
+        Me.Record_3.Controls.Add(Me.Button2)
+        Me.Record_3.Controls.Add(Me.Button5)
+        Me.Record_3.Controls.Add(Me.Label31)
+        Me.Record_3.Controls.Add(Me.Label32)
+        Me.Record_3.Controls.Add(Me.lname)
+        Me.Record_3.Controls.Add(Me.fname)
+        Me.Record_3.Controls.Add(Me.Label33)
+        Me.Record_3.Controls.Add(Me.ชื่อ)
+        Me.Record_3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Record_3.Location = New System.Drawing.Point(200, 0)
+        Me.Record_3.Name = "Record_3"
+        Me.Record_3.Size = New System.Drawing.Size(824, 723)
+        Me.Record_3.TabIndex = 167
+        '
+        'Button4
+        '
+        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button4.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Button4.Location = New System.Drawing.Point(645, 654)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(131, 38)
+        Me.Button4.TabIndex = 20
+        Me.Button4.Text = "ต่อไป"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button2.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Button2.Location = New System.Drawing.Point(508, 654)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(131, 38)
+        Me.Button2.TabIndex = 19
+        Me.Button2.Text = "บันทึก"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button5.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Button5.Location = New System.Drawing.Point(645, 31)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(131, 38)
+        Me.Button5.TabIndex = 18
+        Me.Button5.Text = "ประวัติการรักษา"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Font = New System.Drawing.Font("RSU TEXT", 20.0!)
+        Me.Label31.Location = New System.Drawing.Point(49, 228)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(122, 31)
+        Me.Label31.TabIndex = 15
+        Me.Label31.Text = "ใบรายการเลขที่ :"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
+        Me.Label32.Location = New System.Drawing.Point(71, 124)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(0, 29)
+        Me.Label32.TabIndex = 14
+        '
+        'lname
+        '
+        Me.lname.AutoSize = True
+        Me.lname.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
+        Me.lname.Location = New System.Drawing.Point(358, 104)
+        Me.lname.Name = "lname"
+        Me.lname.Size = New System.Drawing.Size(0, 29)
+        Me.lname.TabIndex = 13
+        '
+        'fname
+        '
+        Me.fname.AutoSize = True
+        Me.fname.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
+        Me.fname.Location = New System.Drawing.Point(100, 100)
+        Me.fname.Name = "fname"
+        Me.fname.Size = New System.Drawing.Size(0, 29)
+        Me.fname.TabIndex = 12
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("RSU TEXT", 20.0!)
+        Me.Label33.Location = New System.Drawing.Point(269, 102)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(68, 31)
+        Me.Label33.TabIndex = 10
+        Me.Label33.Text = "นามสกุล"
+        '
+        'ชื่อ
+        '
+        Me.ชื่อ.AutoSize = True
+        Me.ชื่อ.Font = New System.Drawing.Font("RSU TEXT", 20.0!)
+        Me.ชื่อ.Location = New System.Drawing.Point(49, 102)
+        Me.ชื่อ.Name = "ชื่อ"
+        Me.ชื่อ.Size = New System.Drawing.Size(32, 31)
+        Me.ชื่อ.TabIndex = 11
+        Me.ชื่อ.Text = "ชื่อ"
+        '
         'Record_1
         '
         Me.Record_1.Controls.Add(Me.btn_search_rec)
@@ -898,23 +1082,6 @@ Partial Class Form1
         Me.Record_4.Name = "Record_4"
         Me.Record_4.Size = New System.Drawing.Size(824, 723)
         Me.Record_4.TabIndex = 168
-        '
-        'Record_3
-        '
-        Me.Record_3.Controls.Add(Me.Button4)
-        Me.Record_3.Controls.Add(Me.Button2)
-        Me.Record_3.Controls.Add(Me.Button5)
-        Me.Record_3.Controls.Add(Me.Label31)
-        Me.Record_3.Controls.Add(Me.Label32)
-        Me.Record_3.Controls.Add(Me.lname)
-        Me.Record_3.Controls.Add(Me.fname)
-        Me.Record_3.Controls.Add(Me.Label33)
-        Me.Record_3.Controls.Add(Me.ชื่อ)
-        Me.Record_3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Record_3.Location = New System.Drawing.Point(200, 0)
-        Me.Record_3.Name = "Record_3"
-        Me.Record_3.Size = New System.Drawing.Size(824, 723)
-        Me.Record_3.TabIndex = 167
         '
         'Home
         '
@@ -1021,12 +1188,22 @@ Partial Class Form1
         '
         'User_g
         '
+        Me.User_g.Controls.Add(Me.btn_logout)
         Me.User_g.Controls.Add(Me.usern)
         Me.User_g.Dock = System.Windows.Forms.DockStyle.Top
         Me.User_g.Location = New System.Drawing.Point(0, 0)
         Me.User_g.Name = "User_g"
         Me.User_g.Size = New System.Drawing.Size(200, 150)
         Me.User_g.TabIndex = 2
+        '
+        'btn_logout
+        '
+        Me.btn_logout.Location = New System.Drawing.Point(119, 109)
+        Me.btn_logout.Name = "btn_logout"
+        Me.btn_logout.Size = New System.Drawing.Size(75, 35)
+        Me.btn_logout.TabIndex = 1
+        Me.btn_logout.Text = "Logout"
+        Me.btn_logout.UseVisualStyleBackColor = True
         '
         'usern
         '
@@ -1042,28 +1219,28 @@ Partial Class Form1
         '
         Me.Login_p.AutoSize = True
         Me.Login_p.BackColor = System.Drawing.Color.Transparent
-        Me.Login_p.Controls.Add(Me.DblBufferedPanel1)
+        Me.Login_p.Controls.Add(Me.Login_gui)
         Me.Login_p.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Login_p.Location = New System.Drawing.Point(0, 45)
         Me.Login_p.Name = "Login_p"
         Me.Login_p.Size = New System.Drawing.Size(1024, 723)
         Me.Login_p.TabIndex = 0
         '
-        'DblBufferedPanel1
+        'Login_gui
         '
-        Me.DblBufferedPanel1.Controls.Add(Me.PictureBox1)
-        Me.DblBufferedPanel1.Controls.Add(Me.Label1)
-        Me.DblBufferedPanel1.Controls.Add(Me.Username)
-        Me.DblBufferedPanel1.Controls.Add(Me.Label2)
-        Me.DblBufferedPanel1.Controls.Add(Me.Label3)
-        Me.DblBufferedPanel1.Controls.Add(Me.Password)
-        Me.DblBufferedPanel1.Controls.Add(Me.PictureBox3)
-        Me.DblBufferedPanel1.Controls.Add(Me.btn_Login)
-        Me.DblBufferedPanel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.DblBufferedPanel1.Location = New System.Drawing.Point(498, 0)
-        Me.DblBufferedPanel1.Name = "DblBufferedPanel1"
-        Me.DblBufferedPanel1.Size = New System.Drawing.Size(526, 723)
-        Me.DblBufferedPanel1.TabIndex = 0
+        Me.Login_gui.Controls.Add(Me.PictureBox1)
+        Me.Login_gui.Controls.Add(Me.Label1)
+        Me.Login_gui.Controls.Add(Me.Username)
+        Me.Login_gui.Controls.Add(Me.Label2)
+        Me.Login_gui.Controls.Add(Me.Label3)
+        Me.Login_gui.Controls.Add(Me.Password)
+        Me.Login_gui.Controls.Add(Me.PictureBox3)
+        Me.Login_gui.Controls.Add(Me.btn_Login)
+        Me.Login_gui.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Login_gui.Location = New System.Drawing.Point(498, 0)
+        Me.Login_gui.Name = "Login_gui"
+        Me.Login_gui.Size = New System.Drawing.Size(526, 723)
+        Me.Login_gui.TabIndex = 0
         '
         'PictureBox1
         '
@@ -1154,213 +1331,75 @@ Partial Class Form1
         Me.btn_Login.TabIndex = 25
         Me.btn_Login.UseVisualStyleBackColor = False
         '
-        'Button5
+        'Taskbar
         '
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button5.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button5.Location = New System.Drawing.Point(645, 31)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(131, 38)
-        Me.Button5.TabIndex = 18
-        Me.Button5.Text = "ประวัติการรักษา"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.Taskbar.BackgroundImage = Global.DentralManagement.My.Resources.Resources.Taskbar
+        Me.Taskbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Taskbar.Controls.Add(Me.Tool)
+        Me.Taskbar.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Taskbar.Location = New System.Drawing.Point(0, 0)
+        Me.Taskbar.Name = "Taskbar"
+        Me.Taskbar.Size = New System.Drawing.Size(1024, 45)
+        Me.Taskbar.TabIndex = 2
         '
-        'Label32
+        'Tool
         '
-        Me.Label32.AutoSize = True
-        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
-        Me.Label32.Location = New System.Drawing.Point(71, 124)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(0, 29)
-        Me.Label32.TabIndex = 14
+        Me.Tool.BackColor = System.Drawing.Color.Transparent
+        Me.Tool.Controls.Add(Me.btn_Min)
+        Me.Tool.Controls.Add(Me.btn_Exit)
+        Me.Tool.Controls.Add(Me.btn_MaxRe)
+        Me.Tool.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Tool.Location = New System.Drawing.Point(910, 0)
+        Me.Tool.Name = "Tool"
+        Me.Tool.Size = New System.Drawing.Size(114, 45)
+        Me.Tool.TabIndex = 0
         '
-        'lname
+        'btn_Min
         '
-        Me.lname.AutoSize = True
-        Me.lname.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
-        Me.lname.Location = New System.Drawing.Point(358, 104)
-        Me.lname.Name = "lname"
-        Me.lname.Size = New System.Drawing.Size(0, 29)
-        Me.lname.TabIndex = 13
+        Me.btn_Min.BackColor = System.Drawing.Color.Transparent
+        Me.btn_Min.BackgroundImage = Global.DentralManagement.My.Resources.Resources.Min_Default
+        Me.btn_Min.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn_Min.FlatAppearance.BorderSize = 0
+        Me.btn_Min.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Min.Location = New System.Drawing.Point(5, 5)
+        Me.btn_Min.Name = "btn_Min"
+        Me.btn_Min.Size = New System.Drawing.Size(31, 30)
+        Me.btn_Min.TabIndex = 2
+        Me.btn_Min.UseVisualStyleBackColor = False
         '
-        'fname
+        'btn_Exit
         '
-        Me.fname.AutoSize = True
-        Me.fname.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
-        Me.fname.Location = New System.Drawing.Point(100, 100)
-        Me.fname.Name = "fname"
-        Me.fname.Size = New System.Drawing.Size(0, 29)
-        Me.fname.TabIndex = 12
+        Me.btn_Exit.BackColor = System.Drawing.Color.Transparent
+        Me.btn_Exit.BackgroundImage = Global.DentralManagement.My.Resources.Resources.Exit_Default
+        Me.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn_Exit.FlatAppearance.BorderSize = 0
+        Me.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_Exit.Location = New System.Drawing.Point(79, 5)
+        Me.btn_Exit.Name = "btn_Exit"
+        Me.btn_Exit.Size = New System.Drawing.Size(31, 30)
+        Me.btn_Exit.TabIndex = 0
+        Me.btn_Exit.UseVisualStyleBackColor = False
         '
-        'Label33
+        'btn_MaxRe
         '
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("RSU TEXT", 20.0!)
-        Me.Label33.Location = New System.Drawing.Point(269, 102)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(68, 31)
-        Me.Label33.TabIndex = 10
-        Me.Label33.Text = "นามสกุล"
+        Me.btn_MaxRe.BackColor = System.Drawing.Color.Transparent
+        Me.btn_MaxRe.BackgroundImage = Global.DentralManagement.My.Resources.Resources.Max_Default
+        Me.btn_MaxRe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn_MaxRe.FlatAppearance.BorderSize = 0
+        Me.btn_MaxRe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_MaxRe.Location = New System.Drawing.Point(42, 5)
+        Me.btn_MaxRe.Name = "btn_MaxRe"
+        Me.btn_MaxRe.Size = New System.Drawing.Size(31, 30)
+        Me.btn_MaxRe.TabIndex = 1
+        Me.btn_MaxRe.UseVisualStyleBackColor = False
         '
-        'ชื่อ
+        'Employee
         '
-        Me.ชื่อ.AutoSize = True
-        Me.ชื่อ.Font = New System.Drawing.Font("RSU TEXT", 20.0!)
-        Me.ชื่อ.Location = New System.Drawing.Point(49, 102)
-        Me.ชื่อ.Name = "ชื่อ"
-        Me.ชื่อ.Size = New System.Drawing.Size(32, 31)
-        Me.ชื่อ.TabIndex = 11
-        Me.ชื่อ.Text = "ชื่อ"
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Font = New System.Drawing.Font("RSU TEXT", 20.0!)
-        Me.Label31.Location = New System.Drawing.Point(49, 228)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(122, 31)
-        Me.Label31.TabIndex = 15
-        Me.Label31.Text = "ใบรายการเลขที่ :"
-        '
-        'Button2
-        '
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button2.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button2.Location = New System.Drawing.Point(508, 654)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(131, 38)
-        Me.Button2.TabIndex = 19
-        Me.Button2.Text = "บันทึก"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button4.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button4.Location = New System.Drawing.Point(645, 654)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(131, 38)
-        Me.Button4.TabIndex = 20
-        Me.Button4.Text = "ต่อไป"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Drug
-        '
-        Me.Drug.Controls.Add(Me.DataGridView1)
-        Me.Drug.Controls.Add(Me.DateTimePicker1)
-        Me.Drug.Controls.Add(Me.Label34)
-        Me.Drug.Controls.Add(Me.CheckBox1)
-        Me.Drug.Controls.Add(Me.Button6)
-        Me.Drug.Controls.Add(Me.Button7)
-        Me.Drug.Controls.Add(Me.Button8)
-        Me.Drug.Controls.Add(Me.TextBox2)
-        Me.Drug.Controls.Add(Me.Label35)
-        Me.Drug.Controls.Add(Me.Button9)
-        Me.Drug.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Drug.Location = New System.Drawing.Point(200, 0)
-        Me.Drug.Name = "Drug"
-        Me.Drug.Size = New System.Drawing.Size(824, 723)
-        Me.Drug.TabIndex = 166
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(43, 184)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(682, 150)
-        Me.DataGridView1.TabIndex = 22
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(273, 395)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(140, 34)
-        Me.DateTimePicker1.TabIndex = 21
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(230, 392)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(37, 27)
-        Me.Label34.TabIndex = 20
-        Me.Label34.Text = "วันที่"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(43, 391)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(169, 31)
-        Me.CheckBox1.TabIndex = 19
-        Me.CheckBox1.Text = "ลงเวลานัดหมายครั้งต่อไป"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button6.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(631, 436)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(94, 34)
-        Me.Button6.TabIndex = 18
-        Me.Button6.Text = "เสร็จสิ้น"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button7.Font = New System.Drawing.Font("RSU TEXT", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(140, 340)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(91, 30)
-        Me.Button7.TabIndex = 17
-        Me.Button7.Text = "ลบรายการ"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button8.Font = New System.Drawing.Font("RSU TEXT", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(43, 340)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(91, 30)
-        Me.Button8.TabIndex = 13
-        Me.Button8.Text = "เพิ่มรายการ"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(140, 147)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(193, 34)
-        Me.TextBox2.TabIndex = 16
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label35.Location = New System.Drawing.Point(38, 147)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(96, 27)
-        Me.Label35.TabIndex = 15
-        Me.Label35.Text = "ใบรายการเลขที่"
-        '
-        'Button9
-        '
-        Me.Button9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button9.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(30, 24)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(104, 33)
-        Me.Button9.TabIndex = 14
-        Me.Button9.Text = "ย้อนกลับ"
-        Me.Button9.UseVisualStyleBackColor = True
+        Me.Employee.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Employee.Location = New System.Drawing.Point(200, 0)
+        Me.Employee.Name = "Employee"
+        Me.Employee.Size = New System.Drawing.Size(824, 723)
+        Me.Employee.TabIndex = 1
         '
         'Form1
         '
@@ -1383,20 +1422,21 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
-        Me.Taskbar.ResumeLayout(False)
-        Me.Tool.ResumeLayout(False)
         Me.U.ResumeLayout(False)
+        Me.Drug.ResumeLayout(False)
+        Me.Drug.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Record_2.ResumeLayout(False)
         Me.Record_2.PerformLayout()
         Me.Button_add.ResumeLayout(False)
         Me.Detail.ResumeLayout(False)
         Me.Detail.PerformLayout()
+        Me.Record_3.ResumeLayout(False)
+        Me.Record_3.PerformLayout()
         Me.Record_1.ResumeLayout(False)
         Me.Record_1.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Record_3.ResumeLayout(False)
-        Me.Record_3.PerformLayout()
         Me.Home.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Menu_Tool.ResumeLayout(False)
@@ -1409,25 +1449,18 @@ Partial Class Form1
         Me.User_g.ResumeLayout(False)
         Me.User_g.PerformLayout()
         Me.Login_p.ResumeLayout(False)
-        Me.DblBufferedPanel1.ResumeLayout(False)
-        Me.DblBufferedPanel1.PerformLayout()
+        Me.Login_gui.ResumeLayout(False)
+        Me.Login_gui.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Drug.ResumeLayout(False)
-        Me.Drug.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Taskbar.ResumeLayout(False)
+        Me.Tool.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Taskbar As Panel
-    Friend WithEvents btn_Exit As Button
-    Friend WithEvents btn_Min As Button
-    Friend WithEvents btn_MaxRe As Button
-    Friend WithEvents Tool As Panel
     Friend WithEvents Login_p As DblBufferedPanel
-    Friend WithEvents DblBufferedPanel1 As DblBufferedPanel
+    Friend WithEvents Login_gui As DblBufferedPanel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Username As ComboBox
     Friend WithEvents Label1 As Label
@@ -1533,4 +1566,13 @@ Partial Class Form1
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label35 As Label
     Friend WithEvents Button9 As Button
+    Friend WithEvents Finan As DblBufferedPanel
+    Friend WithEvents Admin As DblBufferedPanel
+    Friend WithEvents Taskbar As DblBufferedPanel
+    Friend WithEvents Tool As DblBufferedPanel
+    Friend WithEvents btn_Min As Button
+    Friend WithEvents btn_Exit As Button
+    Friend WithEvents btn_MaxRe As Button
+    Friend WithEvents btn_logout As Button
+    Friend WithEvents Employee As DblBufferedPanel
 End Class

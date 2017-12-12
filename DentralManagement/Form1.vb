@@ -10,6 +10,7 @@ Public Class Form1
     Dim User_ID As String
     Dim User_name As String
     Dim Priv_Class As String
+    'Dim Menu_Selected As String
 
     'SQL SERVER CONNECTION'
     Dim connection As New SqlConnection("Data Source=tcp:192.168.6.11, 1433;Database=sedentral;User ID=se_admin;Password=Dentis1234;")
@@ -49,15 +50,11 @@ Public Class Form1
         Taskbar.BackgroundImage = New Bitmap(My.Resources.Taskbar)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub btn_Login_MouseDown(sender As Object, e As MouseEventArgs)
+    Private Sub btn_Login_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_Login.MouseDown
         btn_Login.BackgroundImage = New Bitmap(My.Resources.Login_Down)
     End Sub
 
-    Private Sub btn_Login_MouseUp(sender As Object, e As MouseEventArgs)
+    Private Sub btn_Login_MouseUp(sender As Object, e As MouseEventArgs) Handles btn_Login.MouseUp
         btn_Login.BackgroundImage = New Bitmap(My.Resources.Login_Default)
     End Sub
 
@@ -69,7 +66,7 @@ Public Class Form1
         btn_Exit.BackgroundImage = New Bitmap(My.Resources.Exit_Default)
     End Sub
 
-    Private Sub btn_Exit_Click(sender As Object, e As EventArgs) Handles btn_Exit.Click
+    Private Sub btn_Exit_Click(sender As Object, e As EventArgs) Handles btn_Exit.MouseClick
         Close()
     End Sub
 
@@ -89,7 +86,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub btn_MaxRe_Click(sender As Object, e As EventArgs) Handles btn_MaxRe.Click
+    Private Sub btn_MaxRe_Click(sender As Object, e As EventArgs) Handles btn_MaxRe.MouseClick
         If MaxRe Then
             Me.WindowState = FormWindowState.Normal
             MaxRe = False
@@ -121,17 +118,8 @@ Public Class Form1
         btn_Min.BackgroundImage = New Bitmap(My.Resources.Min_Default)
     End Sub
 
-    Private Sub btn_Min_Click(sender As Object, e As EventArgs) Handles btn_Min.Click
+    Private Sub btn_Min_Click(sender As Object, e As EventArgs) Handles btn_Min.MouseClick
         Me.WindowState = FormWindowState.Minimized
-    End Sub
-
-    Private Sub Label43_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub btn_record_Click(sender As Object, e As EventArgs) Handles btn_record.Click
-        btn_record.Image = New Bitmap(My.Resources.Record_Hold)
-
     End Sub
 
     Private Sub btn_search_rec_Click(sender As Object, e As EventArgs) Handles btn_search_rec.Click
@@ -160,6 +148,7 @@ Public Class Form1
             If read("User_Access").ToString() = 2 Then
                 Priv_Class = 2
                 btn_admin.BackColor = TransparencyKey
+                btn_admin.Cursor = Cursors.Hand
             End If
 
             Dim load_name As New SqlCommand("Select [Emp_Fname],[Emp_Lname] from [dbo].[Employee] Where [Emp_ID] = '" & read("Fori_User_Id").ToString & "'", connection)
@@ -170,8 +159,7 @@ Public Class Form1
                 Dim lname As String = read_emp("Emp_Lname").ToString()
                 User_name = fname + " " + lname
                 usern.Text = User_name
-                U.Visible = True
-                Login_p.Visible = False
+                Login(True)
             End If
             read_emp.Close()
         Else
@@ -180,8 +168,96 @@ Public Class Form1
         connection.Close()
     End Sub
 
-    Private Sub Check_Button_Hold()
+    Private Sub btn_record_Click(sender As Object, e As EventArgs) Handles btn_record.Click
+        Set_Button_Hold(1)
+        Set_Panel(Record_1)
+    End Sub
 
+    Private Sub btn_drug_Click(sender As Object, e As EventArgs) Handles btn_drug.Click
+        Set_Button_Hold(2)
+        Set_Panel(Drug)
+    End Sub
+
+    Private Sub btn_finan_Click(sender As Object, e As EventArgs) Handles btn_finan.Click
+        Set_Button_Hold(3)
+        Set_Panel(Finan)
+    End Sub
+
+    Private Sub btn_emp_Click(sender As Object, e As EventArgs) Handles btn_emp.Click
+        Set_Button_Hold(4)
+        Set_Panel(Employee)
+    End Sub
+
+    Private Sub btn_admin_Click(sender As Object, e As EventArgs) Handles btn_admin.Click
+        If Priv_Class = 2 Then
+            Set_Button_Hold(5)
+            Set_Panel(Admin)
+        End If
+    End Sub
+
+    Private Sub Set_Panel(P_name As DblBufferedPanel)
+        Record_1.Visible = False
+        Record_2.Visible = False
+        Record_3.Visible = False
+        Record_4.Visible = False
+        Admin.Visible = False
+        Drug.Visible = False
+        Finan.Visible = False
+        Admin.Visible = False
+        Home.Visible = False
+        Employee.Visible = False
+
+        P_name.Visible = True
+    End Sub
+
+    Private Sub Login(Status As Boolean)
+        If Status Then
+            U.Visible = True
+            Login_p.Visible = False
+        Else
+            Login_p.Visible = True
+            U.Visible = False
+        End If
+    End Sub
+    Private Sub btn_logout_Click(sender As Object, e As EventArgs) Handles btn_logout.Click
+        User_ID = ""
+        User_name = ""
+        Priv_Class = 0
+        Password.Text = ""
+        Login(False)
+    End Sub
+
+    Private Sub Set_Button_Hold(Menu_Selected As String)
+
+        If Menu_Selected = 1 Then
+            btn_record.Image = New Bitmap(My.Resources.Record_Hold)
+        Else
+            btn_record.Image = Nothing
+        End If
+
+        If Menu_Selected = 2 Then
+            btn_drug.Image = New Bitmap(My.Resources.Drug_Hold)
+        Else
+            btn_drug.Image = Nothing
+        End If
+
+        If Menu_Selected = 3 Then
+            btn_finan.Image = New Bitmap(My.Resources.Finan_Hold)
+        Else
+            btn_finan.Image = Nothing
+        End If
+
+        If Menu_Selected = 4 Then
+            btn_emp.Image = New Bitmap(My.Resources.Emp_Hold)
+        Else
+            btn_emp.Image = Nothing
+        End If
+
+        If Menu_Selected = 5 Then
+            btn_admin.Image = New Bitmap(My.Resources.Admin_Hold)
+        Else
+            btn_admin.Image = Nothing
+        End If
     End Sub
 End Class
 
