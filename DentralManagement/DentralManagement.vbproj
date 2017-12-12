@@ -105,6 +105,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="Record.resx">
       <DependentUpon>Record.vb</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +265,27 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Record_Hold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin_Hold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drug_Hold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Emp_Hold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Finan_Hold.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
