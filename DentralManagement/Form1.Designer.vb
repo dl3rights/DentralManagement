@@ -50,7 +50,7 @@ Partial Class Form1
         Me.btn_record = New System.Windows.Forms.PictureBox()
         Me.namesuser = New System.Windows.Forms.Panel()
         Me.label_name = New System.Windows.Forms.Label()
-        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Record = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Login_p.SuspendLayout()
@@ -252,6 +252,7 @@ Partial Class Form1
         'U
         '
         Me.U.AutoSize = True
+        Me.U.Controls.Add(Me.Record)
         Me.U.Controls.Add(Me.Home)
         Me.U.Controls.Add(Me.Menu_Tool)
         Me.U.Dock = System.Windows.Forms.DockStyle.Fill
@@ -264,7 +265,6 @@ Partial Class Form1
         'Home
         '
         Me.Home.BackColor = System.Drawing.Color.Transparent
-        Me.Home.Controls.Add(Me.Panel4)
         Me.Home.Controls.Add(Me.AxWindowsMediaPlayer1)
         Me.Home.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Home.Location = New System.Drawing.Point(251, 0)
@@ -378,13 +378,13 @@ Partial Class Form1
         Me.label_name.TabIndex = 0
         Me.label_name.Text = "นาย รัชกร ภัทรนาวิก"
         '
-        'Panel4
+        'Record
         '
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(0, 0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(773, 723)
-        Me.Panel4.TabIndex = 1
+        Me.Record.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Record.Location = New System.Drawing.Point(251, 0)
+        Me.Record.Name = "Record"
+        Me.Record.Size = New System.Drawing.Size(773, 723)
+        Me.Record.TabIndex = 1
         '
         'Form1
         '
@@ -459,5 +459,5 @@ Partial Class Form1
     Friend WithEvents btn_finan As PictureBox
     Friend WithEvents btn_drug As PictureBox
     Friend WithEvents btn_record As PictureBox
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Record As Panel
 End Class
