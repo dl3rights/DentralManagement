@@ -105,10 +105,6 @@ Partial Class Form1
         Me.btn_record = New System.Windows.Forms.PictureBox()
         Me.User_g = New DentralManagement.DblBufferedPanel()
         Me.usern = New System.Windows.Forms.Label()
-        Me.Drug = New System.Windows.Forms.Panel()
-        Me.Finan = New System.Windows.Forms.Panel()
-        Me.Employee = New System.Windows.Forms.Panel()
-        Me.Admin = New System.Windows.Forms.Panel()
         Me.Login_p = New DentralManagement.DblBufferedPanel()
         Me.DblBufferedPanel1 = New DentralManagement.DblBufferedPanel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -128,6 +124,17 @@ Partial Class Form1
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Drug = New DentralManagement.DblBufferedPanel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Button9 = New System.Windows.Forms.Button()
         Me.Taskbar.SuspendLayout()
         Me.Tool.SuspendLayout()
         Me.U.SuspendLayout()
@@ -152,6 +159,8 @@ Partial Class Form1
         Me.DblBufferedPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Drug.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Taskbar
@@ -220,16 +229,13 @@ Partial Class Form1
         '
         'U
         '
+        Me.U.Controls.Add(Me.Drug)
         Me.U.Controls.Add(Me.Record_2)
         Me.U.Controls.Add(Me.Record_3)
         Me.U.Controls.Add(Me.Record_1)
         Me.U.Controls.Add(Me.Record_4)
         Me.U.Controls.Add(Me.Home)
         Me.U.Controls.Add(Me.Menu_Tool)
-        Me.U.Controls.Add(Me.Drug)
-        Me.U.Controls.Add(Me.Finan)
-        Me.U.Controls.Add(Me.Employee)
-        Me.U.Controls.Add(Me.Admin)
         Me.U.Dock = System.Windows.Forms.DockStyle.Fill
         Me.U.Location = New System.Drawing.Point(0, 45)
         Me.U.Name = "U"
@@ -1032,42 +1038,6 @@ Partial Class Form1
         Me.usern.TabIndex = 0
         Me.usern.Text = "user"
         '
-        'Drug
-        '
-        Me.Drug.BackColor = System.Drawing.Color.Transparent
-        Me.Drug.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Drug.Location = New System.Drawing.Point(0, 0)
-        Me.Drug.Name = "Drug"
-        Me.Drug.Size = New System.Drawing.Size(1024, 723)
-        Me.Drug.TabIndex = 70
-        '
-        'Finan
-        '
-        Me.Finan.BackColor = System.Drawing.Color.Transparent
-        Me.Finan.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Finan.Location = New System.Drawing.Point(0, 0)
-        Me.Finan.Name = "Finan"
-        Me.Finan.Size = New System.Drawing.Size(1024, 723)
-        Me.Finan.TabIndex = 0
-        '
-        'Employee
-        '
-        Me.Employee.BackColor = System.Drawing.Color.Transparent
-        Me.Employee.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Employee.Location = New System.Drawing.Point(0, 0)
-        Me.Employee.Name = "Employee"
-        Me.Employee.Size = New System.Drawing.Size(1024, 723)
-        Me.Employee.TabIndex = 0
-        '
-        'Admin
-        '
-        Me.Admin.BackColor = System.Drawing.Color.Transparent
-        Me.Admin.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Admin.Location = New System.Drawing.Point(0, 0)
-        Me.Admin.Name = "Admin"
-        Me.Admin.Size = New System.Drawing.Size(1024, 723)
-        Me.Admin.TabIndex = 0
-        '
         'Login_p
         '
         Me.Login_p.AutoSize = True
@@ -1276,6 +1246,122 @@ Partial Class Form1
         Me.Button4.Text = "ต่อไป"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'Drug
+        '
+        Me.Drug.Controls.Add(Me.DataGridView1)
+        Me.Drug.Controls.Add(Me.DateTimePicker1)
+        Me.Drug.Controls.Add(Me.Label34)
+        Me.Drug.Controls.Add(Me.CheckBox1)
+        Me.Drug.Controls.Add(Me.Button6)
+        Me.Drug.Controls.Add(Me.Button7)
+        Me.Drug.Controls.Add(Me.Button8)
+        Me.Drug.Controls.Add(Me.TextBox2)
+        Me.Drug.Controls.Add(Me.Label35)
+        Me.Drug.Controls.Add(Me.Button9)
+        Me.Drug.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Drug.Location = New System.Drawing.Point(200, 0)
+        Me.Drug.Name = "Drug"
+        Me.Drug.Size = New System.Drawing.Size(824, 723)
+        Me.Drug.TabIndex = 166
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(43, 184)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(682, 150)
+        Me.DataGridView1.TabIndex = 22
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(273, 395)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(140, 34)
+        Me.DateTimePicker1.TabIndex = 21
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(230, 392)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(37, 27)
+        Me.Label34.TabIndex = 20
+        Me.Label34.Text = "วันที่"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.Location = New System.Drawing.Point(43, 391)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(169, 31)
+        Me.CheckBox1.TabIndex = 19
+        Me.CheckBox1.Text = "ลงเวลานัดหมายครั้งต่อไป"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button6.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(631, 436)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(94, 34)
+        Me.Button6.TabIndex = 18
+        Me.Button6.Text = "เสร็จสิ้น"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button7.Font = New System.Drawing.Font("RSU TEXT", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(140, 340)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(91, 30)
+        Me.Button7.TabIndex = 17
+        Me.Button7.Text = "ลบรายการ"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button8.Font = New System.Drawing.Font("RSU TEXT", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Location = New System.Drawing.Point(43, 340)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(91, 30)
+        Me.Button8.TabIndex = 13
+        Me.Button8.Text = "เพิ่มรายการ"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(140, 147)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(193, 34)
+        Me.TextBox2.TabIndex = 16
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(38, 147)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(96, 27)
+        Me.Label35.TabIndex = 15
+        Me.Label35.Text = "ใบรายการเลขที่"
+        '
+        'Button9
+        '
+        Me.Button9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button9.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.Location = New System.Drawing.Point(30, 24)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(104, 33)
+        Me.Button9.TabIndex = 14
+        Me.Button9.Text = "ย้อนกลับ"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 27.0!)
@@ -1327,6 +1413,9 @@ Partial Class Form1
         Me.DblBufferedPanel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Drug.ResumeLayout(False)
+        Me.Drug.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1337,10 +1426,6 @@ Partial Class Form1
     Friend WithEvents btn_Min As Button
     Friend WithEvents btn_MaxRe As Button
     Friend WithEvents Tool As Panel
-    Friend WithEvents Admin As Panel
-    Friend WithEvents Employee As Panel
-    Friend WithEvents Finan As Panel
-    Friend WithEvents Drug As Panel
     Friend WithEvents Login_p As DblBufferedPanel
     Friend WithEvents DblBufferedPanel1 As DblBufferedPanel
     Friend WithEvents PictureBox1 As PictureBox
@@ -1437,4 +1522,15 @@ Partial Class Form1
     Friend WithEvents Button4 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Label31 As Label
+    Friend WithEvents Drug As DblBufferedPanel
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label34 As Label
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label35 As Label
+    Friend WithEvents Button9 As Button
 End Class
