@@ -18,16 +18,18 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Se_dentral_sql.Employee' table. You can move, or remove it, as needed.
+        Me.EmployeeTableAdapter.Fill(Me.Se_dentral_sql.Employee)
         'TODO: This line of code loads data into the 'Se_dentral_sql.Medi_supplies' table. You can move, or remove it, as needed.
-        Me.Medi_suppliesTableAdapter.Fill(Me.Se_dentral_sql.Medi_supplies)
+
         'TODO: This line of code loads data into the 'Se_dentral_sql.User_data' table. You can move, or remove it, as needed.
-        Me.User_dataTableAdapter.Fill(Me.Se_dentral_sql.User_data)
+
         'TODO: This line of code loads data into the 'Sedentral_sql.DataTable1' table. You can move, or remove it, as needed.
         SetStyle(ControlStyles.AllPaintingInWmPaint, True)
         SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         UpdateStyles()
 
-        tble_ucp = Se_dentral_sql.User_data.CopyToDataTable
+
 
         Default_Gray = Color.FromArgb(126, 139, 154)
         btn_admin.BackColor = Default_Gray
@@ -283,6 +285,18 @@ Public Class Form1
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles add_1.Click
+
+    End Sub
+
+    Private Sub TextBox3_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
+        Me.EmployeeTableAdapter.FillByName(Me.Se_dentral_sql.Employee, TextBox3.Text)
+    End Sub
+
+    Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellContentClick
+
+    End Sub
+
+    Private Sub Label39_Click(sender As Object, e As EventArgs) Handles Label39.Click
 
     End Sub
 
