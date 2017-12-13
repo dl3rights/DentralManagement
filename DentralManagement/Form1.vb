@@ -18,14 +18,12 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'Se_dentral_sql.User_data' table. You can move, or remove it, as needed.
-        Me.User_dataTableAdapter.Fill(Me.Se_dentral_sql.User_data)
         'TODO: This line of code loads data into the 'Sedentral_sql.DataTable1' table. You can move, or remove it, as needed.
         SetStyle(ControlStyles.AllPaintingInWmPaint, True)
         SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         UpdateStyles()
 
-        tble_ucp = Se_dentral_sql.User_data.CopyToDataTable
+        'tble_ucp = Se_dentral_sql.User_data.CopyToDataTable
 
         Default_Gray = Color.FromArgb(126, 139, 154)
         btn_admin.BackColor = Default_Gray
@@ -229,7 +227,7 @@ Public Class Form1
 
     Private Sub admin_refresh_Click(sender As Object, e As EventArgs) Handles admin_refresh.Click
         data_User.DataSource = Nothing
-        data_User.DataSource = Se_dentral_sql.User_data.CopyToDataTable
+        'data_User.DataSource = Se_dentral_sql.User_data.CopyToDataTable
         data_User.Refresh()
     End Sub
 
@@ -250,12 +248,15 @@ Public Class Form1
     End Sub
 
     Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
-        Label36.Text = cb_add_emp.Text
-        Label37.Text = cb_add_emp.SelectedText
-        Label38.Text = cb_add_emp.SelectedValue
+        'If (IsInDatagridview("1234", "1", 0, 1, data_User)) Then
 
-        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, 5, cb_add_emp.SelectedValue)
-        data_User.DataSource = tble_ucp
+        ''// Code to display message.
+        MsgBox("Record Exists!", MsgBoxStyle.Information)
+        'Else
+        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, cb_add_emp.SelectedValue, cb_add_access.SelectedIndex)
+            data_User.DataSource = tble_ucp
+        'End If
+
     End Sub
 
     Private Sub data_User_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles data_User.CellClick
@@ -308,6 +309,27 @@ Public Class Form1
             btn_admin.Image = Nothing
         End If
     End Sub
+
+    Function IsInDatagridview(ByVal cell1 As String, ByVal cell2 As String, ByVal cell3 As String, ByVal cell4 As String, ByVal rowCell1_ID As Integer, ByVal rowCell2_ID As Integer, ByVal rowCell3_ID As Integer, ByVal rowCell4_ID As Integer, ByRef dgv As DataGridView)
+
+        Dim isFound As Boolean = False
+
+        For Each rw As DataGridViewRow In dgv.Rows
+            If rw.Cells(rowCell1_ID).Value.ToString = cell1 Then
+                If rw.Cells(rowCell2_ID).Value.ToString = cell2 Then
+
+                    isFound = True
+                    Return isFound
+
+
+                End If
+            End If
+        Next
+
+        Return isFound
+
+    End Function
+
 End Class
 
 Public Class DblBufferedPanel

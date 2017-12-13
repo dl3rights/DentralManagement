@@ -116,31 +116,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="sedentralDataSet1.Designer.vb">
+    <Compile Include="Se_dentral_sql1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>sedentralDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="sedentralDataSet11.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sedentralDataSet11.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="sedentral_sql.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sedentral_sql.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="sedentral_sql.vb">
-      <DependentUpon>sedentral_sql.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Se_dentral_sql.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Se_dentral_sql.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Se_dentral_sql.vb">
-      <DependentUpon>Se_dentral_sql.xsd</DependentUpon>
+      <DependentUpon>Se_dentral_sql1.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -169,49 +148,16 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="sedentralDataSet1.xsc">
-      <DependentUpon>sedentralDataSet1.xsd</DependentUpon>
+    <None Include="Se_dentral_sql1.xsc">
+      <DependentUpon>Se_dentral_sql1.xsd</DependentUpon>
     </None>
-    <None Include="sedentralDataSet1.xsd">
+    <None Include="Se_dentral_sql1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>sedentralDataSet1.Designer.vb</LastGenOutput>
+      <LastGenOutput>Se_dentral_sql1.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="sedentralDataSet1.xss">
-      <DependentUpon>sedentralDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="sedentralDataSet11.xsc">
-      <DependentUpon>sedentralDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="sedentralDataSet11.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>sedentralDataSet11.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="sedentralDataSet11.xss">
-      <DependentUpon>sedentralDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="sedentral_sql.xsc">
-      <DependentUpon>sedentral_sql.xsd</DependentUpon>
-    </None>
-    <None Include="sedentral_sql.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>sedentral_sql.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="sedentral_sql.xss">
-      <DependentUpon>sedentral_sql.xsd</DependentUpon>
-    </None>
-    <None Include="Se_dentral_sql.xsc">
-      <DependentUpon>Se_dentral_sql.xsd</DependentUpon>
-    </None>
-    <None Include="Se_dentral_sql.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Se_dentral_sql.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Se_dentral_sql.xss">
-      <DependentUpon>Se_dentral_sql.xsd</DependentUpon>
+    <None Include="Se_dentral_sql1.xss">
+      <DependentUpon>Se_dentral_sql1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

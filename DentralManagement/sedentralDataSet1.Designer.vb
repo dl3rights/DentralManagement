@@ -39,19 +39,17 @@ Partial Public Class sedentralDataSet
     
     Private tablereport As reportDataTable
     
-    Private tablereport_history_sum As report_history_sumDataTable
-    
     Private tableUser As UserDataTable
     
-    Private relationEmp_Dep As Global.System.Data.DataRelation
+    Private relationFK_Employee_De As Global.System.Data.DataRelation
     
     Private relationFK_List_Medi_drug_Medi_supplies As Global.System.Data.DataRelation
     
-    Private relationFK_Patient_Employee As Global.System.Data.DataRelation
+    Private relationFK_report As Global.System.Data.DataRelation
+    
+    Private relationFK_Patient_Appoint As Global.System.Data.DataRelation
     
     Private relationFK_report_report As Global.System.Data.DataRelation
-    
-    Private relationFK_User_Employee As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -102,9 +100,6 @@ Partial Public Class sedentralDataSet
             End If
             If (Not (ds.Tables("report")) Is Nothing) Then
                 MyBase.Tables.Add(New reportDataTable(ds.Tables("report")))
-            End If
-            If (Not (ds.Tables("report_history_sum")) Is Nothing) Then
-                MyBase.Tables.Add(New report_history_sumDataTable(ds.Tables("report_history_sum")))
             End If
             If (Not (ds.Tables("User")) Is Nothing) Then
                 MyBase.Tables.Add(New UserDataTable(ds.Tables("User")))
@@ -193,16 +188,6 @@ Partial Public Class sedentralDataSet
     Public ReadOnly Property report() As reportDataTable
         Get
             Return Me.tablereport
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property report_history_sum() As report_history_sumDataTable
-        Get
-            Return Me.tablereport_history_sum
         End Get
     End Property
     
@@ -304,9 +289,6 @@ Partial Public Class sedentralDataSet
             If (Not (ds.Tables("report")) Is Nothing) Then
                 MyBase.Tables.Add(New reportDataTable(ds.Tables("report")))
             End If
-            If (Not (ds.Tables("report_history_sum")) Is Nothing) Then
-                MyBase.Tables.Add(New report_history_sumDataTable(ds.Tables("report_history_sum")))
-            End If
             If (Not (ds.Tables("User")) Is Nothing) Then
                 MyBase.Tables.Add(New UserDataTable(ds.Tables("User")))
             End If
@@ -384,23 +366,17 @@ Partial Public Class sedentralDataSet
                 Me.tablereport.InitVars
             End If
         End If
-        Me.tablereport_history_sum = CType(MyBase.Tables("report_history_sum"),report_history_sumDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tablereport_history_sum) Is Nothing) Then
-                Me.tablereport_history_sum.InitVars
-            End If
-        End If
         Me.tableUser = CType(MyBase.Tables("User"),UserDataTable)
         If (initTable = true) Then
             If (Not (Me.tableUser) Is Nothing) Then
                 Me.tableUser.InitVars
             End If
         End If
-        Me.relationEmp_Dep = Me.Relations("Emp_Dep")
+        Me.relationFK_Employee_De = Me.Relations("FK_Employee_De")
         Me.relationFK_List_Medi_drug_Medi_supplies = Me.Relations("FK_List_Medi_drug_Medi_supplies")
-        Me.relationFK_Patient_Employee = Me.Relations("FK_Patient_Employee")
+        Me.relationFK_report = Me.Relations("FK_report")
+        Me.relationFK_Patient_Appoint = Me.Relations("FK_Patient_Appoint")
         Me.relationFK_report_report = Me.Relations("FK_report_report")
-        Me.relationFK_User_Employee = Me.Relations("FK_User_Employee")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -425,20 +401,18 @@ Partial Public Class sedentralDataSet
         MyBase.Tables.Add(Me.tablePatient)
         Me.tablereport = New reportDataTable()
         MyBase.Tables.Add(Me.tablereport)
-        Me.tablereport_history_sum = New report_history_sumDataTable()
-        MyBase.Tables.Add(Me.tablereport_history_sum)
         Me.tableUser = New UserDataTable()
         MyBase.Tables.Add(Me.tableUser)
-        Me.relationEmp_Dep = New Global.System.Data.DataRelation("Emp_Dep", New Global.System.Data.DataColumn() {Me.tableDepartment.Dep_IDColumn}, New Global.System.Data.DataColumn() {Me.tableEmployee.Emp_DepColumn}, false)
-        Me.Relations.Add(Me.relationEmp_Dep)
+        Me.relationFK_Employee_De = New Global.System.Data.DataRelation("FK_Employee_De", New Global.System.Data.DataColumn() {Me.tableDepartment.Dep_IDColumn}, New Global.System.Data.DataColumn() {Me.tableEmployee.Emp_DepColumn}, false)
+        Me.Relations.Add(Me.relationFK_Employee_De)
         Me.relationFK_List_Medi_drug_Medi_supplies = New Global.System.Data.DataRelation("FK_List_Medi_drug_Medi_supplies", New Global.System.Data.DataColumn() {Me.tableMedi_supplies.medi_supplies_IdColumn}, New Global.System.Data.DataColumn() {Me.tableList_Medi_drug.List_Medi_drugColumn}, false)
         Me.Relations.Add(Me.relationFK_List_Medi_drug_Medi_supplies)
-        Me.relationFK_Patient_Employee = New Global.System.Data.DataRelation("FK_Patient_Employee", New Global.System.Data.DataColumn() {Me.tableEmployee.Emp_IDColumn}, New Global.System.Data.DataColumn() {Me.tablePatient.patient_Appoint_IdColumn}, false)
-        Me.Relations.Add(Me.relationFK_Patient_Employee)
+        Me.relationFK_report = New Global.System.Data.DataRelation("FK_report", New Global.System.Data.DataColumn() {Me.tablereport.report_idColumn}, New Global.System.Data.DataColumn() {Me.tableList_Medi_drug.List_id_reportColumn}, false)
+        Me.Relations.Add(Me.relationFK_report)
+        Me.relationFK_Patient_Appoint = New Global.System.Data.DataRelation("FK_Patient_Appoint", New Global.System.Data.DataColumn() {Me.tableAppoint.Appoint_IDColumn}, New Global.System.Data.DataColumn() {Me.tablePatient.patient_Appoint_IdColumn}, false)
+        Me.Relations.Add(Me.relationFK_Patient_Appoint)
         Me.relationFK_report_report = New Global.System.Data.DataRelation("FK_report_report", New Global.System.Data.DataColumn() {Me.tablePatient.patient_IdColumn}, New Global.System.Data.DataColumn() {Me.tablereport.report_patientColumn}, false)
         Me.Relations.Add(Me.relationFK_report_report)
-        Me.relationFK_User_Employee = New Global.System.Data.DataRelation("FK_User_Employee", New Global.System.Data.DataColumn() {Me.tableEmployee.Emp_IDColumn}, New Global.System.Data.DataColumn() {Me.tableUser.Fori_User_IdColumn}, false)
-        Me.Relations.Add(Me.relationFK_User_Employee)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -480,12 +454,6 @@ Partial Public Class sedentralDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Private Function ShouldSerializereport() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Private Function ShouldSerializereport_history_sum() As Boolean
         Return false
     End Function
     
@@ -575,9 +543,6 @@ Partial Public Class sedentralDataSet
     Public Delegate Sub reportRowChangeEventHandler(ByVal sender As Object, ByVal e As reportRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Delegate Sub report_history_sumRowChangeEventHandler(ByVal sender As Object, ByVal e As report_history_sumRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Delegate Sub UserRowChangeEventHandler(ByVal sender As Object, ByVal e As UserRowChangeEvent)
     
     '''<summary>
@@ -595,6 +560,10 @@ Partial Public Class sedentralDataSet
         Private columnAppoint_Time As Global.System.Data.DataColumn
         
         Private columnAppoint_Status As Global.System.Data.DataColumn
+        
+        Private columnAppoint_Empoy As Global.System.Data.DataColumn
+        
+        Private columnAppoint_Patient As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -664,6 +633,22 @@ Partial Public Class sedentralDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Appoint_EmpoyColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAppoint_Empoy
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Appoint_PatientColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAppoint_Patient
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -700,9 +685,9 @@ Partial Public Class sedentralDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddAppointRow(ByVal Appoint_ID As String, ByVal Appoint_Date As Date, ByVal Appoint_Time As System.TimeSpan, ByVal Appoint_Status As String) As AppointRow
+        Public Overloads Function AddAppointRow(ByVal Appoint_ID As String, ByVal Appoint_Date As Date, ByVal Appoint_Time As System.TimeSpan, ByVal Appoint_Status As String, ByVal Appoint_Empoy As String, ByVal Appoint_Patient As String) As AppointRow
             Dim rowAppointRow As AppointRow = CType(Me.NewRow,AppointRow)
-            Dim columnValuesArray() As Object = New Object() {Appoint_ID, Appoint_Date, Appoint_Time, Appoint_Status}
+            Dim columnValuesArray() As Object = New Object() {Appoint_ID, Appoint_Date, Appoint_Time, Appoint_Status, Appoint_Empoy, Appoint_Patient}
             rowAppointRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowAppointRow)
             Return rowAppointRow
@@ -735,6 +720,8 @@ Partial Public Class sedentralDataSet
             Me.columnAppoint_Date = MyBase.Columns("Appoint_Date")
             Me.columnAppoint_Time = MyBase.Columns("Appoint_Time")
             Me.columnAppoint_Status = MyBase.Columns("Appoint_Status")
+            Me.columnAppoint_Empoy = MyBase.Columns("Appoint_Empoy")
+            Me.columnAppoint_Patient = MyBase.Columns("Appoint_Patient")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -748,11 +735,17 @@ Partial Public Class sedentralDataSet
             MyBase.Columns.Add(Me.columnAppoint_Time)
             Me.columnAppoint_Status = New Global.System.Data.DataColumn("Appoint_Status", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAppoint_Status)
+            Me.columnAppoint_Empoy = New Global.System.Data.DataColumn("Appoint_Empoy", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAppoint_Empoy)
+            Me.columnAppoint_Patient = New Global.System.Data.DataColumn("Appoint_Patient", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAppoint_Patient)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnAppoint_ID}, true))
             Me.columnAppoint_ID.AllowDBNull = false
             Me.columnAppoint_ID.Unique = true
-            Me.columnAppoint_ID.MaxLength = 7
+            Me.columnAppoint_ID.MaxLength = 10
             Me.columnAppoint_Status.MaxLength = 15
+            Me.columnAppoint_Empoy.MaxLength = 10
+            Me.columnAppoint_Patient.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1312,11 +1305,11 @@ Partial Public Class sedentralDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddEmployeeRow(ByVal Emp_ID As String, ByVal Emp_Fname As String, ByVal Emp_Lname As String, ByVal Emp_Gender As String, ByVal Emp_Salary As String, ByVal parentDepartmentRowByEmp_Dep As DepartmentRow) As EmployeeRow
+        Public Overloads Function AddEmployeeRow(ByVal Emp_ID As String, ByVal Emp_Fname As String, ByVal Emp_Lname As String, ByVal Emp_Gender As String, ByVal Emp_Salary As String, ByVal parentDepartmentRowByFK_Employee_De As DepartmentRow) As EmployeeRow
             Dim rowEmployeeRow As EmployeeRow = CType(Me.NewRow,EmployeeRow)
             Dim columnValuesArray() As Object = New Object() {Emp_ID, Emp_Fname, Emp_Lname, Emp_Gender, Emp_Salary, Nothing}
-            If (Not (parentDepartmentRowByEmp_Dep) Is Nothing) Then
-                columnValuesArray(5) = parentDepartmentRowByEmp_Dep(0)
+            If (Not (parentDepartmentRowByFK_Employee_De) Is Nothing) Then
+                columnValuesArray(5) = parentDepartmentRowByFK_Employee_De(0)
             End If
             rowEmployeeRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowEmployeeRow)
@@ -1372,7 +1365,7 @@ Partial Public Class sedentralDataSet
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnEmp_ID}, true))
             Me.columnEmp_ID.AllowDBNull = false
             Me.columnEmp_ID.Unique = true
-            Me.columnEmp_ID.MaxLength = 50
+            Me.columnEmp_ID.MaxLength = 10
             Me.columnEmp_Fname.MaxLength = 50
             Me.columnEmp_Lname.MaxLength = 50
             Me.columnEmp_Gender.MaxLength = 50
@@ -1627,9 +1620,12 @@ Partial Public Class sedentralDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddList_Medi_drugRow(ByVal List_Id As String, ByVal List_id_report As String, ByVal parentMedi_suppliesRowByFK_List_Medi_drug_Medi_supplies As Medi_suppliesRow, ByVal List_count As String) As List_Medi_drugRow
+        Public Overloads Function AddList_Medi_drugRow(ByVal List_Id As String, ByVal parentreportRowByFK_report As reportRow, ByVal parentMedi_suppliesRowByFK_List_Medi_drug_Medi_supplies As Medi_suppliesRow, ByVal List_count As String) As List_Medi_drugRow
             Dim rowList_Medi_drugRow As List_Medi_drugRow = CType(Me.NewRow,List_Medi_drugRow)
-            Dim columnValuesArray() As Object = New Object() {List_Id, List_id_report, Nothing, List_count}
+            Dim columnValuesArray() As Object = New Object() {List_Id, Nothing, Nothing, List_count}
+            If (Not (parentreportRowByFK_report) Is Nothing) Then
+                columnValuesArray(1) = parentreportRowByFK_report(0)
+            End If
             If (Not (parentMedi_suppliesRowByFK_List_Medi_drug_Medi_supplies) Is Nothing) Then
                 columnValuesArray(2) = parentMedi_suppliesRowByFK_List_Medi_drug_Medi_supplies(0)
             End If
@@ -2146,7 +2142,7 @@ Partial Public Class sedentralDataSet
         
         Private columnpatient_Lname As Global.System.Data.DataColumn
         
-        Private columnpatient_Grender As Global.System.Data.DataColumn
+        Private columnpatient_Gender As Global.System.Data.DataColumn
         
         Private columnpatient_Wight As Global.System.Data.DataColumn
         
@@ -2241,9 +2237,9 @@ Partial Public Class sedentralDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property patient_GrenderColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property patient_GenderColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnpatient_Grender
+                Return Me.columnpatient_Gender
             End Get
         End Property
         
@@ -2416,11 +2412,11 @@ Partial Public Class sedentralDataSet
                     ByVal patient_Id As String,  _
                     ByVal patient_Fname As String,  _
                     ByVal patient_Lname As String,  _
-                    ByVal patient_Grender As String,  _
+                    ByVal patient_Gender As String,  _
                     ByVal patient_Wight As String,  _
                     ByVal patient_Height As String,  _
                     ByVal patient_allergic_druge As String,  _
-                    ByVal parentEmployeeRowByFK_Patient_Employee As EmployeeRow,  _
+                    ByVal parentAppointRowByFK_Patient_Appoint As AppointRow,  _
                     ByVal patient_report_history_Id As String,  _
                     ByVal patient_id_card As String,  _
                     ByVal patient_nation As String,  _
@@ -2434,9 +2430,9 @@ Partial Public Class sedentralDataSet
                     ByVal contact_tel As String,  _
                     ByVal contact_status As String) As PatientRow
             Dim rowPatientRow As PatientRow = CType(Me.NewRow,PatientRow)
-            Dim columnValuesArray() As Object = New Object() {patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight, patient_Height, patient_allergic_druge, Nothing, patient_report_history_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, contact_status}
-            If (Not (parentEmployeeRowByFK_Patient_Employee) Is Nothing) Then
-                columnValuesArray(7) = parentEmployeeRowByFK_Patient_Employee(0)
+            Dim columnValuesArray() As Object = New Object() {patient_Id, patient_Fname, patient_Lname, patient_Gender, patient_Wight, patient_Height, patient_allergic_druge, Nothing, patient_report_history_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, contact_status}
+            If (Not (parentAppointRowByFK_Patient_Appoint) Is Nothing) Then
+                columnValuesArray(7) = parentAppointRowByFK_Patient_Appoint(0)
             End If
             rowPatientRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPatientRow)
@@ -2469,7 +2465,7 @@ Partial Public Class sedentralDataSet
             Me.columnpatient_Id = MyBase.Columns("patient_Id")
             Me.columnpatient_Fname = MyBase.Columns("patient_Fname")
             Me.columnpatient_Lname = MyBase.Columns("patient_Lname")
-            Me.columnpatient_Grender = MyBase.Columns("patient_Grender")
+            Me.columnpatient_Gender = MyBase.Columns("patient_Gender")
             Me.columnpatient_Wight = MyBase.Columns("patient_Wight")
             Me.columnpatient_Height = MyBase.Columns("patient_Height")
             Me.columnpatient_allergic_druge = MyBase.Columns("patient_allergic_druge")
@@ -2497,8 +2493,8 @@ Partial Public Class sedentralDataSet
             MyBase.Columns.Add(Me.columnpatient_Fname)
             Me.columnpatient_Lname = New Global.System.Data.DataColumn("patient_Lname", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpatient_Lname)
-            Me.columnpatient_Grender = New Global.System.Data.DataColumn("patient_Grender", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnpatient_Grender)
+            Me.columnpatient_Gender = New Global.System.Data.DataColumn("patient_Gender", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpatient_Gender)
             Me.columnpatient_Wight = New Global.System.Data.DataColumn("patient_Wight", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpatient_Wight)
             Me.columnpatient_Height = New Global.System.Data.DataColumn("patient_Height", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -2534,26 +2530,26 @@ Partial Public Class sedentralDataSet
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnpatient_Id}, true))
             Me.columnpatient_Id.AllowDBNull = false
             Me.columnpatient_Id.Unique = true
-            Me.columnpatient_Id.MaxLength = 5
+            Me.columnpatient_Id.MaxLength = 10
             Me.columnpatient_Fname.MaxLength = 50
             Me.columnpatient_Lname.MaxLength = 50
-            Me.columnpatient_Grender.MaxLength = 2
+            Me.columnpatient_Gender.MaxLength = 2
             Me.columnpatient_Wight.MaxLength = 3
             Me.columnpatient_Height.MaxLength = 3
             Me.columnpatient_allergic_druge.MaxLength = 50
-            Me.columnpatient_Appoint_Id.MaxLength = 50
+            Me.columnpatient_Appoint_Id.MaxLength = 10
             Me.columnpatient_report_history_Id.MaxLength = 50
             Me.columnpatient_id_card.MaxLength = 13
             Me.columnpatient_nation.MaxLength = 5
             Me.columnpatient_ethnicity.MaxLength = 10
             Me.columnpatient_regal.MaxLength = 5
-            Me.columnpatient_tel.MaxLength = 50
-            Me.columnpatient_tel_home.MaxLength = 50
+            Me.columnpatient_tel.MaxLength = 10
+            Me.columnpatient_tel_home.MaxLength = 9
             Me.columnpatient_status.MaxLength = 50
             Me.columncontact_fname.MaxLength = 50
             Me.columncontact_lname.MaxLength = 50
-            Me.columncontact_tel.MaxLength = 50
-            Me.columncontact_status.MaxLength = 50
+            Me.columncontact_tel.MaxLength = 10
+            Me.columncontact_status.MaxLength = 20
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2884,7 +2880,7 @@ Partial Public Class sedentralDataSet
             Me.columnreport_id.AllowDBNull = false
             Me.columnreport_id.Unique = true
             Me.columnreport_id.MaxLength = 10
-            Me.columnreport_patient.MaxLength = 5
+            Me.columnreport_patient.MaxLength = 10
             Me.columnreport_detail.MaxLength = 20
             Me.columnreport_drug.MaxLength = 10
         End Sub
@@ -2973,324 +2969,6 @@ Partial Public Class sedentralDataSet
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "reportDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class report_history_sumDataTable
-        Inherits Global.System.Data.TypedTableBase(Of report_history_sumRow)
-        
-        Private columnreport_history_sum_Id As Global.System.Data.DataColumn
-        
-        Private columnreport_history_sum_Date As Global.System.Data.DataColumn
-        
-        Private columnreport_history_sum_sumprice As Global.System.Data.DataColumn
-        
-        Private columnreport_history_sum_detail As Global.System.Data.DataColumn
-        
-        Private columnreport_history_drug As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "report_history_sum"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property report_history_sum_IdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnreport_history_sum_Id
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property report_history_sum_DateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnreport_history_sum_Date
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property report_history_sum_sumpriceColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnreport_history_sum_sumprice
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property report_history_sum_detailColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnreport_history_sum_detail
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property report_history_drugColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnreport_history_drug
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As report_history_sumRow
-            Get
-                Return CType(Me.Rows(index),report_history_sumRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event report_history_sumRowChanging As report_history_sumRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event report_history_sumRowChanged As report_history_sumRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event report_history_sumRowDeleting As report_history_sumRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Event report_history_sumRowDeleted As report_history_sumRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Sub Addreport_history_sumRow(ByVal row As report_history_sumRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function Addreport_history_sumRow(ByVal report_history_sum_Id As String, ByVal report_history_sum_Date As String, ByVal report_history_sum_sumprice As String, ByVal report_history_sum_detail As String, ByVal report_history_drug As String) As report_history_sumRow
-            Dim rowreport_history_sumRow As report_history_sumRow = CType(Me.NewRow,report_history_sumRow)
-            Dim columnValuesArray() As Object = New Object() {report_history_sum_Id, report_history_sum_Date, report_history_sum_sumprice, report_history_sum_detail, report_history_drug}
-            rowreport_history_sumRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowreport_history_sumRow)
-            Return rowreport_history_sumRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByreport_history_sum_Id(ByVal report_history_sum_Id As String) As report_history_sumRow
-            Return CType(Me.Rows.Find(New Object() {report_history_sum_Id}),report_history_sumRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As report_history_sumDataTable = CType(MyBase.Clone,report_history_sumDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New report_history_sumDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnreport_history_sum_Id = MyBase.Columns("report_history_sum_Id")
-            Me.columnreport_history_sum_Date = MyBase.Columns("report_history_sum_Date")
-            Me.columnreport_history_sum_sumprice = MyBase.Columns("report_history_sum_sumprice")
-            Me.columnreport_history_sum_detail = MyBase.Columns("report_history_sum_detail")
-            Me.columnreport_history_drug = MyBase.Columns("report_history_drug")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnreport_history_sum_Id = New Global.System.Data.DataColumn("report_history_sum_Id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnreport_history_sum_Id)
-            Me.columnreport_history_sum_Date = New Global.System.Data.DataColumn("report_history_sum_Date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnreport_history_sum_Date)
-            Me.columnreport_history_sum_sumprice = New Global.System.Data.DataColumn("report_history_sum_sumprice", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnreport_history_sum_sumprice)
-            Me.columnreport_history_sum_detail = New Global.System.Data.DataColumn("report_history_sum_detail", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnreport_history_sum_detail)
-            Me.columnreport_history_drug = New Global.System.Data.DataColumn("report_history_drug", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnreport_history_drug)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnreport_history_sum_Id}, true))
-            Me.columnreport_history_sum_Id.AllowDBNull = false
-            Me.columnreport_history_sum_Id.Unique = true
-            Me.columnreport_history_sum_Id.MaxLength = 10
-            Me.columnreport_history_sum_Date.MaxLength = 10
-            Me.columnreport_history_sum_sumprice.MaxLength = 10
-            Me.columnreport_history_sum_detail.MaxLength = 10
-            Me.columnreport_history_drug.MaxLength = 10
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Newreport_history_sumRow() As report_history_sumRow
-            Return CType(Me.NewRow,report_history_sumRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New report_history_sumRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(report_history_sumRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.report_history_sumRowChangedEvent) Is Nothing) Then
-                RaiseEvent report_history_sumRowChanged(Me, New report_history_sumRowChangeEvent(CType(e.Row,report_history_sumRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.report_history_sumRowChangingEvent) Is Nothing) Then
-                RaiseEvent report_history_sumRowChanging(Me, New report_history_sumRowChangeEvent(CType(e.Row,report_history_sumRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.report_history_sumRowDeletedEvent) Is Nothing) Then
-                RaiseEvent report_history_sumRowDeleted(Me, New report_history_sumRowChangeEvent(CType(e.Row,report_history_sumRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.report_history_sumRowDeletingEvent) Is Nothing) Then
-                RaiseEvent report_history_sumRowDeleting(Me, New report_history_sumRowChangeEvent(CType(e.Row,report_history_sumRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Removereport_history_sumRow(ByVal row As report_history_sumRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As sedentralDataSet = New sedentralDataSet()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "report_history_sumDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -3454,12 +3132,9 @@ Partial Public Class sedentralDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddUserRow(ByVal User_ID As String, ByVal User_Pass As String, ByVal parentEmployeeRowByFK_User_Employee As EmployeeRow, ByVal User_Access As String) As UserRow
+        Public Overloads Function AddUserRow(ByVal User_ID As String, ByVal User_Pass As String, ByVal Fori_User_Id As String, ByVal User_Access As String) As UserRow
             Dim rowUserRow As UserRow = CType(Me.NewRow,UserRow)
-            Dim columnValuesArray() As Object = New Object() {User_ID, User_Pass, Nothing, User_Access}
-            If (Not (parentEmployeeRowByFK_User_Employee) Is Nothing) Then
-                columnValuesArray(2) = parentEmployeeRowByFK_User_Employee(0)
-            End If
+            Dim columnValuesArray() As Object = New Object() {User_ID, User_Pass, Fori_User_Id, User_Access}
             rowUserRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUserRow)
             Return rowUserRow
@@ -3510,7 +3185,7 @@ Partial Public Class sedentralDataSet
             Me.columnUser_ID.Unique = true
             Me.columnUser_ID.MaxLength = 10
             Me.columnUser_Pass.MaxLength = 10
-            Me.columnFori_User_Id.MaxLength = 50
+            Me.columnFori_User_Id.MaxLength = 10
             Me.columnUser_Access.MaxLength = 10
         End Sub
         
@@ -3714,6 +3389,36 @@ Partial Public Class sedentralDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Appoint_Empoy() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableAppoint.Appoint_EmpoyColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Appoint_Empoy' in table 'Appoint' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAppoint.Appoint_EmpoyColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Appoint_Patient() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableAppoint.Appoint_PatientColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Appoint_Patient' in table 'Appoint' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAppoint.Appoint_PatientColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsAppoint_DateNull() As Boolean
             Return Me.IsNull(Me.tableAppoint.Appoint_DateColumn)
         End Function
@@ -3747,6 +3452,40 @@ Partial Public Class sedentralDataSet
         Public Sub SetAppoint_StatusNull()
             Me(Me.tableAppoint.Appoint_StatusColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsAppoint_EmpoyNull() As Boolean
+            Return Me.IsNull(Me.tableAppoint.Appoint_EmpoyColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetAppoint_EmpoyNull()
+            Me(Me.tableAppoint.Appoint_EmpoyColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsAppoint_PatientNull() As Boolean
+            Return Me.IsNull(Me.tableAppoint.Appoint_PatientColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetAppoint_PatientNull()
+            Me(Me.tableAppoint.Appoint_PatientColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function GetPatientRows() As PatientRow()
+            If (Me.Table.ChildRelations("FK_Patient_Appoint") Is Nothing) Then
+                Return New PatientRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Patient_Appoint")),PatientRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -3832,10 +3571,10 @@ Partial Public Class sedentralDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function GetEmployeeRows() As EmployeeRow()
-            If (Me.Table.ChildRelations("Emp_Dep") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK_Employee_De") Is Nothing) Then
                 Return New EmployeeRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Emp_Dep")),EmployeeRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Employee_De")),EmployeeRow())
             End If
         End Function
     End Class
@@ -3945,10 +3684,10 @@ Partial Public Class sedentralDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property DepartmentRow() As DepartmentRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Emp_Dep")),DepartmentRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Employee_De")),DepartmentRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("Emp_Dep"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Employee_De"))
             End Set
         End Property
         
@@ -4011,26 +3750,6 @@ Partial Public Class sedentralDataSet
         Public Sub SetEmp_DepNull()
             Me(Me.tableEmployee.Emp_DepColumn) = Global.System.Convert.DBNull
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function GetPatientRows() As PatientRow()
-            If (Me.Table.ChildRelations("FK_Patient_Employee") Is Nothing) Then
-                Return New PatientRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Patient_Employee")),PatientRow())
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function GetUserRows() As UserRow()
-            If (Me.Table.ChildRelations("FK_User_Employee") Is Nothing) Then
-                Return New UserRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_User_Employee")),UserRow())
-            End If
-        End Function
     End Class
     
     '''<summary>
@@ -4112,6 +3831,17 @@ Partial Public Class sedentralDataSet
             End Get
             Set
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_List_Medi_drug_Medi_supplies"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property reportRow() As reportRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_report")),reportRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_report"))
             End Set
         End Property
         
@@ -4355,16 +4085,16 @@ Partial Public Class sedentralDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property patient_Grender() As String
+        Public Property patient_Gender() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablePatient.patient_GrenderColumn),String)
+                    Return CType(Me(Me.tablePatient.patient_GenderColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'patient_Grender' in table 'Patient' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'patient_Gender' in table 'Patient' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablePatient.patient_GrenderColumn) = value
+                Me(Me.tablePatient.patient_GenderColumn) = value
             End Set
         End Property
         
@@ -4610,12 +4340,12 @@ Partial Public Class sedentralDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property EmployeeRow() As EmployeeRow
+        Public Property AppointRow() As AppointRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Patient_Employee")),EmployeeRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Patient_Appoint")),AppointRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Patient_Employee"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Patient_Appoint"))
             End Set
         End Property
         
@@ -4645,14 +4375,14 @@ Partial Public Class sedentralDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Ispatient_GrenderNull() As Boolean
-            Return Me.IsNull(Me.tablePatient.patient_GrenderColumn)
+        Public Function Ispatient_GenderNull() As Boolean
+            Return Me.IsNull(Me.tablePatient.patient_GenderColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setpatient_GrenderNull()
-            Me(Me.tablePatient.patient_GrenderColumn) = Global.System.Convert.DBNull
+        Public Sub Setpatient_GenderNull()
+            Me(Me.tablePatient.patient_GenderColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5029,145 +4759,16 @@ Partial Public Class sedentralDataSet
         Public Sub Setreport_sum_priceNull()
             Me(Me.tablereport.report_sum_priceColumn) = Global.System.Convert.DBNull
         End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class report_history_sumRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tablereport_history_sum As report_history_sumDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tablereport_history_sum = CType(Me.Table,report_history_sumDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property report_history_sum_Id() As String
-            Get
-                Return CType(Me(Me.tablereport_history_sum.report_history_sum_IdColumn),String)
-            End Get
-            Set
-                Me(Me.tablereport_history_sum.report_history_sum_IdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property report_history_sum_Date() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablereport_history_sum.report_history_sum_DateColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'report_history_sum_Date' in table 'report_history_sum' is D"& _ 
-                            "BNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablereport_history_sum.report_history_sum_DateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property report_history_sum_sumprice() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablereport_history_sum.report_history_sum_sumpriceColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'report_history_sum_sumprice' in table 'report_history_sum' "& _ 
-                            "is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablereport_history_sum.report_history_sum_sumpriceColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property report_history_sum_detail() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablereport_history_sum.report_history_sum_detailColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'report_history_sum_detail' in table 'report_history_sum' is"& _ 
-                            " DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablereport_history_sum.report_history_sum_detailColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property report_history_drug() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablereport_history_sum.report_history_drugColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'report_history_drug' in table 'report_history_sum' is DBNul"& _ 
-                            "l.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablereport_history_sum.report_history_drugColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isreport_history_sum_DateNull() As Boolean
-            Return Me.IsNull(Me.tablereport_history_sum.report_history_sum_DateColumn)
+        Public Function GetList_Medi_drugRows() As List_Medi_drugRow()
+            If (Me.Table.ChildRelations("FK_report") Is Nothing) Then
+                Return New List_Medi_drugRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_report")),List_Medi_drugRow())
+            End If
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setreport_history_sum_DateNull()
-            Me(Me.tablereport_history_sum.report_history_sum_DateColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isreport_history_sum_sumpriceNull() As Boolean
-            Return Me.IsNull(Me.tablereport_history_sum.report_history_sum_sumpriceColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setreport_history_sum_sumpriceNull()
-            Me(Me.tablereport_history_sum.report_history_sum_sumpriceColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isreport_history_sum_detailNull() As Boolean
-            Return Me.IsNull(Me.tablereport_history_sum.report_history_sum_detailColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setreport_history_sum_detailNull()
-            Me(Me.tablereport_history_sum.report_history_sum_detailColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isreport_history_drugNull() As Boolean
-            Return Me.IsNull(Me.tablereport_history_sum.report_history_drugColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setreport_history_drugNull()
-            Me(Me.tablereport_history_sum.report_history_drugColumn) = Global.System.Convert.DBNull
-        End Sub
     End Class
     
     '''<summary>
@@ -5238,17 +4839,6 @@ Partial Public Class sedentralDataSet
             End Get
             Set
                 Me(Me.tableUser.User_AccessColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property EmployeeRow() As EmployeeRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_User_Employee")),EmployeeRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_User_Employee"))
             End Set
         End Property
         
@@ -5545,42 +5135,6 @@ Partial Public Class sedentralDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-    Public Class report_history_sumRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As report_history_sumRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub New(ByVal row As report_history_sumRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property Row() As report_history_sumRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Class UserRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -5747,6 +5301,8 @@ Namespace sedentralDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Appoint_Date", "Appoint_Date")
             tableMapping.ColumnMappings.Add("Appoint_Time", "Appoint_Time")
             tableMapping.ColumnMappings.Add("Appoint_Status", "Appoint_Status")
+            tableMapping.ColumnMappings.Add("Appoint_Empoy", "Appoint_Empoy")
+            tableMapping.ColumnMappings.Add("Appoint_Patient", "Appoint_Patient")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -5754,7 +5310,10 @@ Namespace sedentralDataSetTableAdapters
                 "sNull_Appoint_Date = 1 AND [Appoint_Date] IS NULL) OR ([Appoint_Date] = @Origina"& _ 
                 "l_Appoint_Date)) AND ((@IsNull_Appoint_Time = 1 AND [Appoint_Time] IS NULL) OR ("& _ 
                 "[Appoint_Time] = @Original_Appoint_Time)) AND ((@IsNull_Appoint_Status = 1 AND ["& _ 
-                "Appoint_Status] IS NULL) OR ([Appoint_Status] = @Original_Appoint_Status)))"
+                "Appoint_Status] IS NULL) OR ([Appoint_Status] = @Original_Appoint_Status)) AND ("& _ 
+                "(@IsNull_Appoint_Empoy = 1 AND [Appoint_Empoy] IS NULL) OR ([Appoint_Empoy] = @O"& _ 
+                "riginal_Appoint_Empoy)) AND ((@IsNull_Appoint_Patient = 1 AND [Appoint_Patient] "& _ 
+                "IS NULL) OR ([Appoint_Patient] = @Original_Appoint_Patient)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_ID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Appoint_Date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -5763,32 +5322,46 @@ Namespace sedentralDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_Time", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Time", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Appoint_Status", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Status", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Appoint_Empoy", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Empoy", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_Empoy", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Empoy", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Appoint_Patient", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Patient", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_Patient", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Patient", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Appoint] ([Appoint_ID], [Appoint_Date], [Appoint_Time], [Appoi"& _ 
-                "nt_Status]) VALUES (@Appoint_ID, @Appoint_Date, @Appoint_Time, @Appoint_Status);"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Appoint_ID, Appoint_Date, Appoint_Time, Appoint_Status FROM Appoint WHE"& _ 
-                "RE (Appoint_ID = @Appoint_ID)"
+                "nt_Status], [Appoint_Empoy], [Appoint_Patient]) VALUES (@Appoint_ID, @Appoint_Da"& _ 
+                "te, @Appoint_Time, @Appoint_Status, @Appoint_Empoy, @Appoint_Patient);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT A"& _ 
+                "ppoint_ID, Appoint_Date, Appoint_Time, Appoint_Status, Appoint_Empoy, Appoint_Pa"& _ 
+                "tient FROM Appoint WHERE (Appoint_ID = @Appoint_ID)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_ID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_Time", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Time", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_Empoy", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Empoy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_Patient", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Patient", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Appoint] SET [Appoint_ID] = @Appoint_ID, [Appoint_Date] = @Appoint_"& _ 
-                "Date, [Appoint_Time] = @Appoint_Time, [Appoint_Status] = @Appoint_Status WHERE ("& _ 
-                "([Appoint_ID] = @Original_Appoint_ID) AND ((@IsNull_Appoint_Date = 1 AND [Appoin"& _ 
-                "t_Date] IS NULL) OR ([Appoint_Date] = @Original_Appoint_Date)) AND ((@IsNull_App"& _ 
-                "oint_Time = 1 AND [Appoint_Time] IS NULL) OR ([Appoint_Time] = @Original_Appoint"& _ 
-                "_Time)) AND ((@IsNull_Appoint_Status = 1 AND [Appoint_Status] IS NULL) OR ([Appo"& _ 
-                "int_Status] = @Original_Appoint_Status)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Appoint_ID, Appoint_Date, App"& _ 
-                "oint_Time, Appoint_Status FROM Appoint WHERE (Appoint_ID = @Appoint_ID)"
+                "Date, [Appoint_Time] = @Appoint_Time, [Appoint_Status] = @Appoint_Status, [Appoi"& _ 
+                "nt_Empoy] = @Appoint_Empoy, [Appoint_Patient] = @Appoint_Patient WHERE (([Appoin"& _ 
+                "t_ID] = @Original_Appoint_ID) AND ((@IsNull_Appoint_Date = 1 AND [Appoint_Date] "& _ 
+                "IS NULL) OR ([Appoint_Date] = @Original_Appoint_Date)) AND ((@IsNull_Appoint_Tim"& _ 
+                "e = 1 AND [Appoint_Time] IS NULL) OR ([Appoint_Time] = @Original_Appoint_Time)) "& _ 
+                "AND ((@IsNull_Appoint_Status = 1 AND [Appoint_Status] IS NULL) OR ([Appoint_Stat"& _ 
+                "us] = @Original_Appoint_Status)) AND ((@IsNull_Appoint_Empoy = 1 AND [Appoint_Em"& _ 
+                "poy] IS NULL) OR ([Appoint_Empoy] = @Original_Appoint_Empoy)) AND ((@IsNull_Appo"& _ 
+                "int_Patient = 1 AND [Appoint_Patient] IS NULL) OR ([Appoint_Patient] = @Original"& _ 
+                "_Appoint_Patient)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Appoint_ID, Appoint_Date, Appoint_Time, Appoint_Sta"& _ 
+                "tus, Appoint_Empoy, Appoint_Patient FROM Appoint WHERE (Appoint_ID = @Appoint_ID"& _ 
+                ")"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_ID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_Time", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Time", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_Empoy", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Empoy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Appoint_Patient", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Patient", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_ID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Appoint_Date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -5796,6 +5369,10 @@ Namespace sedentralDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_Time", Global.System.Data.SqlDbType.Time, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Time", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Appoint_Status", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Status", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_Status", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Appoint_Empoy", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Empoy", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_Empoy", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Empoy", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Appoint_Patient", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Patient", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Appoint_Patient", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Appoint_Patient", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5811,7 +5388,8 @@ Namespace sedentralDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Appoint_ID, Appoint_Date, Appoint_Time, Appoint_Status FROM dbo.Appoint"
+            Me._commandCollection(0).CommandText = "SELECT Appoint_ID, Appoint_Date, Appoint_Time, Appoint_Status, Appoint_Empoy, App"& _ 
+                "oint_Patient FROM dbo.Appoint"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -5871,7 +5449,7 @@ Namespace sedentralDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Appoint_ID As String, ByVal Original_Appoint_Date As Global.System.Nullable(Of Date), ByVal Original_Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Original_Appoint_Status As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_Appoint_ID As String, ByVal Original_Appoint_Date As Global.System.Nullable(Of Date), ByVal Original_Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Original_Appoint_Status As String, ByVal Original_Appoint_Empoy As String, ByVal Original_Appoint_Patient As String) As Integer
             If (Original_Appoint_ID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Appoint_ID")
             Else
@@ -5898,6 +5476,20 @@ Namespace sedentralDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Appoint_Status,String)
             End If
+            If (Original_Appoint_Empoy Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Appoint_Empoy,String)
+            End If
+            If (Original_Appoint_Patient Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Appoint_Patient,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5917,7 +5509,7 @@ Namespace sedentralDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Appoint_ID As String, ByVal Appoint_Date As Global.System.Nullable(Of Date), ByVal Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Appoint_Status As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Appoint_ID As String, ByVal Appoint_Date As Global.System.Nullable(Of Date), ByVal Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Appoint_Status As String, ByVal Appoint_Empoy As String, ByVal Appoint_Patient As String) As Integer
             If (Appoint_ID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Appoint_ID")
             Else
@@ -5938,6 +5530,16 @@ Namespace sedentralDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = CType(Appoint_Status,String)
             End If
+            If (Appoint_Empoy Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Appoint_Empoy,String)
+            End If
+            If (Appoint_Patient Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Appoint_Patient,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5957,7 +5559,7 @@ Namespace sedentralDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Appoint_ID As String, ByVal Appoint_Date As Global.System.Nullable(Of Date), ByVal Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Appoint_Status As String, ByVal Original_Appoint_ID As String, ByVal Original_Appoint_Date As Global.System.Nullable(Of Date), ByVal Original_Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Original_Appoint_Status As String) As Integer
+        Public Overloads Overridable Function Update(ByVal Appoint_ID As String, ByVal Appoint_Date As Global.System.Nullable(Of Date), ByVal Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Appoint_Status As String, ByVal Appoint_Empoy As String, ByVal Appoint_Patient As String, ByVal Original_Appoint_ID As String, ByVal Original_Appoint_Date As Global.System.Nullable(Of Date), ByVal Original_Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Original_Appoint_Status As String, ByVal Original_Appoint_Empoy As String, ByVal Original_Appoint_Patient As String) As Integer
             If (Appoint_ID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Appoint_ID")
             Else
@@ -5978,31 +5580,55 @@ Namespace sedentralDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Appoint_Status,String)
             End If
+            If (Appoint_Empoy Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Appoint_Empoy,String)
+            End If
+            If (Appoint_Patient Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Appoint_Patient,String)
+            End If
             If (Original_Appoint_ID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Appoint_ID")
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Appoint_ID,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Appoint_ID,String)
             End If
             If (Original_Appoint_Date.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Appoint_Date.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Appoint_Time.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Appoint_Time.Value,System.TimeSpan)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Appoint_Date.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (Original_Appoint_Status Is Nothing) Then
+            If (Original_Appoint_Time.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Appoint_Time.Value,System.TimeSpan)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Appoint_Status Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Appoint_Status,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Appoint_Status,String)
+            End If
+            If (Original_Appoint_Empoy Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Appoint_Empoy,String)
+            End If
+            If (Original_Appoint_Patient Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Appoint_Patient,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6023,8 +5649,8 @@ Namespace sedentralDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Appoint_Date As Global.System.Nullable(Of Date), ByVal Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Appoint_Status As String, ByVal Original_Appoint_ID As String, ByVal Original_Appoint_Date As Global.System.Nullable(Of Date), ByVal Original_Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Original_Appoint_Status As String) As Integer
-            Return Me.Update(Original_Appoint_ID, Appoint_Date, Appoint_Time, Appoint_Status, Original_Appoint_ID, Original_Appoint_Date, Original_Appoint_Time, Original_Appoint_Status)
+        Public Overloads Overridable Function Update(ByVal Appoint_Date As Global.System.Nullable(Of Date), ByVal Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Appoint_Status As String, ByVal Appoint_Empoy As String, ByVal Appoint_Patient As String, ByVal Original_Appoint_ID As String, ByVal Original_Appoint_Date As Global.System.Nullable(Of Date), ByVal Original_Appoint_Time As Global.System.Nullable(Of Global.System.TimeSpan), ByVal Original_Appoint_Status As String, ByVal Original_Appoint_Empoy As String, ByVal Original_Appoint_Patient As String) As Integer
+            Return Me.Update(Original_Appoint_ID, Appoint_Date, Appoint_Time, Appoint_Status, Appoint_Empoy, Appoint_Patient, Original_Appoint_ID, Original_Appoint_Date, Original_Appoint_Time, Original_Appoint_Status, Original_Appoint_Empoy, Original_Appoint_Patient)
         End Function
     End Class
     
@@ -7879,7 +7505,7 @@ Namespace sedentralDataSetTableAdapters
             tableMapping.ColumnMappings.Add("patient_Id", "patient_Id")
             tableMapping.ColumnMappings.Add("patient_Fname", "patient_Fname")
             tableMapping.ColumnMappings.Add("patient_Lname", "patient_Lname")
-            tableMapping.ColumnMappings.Add("patient_Grender", "patient_Grender")
+            tableMapping.ColumnMappings.Add("patient_Gender", "patient_Gender")
             tableMapping.ColumnMappings.Add("patient_Wight", "patient_Wight")
             tableMapping.ColumnMappings.Add("patient_Height", "patient_Height")
             tableMapping.ColumnMappings.Add("patient_allergic_druge", "patient_allergic_druge")
@@ -7902,40 +7528,40 @@ Namespace sedentralDataSetTableAdapters
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Patient] WHERE (([patient_Id] = @Original_patient_Id) AND ((@I"& _ 
                 "sNull_patient_Fname = 1 AND [patient_Fname] IS NULL) OR ([patient_Fname] = @Orig"& _ 
                 "inal_patient_Fname)) AND ((@IsNull_patient_Lname = 1 AND [patient_Lname] IS NULL"& _ 
-                ") OR ([patient_Lname] = @Original_patient_Lname)) AND ((@IsNull_patient_Grender "& _ 
-                "= 1 AND [patient_Grender] IS NULL) OR ([patient_Grender] = @Original_patient_Gre"& _ 
-                "nder)) AND ((@IsNull_patient_Wight = 1 AND [patient_Wight] IS NULL) OR ([patient"& _ 
-                "_Wight] = @Original_patient_Wight)) AND ((@IsNull_patient_Height = 1 AND [patien"& _ 
-                "t_Height] IS NULL) OR ([patient_Height] = @Original_patient_Height)) AND ((@IsNu"& _ 
-                "ll_patient_allergic_druge = 1 AND [patient_allergic_druge] IS NULL) OR ([patient"& _ 
-                "_allergic_druge] = @Original_patient_allergic_druge)) AND ((@IsNull_patient_Appo"& _ 
-                "int_Id = 1 AND [patient_Appoint_Id] IS NULL) OR ([patient_Appoint_Id] = @Origina"& _ 
-                "l_patient_Appoint_Id)) AND ((@IsNull_patient_report_history_Id = 1 AND [patient_"& _ 
-                "report_history_Id] IS NULL) OR ([patient_report_history_Id] = @Original_patient_"& _ 
-                "report_history_Id)) AND ((@IsNull_patient_id_card = 1 AND [patient_id_card] IS N"& _ 
-                "ULL) OR ([patient_id_card] = @Original_patient_id_card)) AND ((@IsNull_patient_n"& _ 
-                "ation = 1 AND [patient_nation] IS NULL) OR ([patient_nation] = @Original_patient"& _ 
-                "_nation)) AND ((@IsNull_patient_ethnicity = 1 AND [patient_ethnicity] IS NULL) O"& _ 
-                "R ([patient_ethnicity] = @Original_patient_ethnicity)) AND ((@IsNull_patient_reg"& _ 
-                "al = 1 AND [patient_regal] IS NULL) OR ([patient_regal] = @Original_patient_rega"& _ 
-                "l)) AND ((@IsNull_patient_tel = 1 AND [patient_tel] IS NULL) OR ([patient_tel] ="& _ 
-                " @Original_patient_tel)) AND ((@IsNull_patient_tel_home = 1 AND [patient_tel_hom"& _ 
-                "e] IS NULL) OR ([patient_tel_home] = @Original_patient_tel_home)) AND ((@IsNull_"& _ 
-                "patient_status = 1 AND [patient_status] IS NULL) OR ([patient_status] = @Origina"& _ 
-                "l_patient_status)) AND ((@IsNull_contact_fname = 1 AND [contact_fname] IS NULL) "& _ 
-                "OR ([contact_fname] = @Original_contact_fname)) AND ((@IsNull_contact_lname = 1 "& _ 
-                "AND [contact_lname] IS NULL) OR ([contact_lname] = @Original_contact_lname)) AND"& _ 
-                " ((@IsNull_contact_tel = 1 AND [contact_tel] IS NULL) OR ([contact_tel] = @Origi"& _ 
-                "nal_contact_tel)) AND ((@IsNull_contact_status = 1 AND [contact_status] IS NULL)"& _ 
-                " OR ([contact_status] = @Original_contact_status)))"
+                ") OR ([patient_Lname] = @Original_patient_Lname)) AND ((@IsNull_patient_Gender ="& _ 
+                " 1 AND [patient_Gender] IS NULL) OR ([patient_Gender] = @Original_patient_Gender"& _ 
+                ")) AND ((@IsNull_patient_Wight = 1 AND [patient_Wight] IS NULL) OR ([patient_Wig"& _ 
+                "ht] = @Original_patient_Wight)) AND ((@IsNull_patient_Height = 1 AND [patient_He"& _ 
+                "ight] IS NULL) OR ([patient_Height] = @Original_patient_Height)) AND ((@IsNull_p"& _ 
+                "atient_allergic_druge = 1 AND [patient_allergic_druge] IS NULL) OR ([patient_all"& _ 
+                "ergic_druge] = @Original_patient_allergic_druge)) AND ((@IsNull_patient_Appoint_"& _ 
+                "Id = 1 AND [patient_Appoint_Id] IS NULL) OR ([patient_Appoint_Id] = @Original_pa"& _ 
+                "tient_Appoint_Id)) AND ((@IsNull_patient_report_history_Id = 1 AND [patient_repo"& _ 
+                "rt_history_Id] IS NULL) OR ([patient_report_history_Id] = @Original_patient_repo"& _ 
+                "rt_history_Id)) AND ((@IsNull_patient_id_card = 1 AND [patient_id_card] IS NULL)"& _ 
+                " OR ([patient_id_card] = @Original_patient_id_card)) AND ((@IsNull_patient_natio"& _ 
+                "n = 1 AND [patient_nation] IS NULL) OR ([patient_nation] = @Original_patient_nat"& _ 
+                "ion)) AND ((@IsNull_patient_ethnicity = 1 AND [patient_ethnicity] IS NULL) OR (["& _ 
+                "patient_ethnicity] = @Original_patient_ethnicity)) AND ((@IsNull_patient_regal ="& _ 
+                " 1 AND [patient_regal] IS NULL) OR ([patient_regal] = @Original_patient_regal)) "& _ 
+                "AND ((@IsNull_patient_tel = 1 AND [patient_tel] IS NULL) OR ([patient_tel] = @Or"& _ 
+                "iginal_patient_tel)) AND ((@IsNull_patient_tel_home = 1 AND [patient_tel_home] I"& _ 
+                "S NULL) OR ([patient_tel_home] = @Original_patient_tel_home)) AND ((@IsNull_pati"& _ 
+                "ent_status = 1 AND [patient_status] IS NULL) OR ([patient_status] = @Original_pa"& _ 
+                "tient_status)) AND ((@IsNull_contact_fname = 1 AND [contact_fname] IS NULL) OR ("& _ 
+                "[contact_fname] = @Original_contact_fname)) AND ((@IsNull_contact_lname = 1 AND "& _ 
+                "[contact_lname] IS NULL) OR ([contact_lname] = @Original_contact_lname)) AND ((@"& _ 
+                "IsNull_contact_tel = 1 AND [contact_tel] IS NULL) OR ([contact_tel] = @Original_"& _ 
+                "contact_tel)) AND ((@IsNull_contact_status = 1 AND [contact_status] IS NULL) OR "& _ 
+                "([contact_status] = @Original_contact_status)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Id", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Fname", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Fname", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Fname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Fname", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Lname", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Lname", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Lname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Lname", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Grender", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Grender", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Grender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Grender", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Gender", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Gender", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Gender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Gender", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Wight", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Wight", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Wight", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Wight", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Height", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Height", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -7971,25 +7597,25 @@ Namespace sedentralDataSetTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Patient] ([patient_Id], [patient_Fname], [patient_Lname], [pat"& _ 
-                "ient_Grender], [patient_Wight], [patient_Height], [patient_allergic_druge], [pat"& _ 
-                "ient_Appoint_Id], [patient_report_history_Id], [patient_id_card], [patient_natio"& _ 
-                "n], [patient_ethnicity], [patient_regal], [patient_tel], [patient_tel_home], [pa"& _ 
-                "tient_status], [contact_fname], [contact_lname], [contact_tel], [contact_status]"& _ 
-                ") VALUES (@patient_Id, @patient_Fname, @patient_Lname, @patient_Grender, @patien"& _ 
-                "t_Wight, @patient_Height, @patient_allergic_druge, @patient_Appoint_Id, @patient"& _ 
-                "_report_history_Id, @patient_id_card, @patient_nation, @patient_ethnicity, @pati"& _ 
-                "ent_regal, @patient_tel, @patient_tel_home, @patient_status, @contact_fname, @co"& _ 
-                "ntact_lname, @contact_tel, @contact_status);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT patient_Id, patient_Fname, "& _ 
-                "patient_Lname, patient_Grender, patient_Wight, patient_Height, patient_allergic_"& _ 
-                "druge, patient_Appoint_Id, patient_report_history_Id, patient_id_card, patient_n"& _ 
-                "ation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_"& _ 
-                "status, contact_fname, contact_lname, contact_tel, contact_status FROM Patient W"& _ 
-                "HERE (patient_Id = @patient_Id)"
+                "ient_Gender], [patient_Wight], [patient_Height], [patient_allergic_druge], [pati"& _ 
+                "ent_Appoint_Id], [patient_report_history_Id], [patient_id_card], [patient_nation"& _ 
+                "], [patient_ethnicity], [patient_regal], [patient_tel], [patient_tel_home], [pat"& _ 
+                "ient_status], [contact_fname], [contact_lname], [contact_tel], [contact_status])"& _ 
+                " VALUES (@patient_Id, @patient_Fname, @patient_Lname, @patient_Gender, @patient_"& _ 
+                "Wight, @patient_Height, @patient_allergic_druge, @patient_Appoint_Id, @patient_r"& _ 
+                "eport_history_Id, @patient_id_card, @patient_nation, @patient_ethnicity, @patien"& _ 
+                "t_regal, @patient_tel, @patient_tel_home, @patient_status, @contact_fname, @cont"& _ 
+                "act_lname, @contact_tel, @contact_status);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT patient_Id, patient_Fname, pa"& _ 
+                "tient_Lname, patient_Gender, patient_Wight, patient_Height, patient_allergic_dru"& _ 
+                "ge, patient_Appoint_Id, patient_report_history_Id, patient_id_card, patient_nati"& _ 
+                "on, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_sta"& _ 
+                "tus, contact_fname, contact_lname, contact_tel, contact_status FROM Patient WHER"& _ 
+                "E (patient_Id = @patient_Id)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Id", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Fname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Fname", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Lname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Lname", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Grender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Grender", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Gender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Gender", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Wight", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Wight", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Height", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Height", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_allergic_druge", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_allergic_druge", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -8009,53 +7635,53 @@ Namespace sedentralDataSetTableAdapters
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Patient] SET [patient_Id] = @patient_Id, [patient_Fname] = @patient"& _ 
-                "_Fname, [patient_Lname] = @patient_Lname, [patient_Grender] = @patient_Grender, "& _ 
-                "[patient_Wight] = @patient_Wight, [patient_Height] = @patient_Height, [patient_a"& _ 
-                "llergic_druge] = @patient_allergic_druge, [patient_Appoint_Id] = @patient_Appoin"& _ 
-                "t_Id, [patient_report_history_Id] = @patient_report_history_Id, [patient_id_card"& _ 
-                "] = @patient_id_card, [patient_nation] = @patient_nation, [patient_ethnicity] = "& _ 
-                "@patient_ethnicity, [patient_regal] = @patient_regal, [patient_tel] = @patient_t"& _ 
-                "el, [patient_tel_home] = @patient_tel_home, [patient_status] = @patient_status, "& _ 
-                "[contact_fname] = @contact_fname, [contact_lname] = @contact_lname, [contact_tel"& _ 
-                "] = @contact_tel, [contact_status] = @contact_status WHERE (([patient_Id] = @Ori"& _ 
-                "ginal_patient_Id) AND ((@IsNull_patient_Fname = 1 AND [patient_Fname] IS NULL) O"& _ 
-                "R ([patient_Fname] = @Original_patient_Fname)) AND ((@IsNull_patient_Lname = 1 A"& _ 
-                "ND [patient_Lname] IS NULL) OR ([patient_Lname] = @Original_patient_Lname)) AND "& _ 
-                "((@IsNull_patient_Grender = 1 AND [patient_Grender] IS NULL) OR ([patient_Grende"& _ 
-                "r] = @Original_patient_Grender)) AND ((@IsNull_patient_Wight = 1 AND [patient_Wi"& _ 
-                "ght] IS NULL) OR ([patient_Wight] = @Original_patient_Wight)) AND ((@IsNull_pati"& _ 
-                "ent_Height = 1 AND [patient_Height] IS NULL) OR ([patient_Height] = @Original_pa"& _ 
-                "tient_Height)) AND ((@IsNull_patient_allergic_druge = 1 AND [patient_allergic_dr"& _ 
-                "uge] IS NULL) OR ([patient_allergic_druge] = @Original_patient_allergic_druge)) "& _ 
-                "AND ((@IsNull_patient_Appoint_Id = 1 AND [patient_Appoint_Id] IS NULL) OR ([pati"& _ 
-                "ent_Appoint_Id] = @Original_patient_Appoint_Id)) AND ((@IsNull_patient_report_hi"& _ 
-                "story_Id = 1 AND [patient_report_history_Id] IS NULL) OR ([patient_report_histor"& _ 
-                "y_Id] = @Original_patient_report_history_Id)) AND ((@IsNull_patient_id_card = 1 "& _ 
-                "AND [patient_id_card] IS NULL) OR ([patient_id_card] = @Original_patient_id_card"& _ 
-                ")) AND ((@IsNull_patient_nation = 1 AND [patient_nation] IS NULL) OR ([patient_n"& _ 
-                "ation] = @Original_patient_nation)) AND ((@IsNull_patient_ethnicity = 1 AND [pat"& _ 
-                "ient_ethnicity] IS NULL) OR ([patient_ethnicity] = @Original_patient_ethnicity))"& _ 
-                " AND ((@IsNull_patient_regal = 1 AND [patient_regal] IS NULL) OR ([patient_regal"& _ 
-                "] = @Original_patient_regal)) AND ((@IsNull_patient_tel = 1 AND [patient_tel] IS"& _ 
-                " NULL) OR ([patient_tel] = @Original_patient_tel)) AND ((@IsNull_patient_tel_hom"& _ 
-                "e = 1 AND [patient_tel_home] IS NULL) OR ([patient_tel_home] = @Original_patient"& _ 
-                "_tel_home)) AND ((@IsNull_patient_status = 1 AND [patient_status] IS NULL) OR (["& _ 
-                "patient_status] = @Original_patient_status)) AND ((@IsNull_contact_fname = 1 AND"& _ 
-                " [contact_fname] IS NULL) OR ([contact_fname] = @Original_contact_fname)) AND (("& _ 
-                "@IsNull_contact_lname = 1 AND [contact_lname] IS NULL) OR ([contact_lname] = @Or"& _ 
-                "iginal_contact_lname)) AND ((@IsNull_contact_tel = 1 AND [contact_tel] IS NULL) "& _ 
-                "OR ([contact_tel] = @Original_contact_tel)) AND ((@IsNull_contact_status = 1 AND"& _ 
-                " [contact_status] IS NULL) OR ([contact_status] = @Original_contact_status)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "SELECT patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight,"& _ 
-                " patient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_hist"& _ 
-                "ory_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patie"& _ 
-                "nt_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_"& _ 
-                "tel, contact_status FROM Patient WHERE (patient_Id = @patient_Id)"
+                "_Fname, [patient_Lname] = @patient_Lname, [patient_Gender] = @patient_Gender, [p"& _ 
+                "atient_Wight] = @patient_Wight, [patient_Height] = @patient_Height, [patient_all"& _ 
+                "ergic_druge] = @patient_allergic_druge, [patient_Appoint_Id] = @patient_Appoint_"& _ 
+                "Id, [patient_report_history_Id] = @patient_report_history_Id, [patient_id_card] "& _ 
+                "= @patient_id_card, [patient_nation] = @patient_nation, [patient_ethnicity] = @p"& _ 
+                "atient_ethnicity, [patient_regal] = @patient_regal, [patient_tel] = @patient_tel"& _ 
+                ", [patient_tel_home] = @patient_tel_home, [patient_status] = @patient_status, [c"& _ 
+                "ontact_fname] = @contact_fname, [contact_lname] = @contact_lname, [contact_tel] "& _ 
+                "= @contact_tel, [contact_status] = @contact_status WHERE (([patient_Id] = @Origi"& _ 
+                "nal_patient_Id) AND ((@IsNull_patient_Fname = 1 AND [patient_Fname] IS NULL) OR "& _ 
+                "([patient_Fname] = @Original_patient_Fname)) AND ((@IsNull_patient_Lname = 1 AND"& _ 
+                " [patient_Lname] IS NULL) OR ([patient_Lname] = @Original_patient_Lname)) AND (("& _ 
+                "@IsNull_patient_Gender = 1 AND [patient_Gender] IS NULL) OR ([patient_Gender] = "& _ 
+                "@Original_patient_Gender)) AND ((@IsNull_patient_Wight = 1 AND [patient_Wight] I"& _ 
+                "S NULL) OR ([patient_Wight] = @Original_patient_Wight)) AND ((@IsNull_patient_He"& _ 
+                "ight = 1 AND [patient_Height] IS NULL) OR ([patient_Height] = @Original_patient_"& _ 
+                "Height)) AND ((@IsNull_patient_allergic_druge = 1 AND [patient_allergic_druge] I"& _ 
+                "S NULL) OR ([patient_allergic_druge] = @Original_patient_allergic_druge)) AND (("& _ 
+                "@IsNull_patient_Appoint_Id = 1 AND [patient_Appoint_Id] IS NULL) OR ([patient_Ap"& _ 
+                "point_Id] = @Original_patient_Appoint_Id)) AND ((@IsNull_patient_report_history_"& _ 
+                "Id = 1 AND [patient_report_history_Id] IS NULL) OR ([patient_report_history_Id] "& _ 
+                "= @Original_patient_report_history_Id)) AND ((@IsNull_patient_id_card = 1 AND [p"& _ 
+                "atient_id_card] IS NULL) OR ([patient_id_card] = @Original_patient_id_card)) AND"& _ 
+                " ((@IsNull_patient_nation = 1 AND [patient_nation] IS NULL) OR ([patient_nation]"& _ 
+                " = @Original_patient_nation)) AND ((@IsNull_patient_ethnicity = 1 AND [patient_e"& _ 
+                "thnicity] IS NULL) OR ([patient_ethnicity] = @Original_patient_ethnicity)) AND ("& _ 
+                "(@IsNull_patient_regal = 1 AND [patient_regal] IS NULL) OR ([patient_regal] = @O"& _ 
+                "riginal_patient_regal)) AND ((@IsNull_patient_tel = 1 AND [patient_tel] IS NULL)"& _ 
+                " OR ([patient_tel] = @Original_patient_tel)) AND ((@IsNull_patient_tel_home = 1 "& _ 
+                "AND [patient_tel_home] IS NULL) OR ([patient_tel_home] = @Original_patient_tel_h"& _ 
+                "ome)) AND ((@IsNull_patient_status = 1 AND [patient_status] IS NULL) OR ([patien"& _ 
+                "t_status] = @Original_patient_status)) AND ((@IsNull_contact_fname = 1 AND [cont"& _ 
+                "act_fname] IS NULL) OR ([contact_fname] = @Original_contact_fname)) AND ((@IsNul"& _ 
+                "l_contact_lname = 1 AND [contact_lname] IS NULL) OR ([contact_lname] = @Original"& _ 
+                "_contact_lname)) AND ((@IsNull_contact_tel = 1 AND [contact_tel] IS NULL) OR ([c"& _ 
+                "ontact_tel] = @Original_contact_tel)) AND ((@IsNull_contact_status = 1 AND [cont"& _ 
+                "act_status] IS NULL) OR ([contact_status] = @Original_contact_status)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT"& _ 
+                " patient_Id, patient_Fname, patient_Lname, patient_Gender, patient_Wight, patien"& _ 
+                "t_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_history_Id,"& _ 
+                " patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel,"& _ 
+                " patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, co"& _ 
+                "ntact_status FROM Patient WHERE (patient_Id = @patient_Id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Id", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Fname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Fname", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Lname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Lname", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Grender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Grender", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Gender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Gender", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Wight", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Wight", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_Height", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Height", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@patient_allergic_druge", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_allergic_druge", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -8077,8 +7703,8 @@ Namespace sedentralDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Fname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Fname", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Lname", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Lname", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Lname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Lname", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Grender", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Grender", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Grender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Grender", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Gender", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Gender", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Gender", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Gender", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Wight", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Wight", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_patient_Wight", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Wight", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_patient_Height", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "patient_Height", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -8126,11 +7752,11 @@ Namespace sedentralDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight, "& _ 
-                "patient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_histo"& _ 
-                "ry_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patien"& _ 
-                "t_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_t"& _ 
-                "el, contact_status FROM dbo.Patient"
+            Me._commandCollection(0).CommandText = "SELECT patient_Id, patient_Fname, patient_Lname, patient_Gender, patient_Wight, p"& _ 
+                "atient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_histor"& _ 
+                "y_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient"& _ 
+                "_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_te"& _ 
+                "l, contact_status FROM dbo.Patient"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -8194,7 +7820,7 @@ Namespace sedentralDataSetTableAdapters
                     ByVal Original_patient_Id As String,  _
                     ByVal Original_patient_Fname As String,  _
                     ByVal Original_patient_Lname As String,  _
-                    ByVal Original_patient_Grender As String,  _
+                    ByVal Original_patient_Gender As String,  _
                     ByVal Original_patient_Wight As String,  _
                     ByVal Original_patient_Height As String,  _
                     ByVal Original_patient_allergic_druge As String,  _
@@ -8230,12 +7856,12 @@ Namespace sedentralDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_patient_Lname,String)
             End If
-            If (Original_patient_Grender Is Nothing) Then
+            If (Original_patient_Gender Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_patient_Grender,String)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_patient_Gender,String)
             End If
             If (Original_patient_Wight Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
@@ -8372,7 +7998,7 @@ Namespace sedentralDataSetTableAdapters
                     ByVal patient_Id As String,  _
                     ByVal patient_Fname As String,  _
                     ByVal patient_Lname As String,  _
-                    ByVal patient_Grender As String,  _
+                    ByVal patient_Gender As String,  _
                     ByVal patient_Wight As String,  _
                     ByVal patient_Height As String,  _
                     ByVal patient_allergic_druge As String,  _
@@ -8404,10 +8030,10 @@ Namespace sedentralDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = CType(patient_Lname,String)
             End If
-            If (patient_Grender Is Nothing) Then
+            If (patient_Gender Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(patient_Grender,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(patient_Gender,String)
             End If
             If (patient_Wight Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
@@ -8512,7 +8138,7 @@ Namespace sedentralDataSetTableAdapters
                     ByVal patient_Id As String,  _
                     ByVal patient_Fname As String,  _
                     ByVal patient_Lname As String,  _
-                    ByVal patient_Grender As String,  _
+                    ByVal patient_Gender As String,  _
                     ByVal patient_Wight As String,  _
                     ByVal patient_Height As String,  _
                     ByVal patient_allergic_druge As String,  _
@@ -8532,7 +8158,7 @@ Namespace sedentralDataSetTableAdapters
                     ByVal Original_patient_Id As String,  _
                     ByVal Original_patient_Fname As String,  _
                     ByVal Original_patient_Lname As String,  _
-                    ByVal Original_patient_Grender As String,  _
+                    ByVal Original_patient_Gender As String,  _
                     ByVal Original_patient_Wight As String,  _
                     ByVal Original_patient_Height As String,  _
                     ByVal Original_patient_allergic_druge As String,  _
@@ -8564,10 +8190,10 @@ Namespace sedentralDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = CType(patient_Lname,String)
             End If
-            If (patient_Grender Is Nothing) Then
+            If (patient_Gender Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(patient_Grender,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(patient_Gender,String)
             End If
             If (patient_Wight Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
@@ -8668,12 +8294,12 @@ Namespace sedentralDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_patient_Lname,String)
             End If
-            If (Original_patient_Grender Is Nothing) Then
+            If (Original_patient_Gender Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_patient_Grender,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_patient_Gender,String)
             End If
             If (Original_patient_Wight Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
@@ -8809,7 +8435,7 @@ Namespace sedentralDataSetTableAdapters
         Public Overloads Overridable Function Update( _
                     ByVal patient_Fname As String,  _
                     ByVal patient_Lname As String,  _
-                    ByVal patient_Grender As String,  _
+                    ByVal patient_Gender As String,  _
                     ByVal patient_Wight As String,  _
                     ByVal patient_Height As String,  _
                     ByVal patient_allergic_druge As String,  _
@@ -8829,7 +8455,7 @@ Namespace sedentralDataSetTableAdapters
                     ByVal Original_patient_Id As String,  _
                     ByVal Original_patient_Fname As String,  _
                     ByVal Original_patient_Lname As String,  _
-                    ByVal Original_patient_Grender As String,  _
+                    ByVal Original_patient_Gender As String,  _
                     ByVal Original_patient_Wight As String,  _
                     ByVal Original_patient_Height As String,  _
                     ByVal Original_patient_allergic_druge As String,  _
@@ -8846,7 +8472,7 @@ Namespace sedentralDataSetTableAdapters
                     ByVal Original_contact_lname As String,  _
                     ByVal Original_contact_tel As String,  _
                     ByVal Original_contact_status As String) As Integer
-            Return Me.Update(Original_patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight, patient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_history_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, contact_status, Original_patient_Id, Original_patient_Fname, Original_patient_Lname, Original_patient_Grender, Original_patient_Wight, Original_patient_Height, Original_patient_allergic_druge, Original_patient_Appoint_Id, Original_patient_report_history_Id, Original_patient_id_card, Original_patient_nation, Original_patient_ethnicity, Original_patient_regal, Original_patient_tel, Original_patient_tel_home, Original_patient_status, Original_contact_fname, Original_contact_lname, Original_contact_tel, Original_contact_status)
+            Return Me.Update(Original_patient_Id, patient_Fname, patient_Lname, patient_Gender, patient_Wight, patient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_history_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, contact_status, Original_patient_Id, Original_patient_Fname, Original_patient_Lname, Original_patient_Gender, Original_patient_Wight, Original_patient_Height, Original_patient_allergic_druge, Original_patient_Appoint_Id, Original_patient_report_history_Id, Original_patient_id_card, Original_patient_nation, Original_patient_ethnicity, Original_patient_regal, Original_patient_tel, Original_patient_tel_home, Original_patient_status, Original_contact_fname, Original_contact_lname, Original_contact_tel, Original_contact_status)
         End Function
     End Class
     
@@ -9342,464 +8968,6 @@ Namespace sedentralDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class report_history_sumTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
-        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
-        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "report_history_sum"
-            tableMapping.ColumnMappings.Add("report_history_sum_Id", "report_history_sum_Id")
-            tableMapping.ColumnMappings.Add("report_history_sum_Date", "report_history_sum_Date")
-            tableMapping.ColumnMappings.Add("report_history_sum_sumprice", "report_history_sum_sumprice")
-            tableMapping.ColumnMappings.Add("report_history_sum_detail", "report_history_sum_detail")
-            tableMapping.ColumnMappings.Add("report_history_drug", "report_history_drug")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[report_history_sum] WHERE (([report_history_sum_Id] = @Origina"& _ 
-                "l_report_history_sum_Id) AND ((@IsNull_report_history_sum_Date = 1 AND [report_h"& _ 
-                "istory_sum_Date] IS NULL) OR ([report_history_sum_Date] = @Original_report_histo"& _ 
-                "ry_sum_Date)) AND ((@IsNull_report_history_sum_sumprice = 1 AND [report_history_"& _ 
-                "sum_sumprice] IS NULL) OR ([report_history_sum_sumprice] = @Original_report_hist"& _ 
-                "ory_sum_sumprice)) AND ((@IsNull_report_history_sum_detail = 1 AND [report_histo"& _ 
-                "ry_sum_detail] IS NULL) OR ([report_history_sum_detail] = @Original_report_histo"& _ 
-                "ry_sum_detail)) AND ((@IsNull_report_history_drug = 1 AND [report_history_drug] "& _ 
-                "IS NULL) OR ([report_history_drug] = @Original_report_history_drug)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_report_history_sum_Id", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_report_history_sum_Date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_Date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_report_history_sum_Date", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_report_history_sum_sumprice", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_sumprice", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_report_history_sum_sumprice", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_sumprice", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_report_history_sum_detail", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_detail", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_report_history_sum_detail", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_detail", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_report_history_drug", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_drug", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_report_history_drug", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_drug", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[report_history_sum] ([report_history_sum_Id], [report_history_"& _ 
-                "sum_Date], [report_history_sum_sumprice], [report_history_sum_detail], [report_h"& _ 
-                "istory_drug]) VALUES (@report_history_sum_Id, @report_history_sum_Date, @report_"& _ 
-                "history_sum_sumprice, @report_history_sum_detail, @report_history_drug);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT"& _ 
-                " report_history_sum_Id, report_history_sum_Date, report_history_sum_sumprice, re"& _ 
-                "port_history_sum_detail, report_history_drug FROM report_history_sum WHERE (repo"& _ 
-                "rt_history_sum_Id = @report_history_sum_Id)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@report_history_sum_Id", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@report_history_sum_Date", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@report_history_sum_sumprice", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_sumprice", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@report_history_sum_detail", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_detail", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@report_history_drug", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_drug", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[report_history_sum] SET [report_history_sum_Id] = @report_history_s"& _ 
-                "um_Id, [report_history_sum_Date] = @report_history_sum_Date, [report_history_sum"& _ 
-                "_sumprice] = @report_history_sum_sumprice, [report_history_sum_detail] = @report"& _ 
-                "_history_sum_detail, [report_history_drug] = @report_history_drug WHERE (([repor"& _ 
-                "t_history_sum_Id] = @Original_report_history_sum_Id) AND ((@IsNull_report_histor"& _ 
-                "y_sum_Date = 1 AND [report_history_sum_Date] IS NULL) OR ([report_history_sum_Da"& _ 
-                "te] = @Original_report_history_sum_Date)) AND ((@IsNull_report_history_sum_sumpr"& _ 
-                "ice = 1 AND [report_history_sum_sumprice] IS NULL) OR ([report_history_sum_sumpr"& _ 
-                "ice] = @Original_report_history_sum_sumprice)) AND ((@IsNull_report_history_sum_"& _ 
-                "detail = 1 AND [report_history_sum_detail] IS NULL) OR ([report_history_sum_deta"& _ 
-                "il] = @Original_report_history_sum_detail)) AND ((@IsNull_report_history_drug = "& _ 
-                "1 AND [report_history_drug] IS NULL) OR ([report_history_drug] = @Original_repor"& _ 
-                "t_history_drug)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT report_history_sum_Id, report_history_sum_Date, repor"& _ 
-                "t_history_sum_sumprice, report_history_sum_detail, report_history_drug FROM repo"& _ 
-                "rt_history_sum WHERE (report_history_sum_Id = @report_history_sum_Id)"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@report_history_sum_Id", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@report_history_sum_Date", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@report_history_sum_sumprice", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_sumprice", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@report_history_sum_detail", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_detail", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@report_history_drug", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_drug", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_report_history_sum_Id", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_report_history_sum_Date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_Date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_report_history_sum_Date", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_report_history_sum_sumprice", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_sumprice", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_report_history_sum_sumprice", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_sumprice", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_report_history_sum_detail", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_detail", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_report_history_sum_detail", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_sum_detail", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_report_history_drug", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_drug", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_report_history_drug", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "report_history_drug", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.DentralManagement.My.MySettings.Default.sqlconn
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT report_history_sum_Id, report_history_sum_Date, report_history_sum_sumpric"& _ 
-                "e, report_history_sum_detail, report_history_drug FROM dbo.report_history_sum"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As sedentralDataSet.report_history_sumDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As sedentralDataSet.report_history_sumDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As sedentralDataSet.report_history_sumDataTable = New sedentralDataSet.report_history_sumDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As sedentralDataSet.report_history_sumDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As sedentralDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "report_history_sum")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_report_history_sum_Id As String, ByVal Original_report_history_sum_Date As String, ByVal Original_report_history_sum_sumprice As String, ByVal Original_report_history_sum_detail As String, ByVal Original_report_history_drug As String) As Integer
-            If (Original_report_history_sum_Id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_report_history_sum_Id")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_report_history_sum_Id,String)
-            End If
-            If (Original_report_history_sum_Date Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_report_history_sum_Date,String)
-            End If
-            If (Original_report_history_sum_sumprice Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_report_history_sum_sumprice,String)
-            End If
-            If (Original_report_history_sum_detail Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_report_history_sum_detail,String)
-            End If
-            If (Original_report_history_drug Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_report_history_drug,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal report_history_sum_Id As String, ByVal report_history_sum_Date As String, ByVal report_history_sum_sumprice As String, ByVal report_history_sum_detail As String, ByVal report_history_drug As String) As Integer
-            If (report_history_sum_Id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("report_history_sum_Id")
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(report_history_sum_Id,String)
-            End If
-            If (report_history_sum_Date Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(report_history_sum_Date,String)
-            End If
-            If (report_history_sum_sumprice Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(report_history_sum_sumprice,String)
-            End If
-            If (report_history_sum_detail Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(report_history_sum_detail,String)
-            End If
-            If (report_history_drug Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(report_history_drug,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal report_history_sum_Id As String, ByVal report_history_sum_Date As String, ByVal report_history_sum_sumprice As String, ByVal report_history_sum_detail As String, ByVal report_history_drug As String, ByVal Original_report_history_sum_Id As String, ByVal Original_report_history_sum_Date As String, ByVal Original_report_history_sum_sumprice As String, ByVal Original_report_history_sum_detail As String, ByVal Original_report_history_drug As String) As Integer
-            If (report_history_sum_Id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("report_history_sum_Id")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(report_history_sum_Id,String)
-            End If
-            If (report_history_sum_Date Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(report_history_sum_Date,String)
-            End If
-            If (report_history_sum_sumprice Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(report_history_sum_sumprice,String)
-            End If
-            If (report_history_sum_detail Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(report_history_sum_detail,String)
-            End If
-            If (report_history_drug Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(report_history_drug,String)
-            End If
-            If (Original_report_history_sum_Id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_report_history_sum_Id")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_report_history_sum_Id,String)
-            End If
-            If (Original_report_history_sum_Date Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_report_history_sum_Date,String)
-            End If
-            If (Original_report_history_sum_sumprice Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_report_history_sum_sumprice,String)
-            End If
-            If (Original_report_history_sum_detail Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_report_history_sum_detail,String)
-            End If
-            If (Original_report_history_drug Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_report_history_drug,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal report_history_sum_Date As String, ByVal report_history_sum_sumprice As String, ByVal report_history_sum_detail As String, ByVal report_history_drug As String, ByVal Original_report_history_sum_Id As String, ByVal Original_report_history_sum_Date As String, ByVal Original_report_history_sum_sumprice As String, ByVal Original_report_history_sum_detail As String, ByVal Original_report_history_drug As String) As Integer
-            Return Me.Update(Original_report_history_sum_Id, report_history_sum_Date, report_history_sum_sumprice, report_history_sum_detail, report_history_drug, Original_report_history_sum_Id, Original_report_history_sum_Date, Original_report_history_sum_sumprice, Original_report_history_sum_detail, Original_report_history_drug)
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class UserTableAdapter
         Inherits Global.System.ComponentModel.Component
         
@@ -10229,8 +9397,6 @@ Namespace sedentralDataSetTableAdapters
         
         Private _reportTableAdapter As reportTableAdapter
         
-        Private _report_history_sumTableAdapter As report_history_sumTableAdapter
-        
         Private _userTableAdapter As UserTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
@@ -10351,20 +9517,6 @@ Namespace sedentralDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property report_history_sumTableAdapter() As report_history_sumTableAdapter
-            Get
-                Return Me._report_history_sumTableAdapter
-            End Get
-            Set
-                Me._report_history_sumTableAdapter = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
         Public Property UserTableAdapter() As UserTableAdapter
             Get
                 Return Me._userTableAdapter
@@ -10421,10 +9573,6 @@ Namespace sedentralDataSetTableAdapters
                             AndAlso (Not (Me._reportTableAdapter.Connection) Is Nothing)) Then
                     Return Me._reportTableAdapter.Connection
                 End If
-                If ((Not (Me._report_history_sumTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._report_history_sumTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._report_history_sumTableAdapter.Connection
-                End If
                 If ((Not (Me._userTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._userTableAdapter.Connection) Is Nothing)) Then
                     Return Me._userTableAdapter.Connection
@@ -10463,9 +9611,6 @@ Namespace sedentralDataSetTableAdapters
                 If (Not (Me._reportTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._report_history_sumTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
                 If (Not (Me._userTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
@@ -10480,30 +9625,12 @@ Namespace sedentralDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As sedentralDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._departmentTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Department.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._appointTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Appoint.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._departmentTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._employeeTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Employee.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._employeeTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._medi_suppliesTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Medi_supplies.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._medi_suppliesTableAdapter.Update(updatedRows))
+                    result = (result + Me._appointTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -10516,21 +9643,21 @@ Namespace sedentralDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._appointTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Appoint.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._departmentTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Department.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._appointTableAdapter.Update(updatedRows))
+                    result = (result + Me._departmentTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._list_Medi_drugTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.List_Medi_drug.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._medi_suppliesTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Medi_supplies.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._list_Medi_drugTableAdapter.Update(updatedRows))
+                    result = (result + Me._medi_suppliesTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -10543,12 +9670,21 @@ Namespace sedentralDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._report_history_sumTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.report_history_sum.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._employeeTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Employee.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._report_history_sumTableAdapter.Update(updatedRows))
+                    result = (result + Me._employeeTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._list_Medi_drugTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.List_Medi_drug.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._list_Medi_drugTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -10571,27 +9707,11 @@ Namespace sedentralDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As sedentralDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._departmentTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Department.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._appointTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Appoint.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._departmentTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._employeeTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Employee.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._employeeTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._medi_suppliesTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Medi_supplies.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._medi_suppliesTableAdapter.Update(addedRows))
+                    result = (result + Me._appointTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -10603,19 +9723,19 @@ Namespace sedentralDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._appointTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Appoint.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._departmentTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Department.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._appointTableAdapter.Update(addedRows))
+                    result = (result + Me._departmentTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._list_Medi_drugTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.List_Medi_drug.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._medi_suppliesTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Medi_supplies.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._list_Medi_drugTableAdapter.Update(addedRows))
+                    result = (result + Me._medi_suppliesTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -10627,11 +9747,19 @@ Namespace sedentralDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._report_history_sumTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.report_history_sum.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._employeeTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Employee.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._report_history_sumTableAdapter.Update(addedRows))
+                    result = (result + Me._employeeTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._list_Medi_drugTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.List_Medi_drug.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._list_Medi_drugTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -10661,51 +9789,11 @@ Namespace sedentralDataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._report_history_sumTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.report_history_sum.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._report_history_sumTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._reportTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.report.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._reportTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._list_Medi_drugTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.List_Medi_drug.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._list_Medi_drugTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._appointTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Appoint.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._appointTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._patientTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Patient.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._patientTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._medi_suppliesTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Medi_supplies.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._medi_suppliesTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -10717,11 +9805,43 @@ Namespace sedentralDataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._reportTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.report.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._reportTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._medi_suppliesTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Medi_supplies.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._medi_suppliesTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._departmentTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Department.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._departmentTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._patientTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Patient.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._patientTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._appointTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Appoint.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._appointTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -10798,11 +9918,6 @@ Namespace sedentralDataSetTableAdapters
             End If
             If ((Not (Me._reportTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._reportTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
-                        "tring.")
-            End If
-            If ((Not (Me._report_history_sumTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._report_history_sumTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -10906,15 +10021,6 @@ Namespace sedentralDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._reportTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._report_history_sumTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._report_history_sumTableAdapter, Me._report_history_sumTableAdapter.Connection)
-                    Me._report_history_sumTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._report_history_sumTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._report_history_sumTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._report_history_sumTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._report_history_sumTableAdapter.Adapter)
-                    End If
-                End If
                 If (Not (Me._userTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._userTableAdapter, Me._userTableAdapter.Connection)
                     Me._userTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
@@ -11011,10 +10117,6 @@ Namespace sedentralDataSetTableAdapters
                 If (Not (Me._reportTableAdapter) Is Nothing) Then
                     Me._reportTableAdapter.Connection = CType(revertConnections(Me._reportTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._reportTableAdapter.Transaction = Nothing
-                End If
-                If (Not (Me._report_history_sumTableAdapter) Is Nothing) Then
-                    Me._report_history_sumTableAdapter.Connection = CType(revertConnections(Me._report_history_sumTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._report_history_sumTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._userTableAdapter) Is Nothing) Then
                     Me._userTableAdapter.Connection = CType(revertConnections(Me._userTableAdapter),Global.System.Data.SqlClient.SqlConnection)
