@@ -18,8 +18,6 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'Se_dentral_sql.Employee' table. You can move, or remove it, as needed.
-        Me.EmployeeTableAdapter.Fill(Me.Se_dentral_sql.Employee)
         'TODO: This line of code loads data into the 'Se_dentral_sql.Medi_supplies' table. You can move, or remove it, as needed.
         Me.Medi_suppliesTableAdapter.Fill(Me.Se_dentral_sql.Medi_supplies)
         'TODO: This line of code loads data into the 'Se_dentral_sql.User_data' table. You can move, or remove it, as needed.
@@ -286,20 +284,6 @@ Public Class Form1
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles add_1.Click
 
-    End Sub
-
-    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs) Handles FillByToolStripButton.Click
-        Try
-            Me.EmployeeTableAdapter.FillBy(Me.Se_dentral_sql.Employee)
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
-        End Try
-
-    End Sub
-
-    Private Sub search_1_TextChanged(sender As Object, e As EventArgs) Handles search_1.TextChanged
-        Me.EmployeeTableAdapter.FillByName(Me.Se_dentral_sql.Employee, search_1.Text
-                                           )
     End Sub
 
     Private Sub Set_Button_Hold(Menu_Selected As String)
