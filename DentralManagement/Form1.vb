@@ -18,6 +18,8 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Se_dentral_sql.Medi_supplies' table. You can move, or remove it, as needed.
+        Me.Medi_suppliesTableAdapter.Fill(Me.Se_dentral_sql.Medi_supplies)
         'TODO: This line of code loads data into the 'Se_dentral_sql.User_data' table. You can move, or remove it, as needed.
         Me.User_dataTableAdapter.Fill(Me.Se_dentral_sql.User_data)
         'TODO: This line of code loads data into the 'Sedentral_sql.DataTable1' table. You can move, or remove it, as needed.
@@ -273,6 +275,14 @@ Public Class Form1
     End Sub
 
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles rec_tel2.TextChanged
+
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles manag.Click
+
+    End Sub
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles add_1.Click
 
     End Sub
 
