@@ -3522,10 +3522,6 @@ Partial Public Class sedentral_sql
         
         Private columnEmp_ID As Global.System.Data.DataColumn
         
-        Private columnFori_User_Id As Global.System.Data.DataColumn
-        
-        Private columnUser_ID As Global.System.Data.DataColumn
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -3578,22 +3574,6 @@ Partial Public Class sedentral_sql
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property Fori_User_IdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFori_User_Id
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property User_IDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUser_ID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3630,9 +3610,9 @@ Partial Public Class sedentral_sql
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row(ByVal พนักงาน As String, ByVal Emp_ID As String, ByVal Fori_User_Id As String, ByVal User_ID As String) As DataTable1Row
+        Public Overloads Function AddDataTable1Row(ByVal พนักงาน As String, ByVal Emp_ID As String) As DataTable1Row
             Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
-            Dim columnValuesArray() As Object = New Object() {พนักงาน, Emp_ID, Fori_User_Id, User_ID}
+            Dim columnValuesArray() As Object = New Object() {พนักงาน, Emp_ID}
             rowDataTable1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTable1Row)
             Return rowDataTable1Row
@@ -3640,8 +3620,8 @@ Partial Public Class sedentral_sql
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByEmp_IDUser_ID(ByVal Emp_ID As String, ByVal User_ID As String) As DataTable1Row
-            Return CType(Me.Rows.Find(New Object() {Emp_ID, User_ID}),DataTable1Row)
+        Public Function FindByEmp_ID(ByVal Emp_ID As String) As DataTable1Row
+            Return CType(Me.Rows.Find(New Object() {Emp_ID}),DataTable1Row)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3663,8 +3643,6 @@ Partial Public Class sedentral_sql
         Friend Sub InitVars()
             Me.columnพนักงาน = MyBase.Columns("พนักงาน")
             Me.columnEmp_ID = MyBase.Columns("Emp_ID")
-            Me.columnFori_User_Id = MyBase.Columns("Fori_User_Id")
-            Me.columnUser_ID = MyBase.Columns("User_ID")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3674,18 +3652,12 @@ Partial Public Class sedentral_sql
             MyBase.Columns.Add(Me.columnพนักงาน)
             Me.columnEmp_ID = New Global.System.Data.DataColumn("Emp_ID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEmp_ID)
-            Me.columnFori_User_Id = New Global.System.Data.DataColumn("Fori_User_Id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFori_User_Id)
-            Me.columnUser_ID = New Global.System.Data.DataColumn("User_ID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUser_ID)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnEmp_ID, Me.columnUser_ID}, true))
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnEmp_ID}, true))
             Me.columnพนักงาน.ReadOnly = true
             Me.columnพนักงาน.MaxLength = 101
             Me.columnEmp_ID.AllowDBNull = false
+            Me.columnEmp_ID.Unique = true
             Me.columnEmp_ID.MaxLength = 10
-            Me.columnFori_User_Id.MaxLength = 10
-            Me.columnUser_ID.AllowDBNull = false
-            Me.columnUser_ID.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5215,32 +5187,6 @@ Partial Public Class sedentral_sql
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Fori_User_Id() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDataTable1.Fori_User_IdColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Fori_User_Id' in table 'DataTable1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDataTable1.Fori_User_IdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property User_ID() As String
-            Get
-                Return CType(Me(Me.tableDataTable1.User_IDColumn),String)
-            End Get
-            Set
-                Me(Me.tableDataTable1.User_IDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsพนักงานNull() As Boolean
             Return Me.IsNull(Me.tableDataTable1.พนักงานColumn)
         End Function
@@ -5249,18 +5195,6 @@ Partial Public Class sedentral_sql
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetพนักงานNull()
             Me(Me.tableDataTable1.พนักงานColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsFori_User_IdNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.Fori_User_IdColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetFori_User_IdNull()
-            Me(Me.tableDataTable1.Fori_User_IdColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9607,8 +9541,6 @@ Namespace sedentral_sqlTableAdapters
             tableMapping.DataSetTable = "DataTable1"
             tableMapping.ColumnMappings.Add("พนักงาน", "พนักงาน")
             tableMapping.ColumnMappings.Add("Emp_ID", "Emp_ID")
-            tableMapping.ColumnMappings.Add("Fori_User_Id", "Fori_User_Id")
-            tableMapping.ColumnMappings.Add("User_ID", "User_ID")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -9625,9 +9557,8 @@ Namespace sedentral_sqlTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Employee.Emp_Fname + ' ' + Employee.Emp_Lname AS พนักงาน, Employee."& _ 
-                "Emp_ID, [User].Fori_User_Id, [User].User_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Employee INNER JOIN"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         [User] ON Employee.Emp_ID = [User].Fori_User_Id"
+            Me._commandCollection(0).CommandText = "SELECT        Emp_Fname + ' ' + Emp_Lname AS พนักงาน, Emp_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Emp"& _ 
+                "loyee"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

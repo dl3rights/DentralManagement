@@ -609,12 +609,11 @@ FROM            Employee INNER JOIN
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectName="sedentral.dbo.Employee" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Employee.Emp_Fname + ' ' + Employee.Emp_Lname AS พนักงาน, Employee.Emp_ID, [User].Fori_User_Id, [User].User_ID
-FROM            Employee INNER JOIN
-                         [User] ON Employee.Emp_ID = [User].Fori_User_Id</CommandText>
+                    <CommandText>SELECT        Emp_Fname + ' ' + Emp_Lname AS พนักงาน, Emp_ID
+FROM            Employee</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -623,8 +622,6 @@ FROM            Employee INNER JOIN
             <Mappings>
               <Mapping SourceColumn="พนักงาน" DataSetColumn="พนักงาน" />
               <Mapping SourceColumn="Emp_ID" DataSetColumn="Emp_ID" />
-              <Mapping SourceColumn="Fori_User_Id" DataSetColumn="Fori_User_Id" />
-              <Mapping SourceColumn="User_ID" DataSetColumn="User_ID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1028,20 +1025,6 @@ FROM            Employee INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Fori_User_Id" msprop:Generator_ColumnVarNameInTable="columnFori_User_Id" msprop:Generator_ColumnPropNameInRow="Fori_User_Id" msprop:Generator_ColumnPropNameInTable="Fori_User_IdColumn" msprop:Generator_UserColumnName="Fori_User_Id" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_ID" msprop:Generator_ColumnVarNameInTable="columnUser_ID" msprop:Generator_ColumnPropNameInRow="User_ID" msprop:Generator_ColumnPropNameInTable="User_IDColumn" msprop:Generator_UserColumnName="User_ID">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1086,7 +1069,6 @@ FROM            Employee INNER JOIN
     <xs:unique name="DataTable1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:DataTable1" />
       <xs:field xpath="mstns:Emp_ID" />
-      <xs:field xpath="mstns:User_ID" />
     </xs:unique>
   </xs:element>
   <xs:annotation>

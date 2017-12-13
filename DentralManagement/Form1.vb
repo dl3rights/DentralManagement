@@ -18,6 +18,8 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Sedentral_sql.DataTable1' table. You can move, or remove it, as needed.
+        Me.DataTable1TableAdapter.Fill(Me.Sedentral_sql.DataTable1)
         'TODO: This line of code loads data into the 'Sedentral_sql.user_edit' table. You can move, or remove it, as needed.
         Me.User_editTableAdapter.Fill(Me.Sedentral_sql.user_edit)
         'TODO: This line of code loads data into the 'Sedentral_sql.user_edit' table. You can move, or remove it, as needed.
@@ -26,7 +28,7 @@ Public Class Form1
         SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         UpdateStyles()
 
-        tble_ucp = data_User.DataSource
+        tble_ucp = Sedentral_sql.user_edit.CopyToDataTable
 
         Default_Gray = Color.FromArgb(126, 139, 154)
         btn_admin.BackColor = Default_Gray
@@ -244,23 +246,21 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btn_add_Click(sender As Object, e As DataGridViewCellEventArgs) Handles btn_add.Click
+    Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
 
-        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text)
+
+        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, cb_add_emp.FindStringExact(cb_add_emp.ValueMember), cb_add_access.SelectedIndex)
+        data_User.DataSource = tble_ucp
     End Sub
 
-    Private Sub data_User_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles data_User.CellContentClick
+    Private Sub data_User_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles data_User.CellClick
         index = e.RowIndex
         Dim selectedRow As DataGridViewRow
-        selectedRow = data_User.Rows(Index)
+        selectedRow = data_User.Rows(index)
         tb_add_user.Text = selectedRow.Cells(0).Value.ToString()
         tb_add_pass.Text = selectedRow.Cells(1).Value.ToString()
-        cb_add_emp.SelectedText = selectedRow.Cells(2).Value.ToString
-        cb_add_access.SelectedText = selectedRow.Cells(3).Value.ToString()
-    End Sub
-
-    Private Sub cb_add_emp_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_add_emp.SelectedIndexChanged
-        'Label36
+        cb_add_emp.SelectedValue = selectedRow.Cells(2).Value.ToString()
+        cb_add_access.SelectedIndex = selectedRow.Cells(3).Value.ToString()
     End Sub
 
     Private Sub Set_Button_Hold(Menu_Selected As String)
