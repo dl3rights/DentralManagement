@@ -44,7 +44,11 @@ Partial Class Form1
         Me.tb_add_user = New System.Windows.Forms.TextBox()
         Me.admin_refresh = New System.Windows.Forms.Button()
         Me.data_User = New System.Windows.Forms.DataGridView()
-        Me.SedentralsqlBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.UserIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UserPassDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.พนกงานDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UserAccessDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UserdataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Se_dentral_sql = New DentralManagement.Se_dentral_sql()
         Me.Drug2 = New DentralManagement.DblBufferedPanel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -146,6 +150,7 @@ Partial Class Form1
         Me.User_g = New DentralManagement.DblBufferedPanel()
         Me.btn_logout = New System.Windows.Forms.Button()
         Me.usern = New System.Windows.Forms.Label()
+        Me.SedentralsqlBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Login_p = New DentralManagement.DblBufferedPanel()
         Me.Login_gui = New DentralManagement.DblBufferedPanel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -161,12 +166,7 @@ Partial Class Form1
         Me.btn_Min = New System.Windows.Forms.Button()
         Me.btn_Exit = New System.Windows.Forms.Button()
         Me.btn_MaxRe = New System.Windows.Forms.Button()
-        Me.UserdataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.User_dataTableAdapter = New DentralManagement.Se_dentral_sqlTableAdapters.User_dataTableAdapter()
-        Me.UserIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UserPassDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.พนกงานDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UserAccessDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.UsereditBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsereditBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -175,7 +175,7 @@ Partial Class Form1
         Me.U.SuspendLayout()
         Me.Admin.SuspendLayout()
         CType(Me.data_User, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SedentralsqlBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UserdataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Se_dentral_sql, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Drug2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -196,13 +196,13 @@ Partial Class Form1
         CType(Me.btn_drug, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btn_record, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.User_g.SuspendLayout()
+        CType(Me.SedentralsqlBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Login_p.SuspendLayout()
         Me.Login_gui.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Taskbar.SuspendLayout()
         Me.Tool.SuspendLayout()
-        CType(Me.UserdataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UsereditBindingSource1
@@ -236,6 +236,7 @@ Partial Class Form1
         'U
         '
         Me.U.Controls.Add(Me.Admin)
+        Me.U.Controls.Add(Me.Record_4)
         Me.U.Controls.Add(Me.Drug2)
         Me.U.Controls.Add(Me.Record_1)
         Me.U.Controls.Add(Me.Record_2)
@@ -243,7 +244,6 @@ Partial Class Form1
         Me.U.Controls.Add(Me.Finan)
         Me.U.Controls.Add(Me.Drug1)
         Me.U.Controls.Add(Me.Record_3)
-        Me.U.Controls.Add(Me.Record_4)
         Me.U.Controls.Add(Me.Home)
         Me.U.Controls.Add(Me.Menu_Tool)
         Me.U.Dock = System.Windows.Forms.DockStyle.Fill
@@ -377,10 +377,36 @@ Partial Class Form1
         Me.data_User.Size = New System.Drawing.Size(493, 257)
         Me.data_User.TabIndex = 0
         '
-        'SedentralsqlBindingSource
+        'UserIDDataGridViewTextBoxColumn
         '
-        Me.SedentralsqlBindingSource.DataSource = Me.Se_dentral_sql
-        Me.SedentralsqlBindingSource.Position = 0
+        Me.UserIDDataGridViewTextBoxColumn.DataPropertyName = "User_ID"
+        Me.UserIDDataGridViewTextBoxColumn.HeaderText = "User_ID"
+        Me.UserIDDataGridViewTextBoxColumn.Name = "UserIDDataGridViewTextBoxColumn"
+        '
+        'UserPassDataGridViewTextBoxColumn
+        '
+        Me.UserPassDataGridViewTextBoxColumn.DataPropertyName = "User_Pass"
+        Me.UserPassDataGridViewTextBoxColumn.HeaderText = "User_Pass"
+        Me.UserPassDataGridViewTextBoxColumn.Name = "UserPassDataGridViewTextBoxColumn"
+        '
+        'พนกงานDataGridViewTextBoxColumn
+        '
+        Me.พนกงานDataGridViewTextBoxColumn.DataPropertyName = "พนักงาน"
+        Me.พนกงานDataGridViewTextBoxColumn.HeaderText = "พนักงาน"
+        Me.พนกงานDataGridViewTextBoxColumn.Name = "พนกงานDataGridViewTextBoxColumn"
+        Me.พนกงานDataGridViewTextBoxColumn.ReadOnly = True
+        Me.พนกงานDataGridViewTextBoxColumn.Width = 150
+        '
+        'UserAccessDataGridViewTextBoxColumn
+        '
+        Me.UserAccessDataGridViewTextBoxColumn.DataPropertyName = "User_Access"
+        Me.UserAccessDataGridViewTextBoxColumn.HeaderText = "User_Access"
+        Me.UserAccessDataGridViewTextBoxColumn.Name = "UserAccessDataGridViewTextBoxColumn"
+        '
+        'UserdataBindingSource
+        '
+        Me.UserdataBindingSource.DataMember = "User_data"
+        Me.UserdataBindingSource.DataSource = Me.Se_dentral_sql
         '
         'Se_dentral_sql
         '
@@ -1406,6 +1432,11 @@ Partial Class Form1
         Me.usern.TabIndex = 0
         Me.usern.Text = "user"
         '
+        'SedentralsqlBindingSource
+        '
+        Me.SedentralsqlBindingSource.DataSource = Me.Se_dentral_sql
+        Me.SedentralsqlBindingSource.Position = 0
+        '
         'Login_p
         '
         Me.Login_p.AutoSize = True
@@ -1584,40 +1615,9 @@ Partial Class Form1
         Me.btn_MaxRe.TabIndex = 1
         Me.btn_MaxRe.UseVisualStyleBackColor = False
         '
-        'UserdataBindingSource
-        '
-        Me.UserdataBindingSource.DataMember = "User_data"
-        Me.UserdataBindingSource.DataSource = Me.Se_dentral_sql
-        '
         'User_dataTableAdapter
         '
         Me.User_dataTableAdapter.ClearBeforeFill = True
-        '
-        'UserIDDataGridViewTextBoxColumn
-        '
-        Me.UserIDDataGridViewTextBoxColumn.DataPropertyName = "User_ID"
-        Me.UserIDDataGridViewTextBoxColumn.HeaderText = "User_ID"
-        Me.UserIDDataGridViewTextBoxColumn.Name = "UserIDDataGridViewTextBoxColumn"
-        '
-        'UserPassDataGridViewTextBoxColumn
-        '
-        Me.UserPassDataGridViewTextBoxColumn.DataPropertyName = "User_Pass"
-        Me.UserPassDataGridViewTextBoxColumn.HeaderText = "User_Pass"
-        Me.UserPassDataGridViewTextBoxColumn.Name = "UserPassDataGridViewTextBoxColumn"
-        '
-        'พนกงานDataGridViewTextBoxColumn
-        '
-        Me.พนกงานDataGridViewTextBoxColumn.DataPropertyName = "พนักงาน"
-        Me.พนกงานDataGridViewTextBoxColumn.HeaderText = "พนักงาน"
-        Me.พนกงานDataGridViewTextBoxColumn.Name = "พนกงานDataGridViewTextBoxColumn"
-        Me.พนกงานDataGridViewTextBoxColumn.ReadOnly = True
-        Me.พนกงานDataGridViewTextBoxColumn.Width = 150
-        '
-        'UserAccessDataGridViewTextBoxColumn
-        '
-        Me.UserAccessDataGridViewTextBoxColumn.DataPropertyName = "User_Access"
-        Me.UserAccessDataGridViewTextBoxColumn.HeaderText = "User_Access"
-        Me.UserAccessDataGridViewTextBoxColumn.Name = "UserAccessDataGridViewTextBoxColumn"
         '
         'Form1
         '
@@ -1649,7 +1649,7 @@ Partial Class Form1
         Me.Admin.ResumeLayout(False)
         Me.Admin.PerformLayout()
         CType(Me.data_User, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SedentralsqlBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UserdataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Se_dentral_sql, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Drug2.ResumeLayout(False)
         Me.Drug2.PerformLayout()
@@ -1676,6 +1676,7 @@ Partial Class Form1
         CType(Me.btn_record, System.ComponentModel.ISupportInitialize).EndInit()
         Me.User_g.ResumeLayout(False)
         Me.User_g.PerformLayout()
+        CType(Me.SedentralsqlBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Login_p.ResumeLayout(False)
         Me.Login_gui.ResumeLayout(False)
         Me.Login_gui.PerformLayout()
@@ -1683,7 +1684,6 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Taskbar.ResumeLayout(False)
         Me.Tool.ResumeLayout(False)
-        CType(Me.UserdataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
