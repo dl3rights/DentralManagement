@@ -18,8 +18,8 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'Sedentral_sql.DataTable1' table. You can move, or remove it, as needed.
-        Me.DataTable1TableAdapter.Fill(Me.Sedentral_sql.DataTable1)
+        'TODO: This line of code loads data into the 'Sedentral_sql.List_Medi_drug' table. You can move, or remove it, as needed.
+        Me.List_Medi_drugTableAdapter.Fill(Me.Sedentral_sql.List_Medi_drug)
         'TODO: This line of code loads data into the 'Sedentral_sql.user_edit' table. You can move, or remove it, as needed.
         Me.User_editTableAdapter.Fill(Me.Sedentral_sql.user_edit)
         'TODO: This line of code loads data into the 'Sedentral_sql.user_edit' table. You can move, or remove it, as needed.
@@ -271,6 +271,14 @@ Public Class Form1
     End Sub
 
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles rec_tel2.TextChanged
+
+    End Sub
+
+    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+
+    End Sub
+
+    Private Sub Label36_Click(sender As Object, e As EventArgs) Handles Label_IDPa.Click
 
     End Sub
 
