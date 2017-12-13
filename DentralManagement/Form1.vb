@@ -18,8 +18,10 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Se_dentral_sql.DataTable1' table. You can move, or remove it, as needed.
+        Me.DataTable1TableAdapter1.FillEmpDep(Me.Se_dentral_sql.DataTable1)
         'TODO: This line of code loads data into the 'Se_dentral_sql.Employee' table. You can move, or remove it, as needed.
-        Me.EmployeeTableAdapter.Fill(Me.Se_dentral_sql.Employee)
+
         'TODO: This line of code loads data into the 'Se_dentral_sql.Medi_supplies' table. You can move, or remove it, as needed.
 
         'TODO: This line of code loads data into the 'Se_dentral_sql.User_data' table. You can move, or remove it, as needed.
@@ -289,7 +291,7 @@ Public Class Form1
     End Sub
 
     Private Sub TextBox3_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
-        Me.EmployeeTableAdapter.FillByName(Me.Se_dentral_sql.Employee, TextBox3.Text)
+        Me.DataTable1TableAdapter1.FillByEmpDep(Me.Se_dentral_sql.DataTable1, TextBox3.Text)
     End Sub
 
     Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellContentClick

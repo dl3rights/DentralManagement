@@ -34,11 +34,6 @@ Partial Class Form1
         Me.U = New DentralManagement.DblBufferedPanel()
         Me.Employee = New DentralManagement.DblBufferedPanel()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
-        Me.EmpIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EmpFnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EmpLnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EmpGenderDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EmpDepDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmployeeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Se_dentral_sql = New DentralManagement.Se_dentral_sql()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -189,6 +184,13 @@ Partial Class Form1
         Me.btn_MaxRe = New System.Windows.Forms.Button()
         Me.User_dataTableAdapter = New DentralManagement.Se_dentral_sqlTableAdapters.User_dataTableAdapter()
         Me.EmployeeTableAdapter = New DentralManagement.Se_dentral_sqlTableAdapters.EmployeeTableAdapter()
+        Me.DataTable1BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataTable1TableAdapter1 = New DentralManagement.Se_dentral_sqlTableAdapters.DataTable1TableAdapter()
+        Me.EmpIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmpFnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmpLnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmpGenderDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dep_Name = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.UsereditBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsereditBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -231,6 +233,7 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Taskbar.SuspendLayout()
         Me.Tool.SuspendLayout()
+        CType(Me.DataTable1BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UsereditBindingSource1
@@ -296,42 +299,12 @@ Partial Class Form1
         '
         Me.DataGridView4.AutoGenerateColumns = False
         Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EmpIDDataGridViewTextBoxColumn, Me.EmpFnameDataGridViewTextBoxColumn, Me.EmpLnameDataGridViewTextBoxColumn, Me.EmpGenderDataGridViewTextBoxColumn, Me.EmpDepDataGridViewTextBoxColumn})
-        Me.DataGridView4.DataSource = Me.EmployeeBindingSource
+        Me.DataGridView4.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EmpIDDataGridViewTextBoxColumn, Me.EmpFnameDataGridViewTextBoxColumn, Me.EmpLnameDataGridViewTextBoxColumn, Me.EmpGenderDataGridViewTextBoxColumn, Me.Dep_Name})
+        Me.DataGridView4.DataSource = Me.DataTable1BindingSource2
         Me.DataGridView4.Location = New System.Drawing.Point(76, 132)
         Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.Size = New System.Drawing.Size(543, 191)
+        Me.DataGridView4.Size = New System.Drawing.Size(538, 191)
         Me.DataGridView4.TabIndex = 2
-        '
-        'EmpIDDataGridViewTextBoxColumn
-        '
-        Me.EmpIDDataGridViewTextBoxColumn.DataPropertyName = "Emp_ID"
-        Me.EmpIDDataGridViewTextBoxColumn.HeaderText = "Emp_ID"
-        Me.EmpIDDataGridViewTextBoxColumn.Name = "EmpIDDataGridViewTextBoxColumn"
-        '
-        'EmpFnameDataGridViewTextBoxColumn
-        '
-        Me.EmpFnameDataGridViewTextBoxColumn.DataPropertyName = "Emp_Fname"
-        Me.EmpFnameDataGridViewTextBoxColumn.HeaderText = "Emp_Fname"
-        Me.EmpFnameDataGridViewTextBoxColumn.Name = "EmpFnameDataGridViewTextBoxColumn"
-        '
-        'EmpLnameDataGridViewTextBoxColumn
-        '
-        Me.EmpLnameDataGridViewTextBoxColumn.DataPropertyName = "Emp_Lname"
-        Me.EmpLnameDataGridViewTextBoxColumn.HeaderText = "Emp_Lname"
-        Me.EmpLnameDataGridViewTextBoxColumn.Name = "EmpLnameDataGridViewTextBoxColumn"
-        '
-        'EmpGenderDataGridViewTextBoxColumn
-        '
-        Me.EmpGenderDataGridViewTextBoxColumn.DataPropertyName = "Emp_Gender"
-        Me.EmpGenderDataGridViewTextBoxColumn.HeaderText = "Emp_Gender"
-        Me.EmpGenderDataGridViewTextBoxColumn.Name = "EmpGenderDataGridViewTextBoxColumn"
-        '
-        'EmpDepDataGridViewTextBoxColumn
-        '
-        Me.EmpDepDataGridViewTextBoxColumn.DataPropertyName = "Emp_Dep"
-        Me.EmpDepDataGridViewTextBoxColumn.HeaderText = "Emp_Dep"
-        Me.EmpDepDataGridViewTextBoxColumn.Name = "EmpDepDataGridViewTextBoxColumn"
         '
         'EmployeeBindingSource
         '
@@ -1814,6 +1787,45 @@ Partial Class Form1
         '
         Me.EmployeeTableAdapter.ClearBeforeFill = True
         '
+        'DataTable1BindingSource2
+        '
+        Me.DataTable1BindingSource2.DataMember = "DataTable1"
+        Me.DataTable1BindingSource2.DataSource = Me.Se_dentral_sql
+        '
+        'DataTable1TableAdapter1
+        '
+        Me.DataTable1TableAdapter1.ClearBeforeFill = True
+        '
+        'EmpIDDataGridViewTextBoxColumn
+        '
+        Me.EmpIDDataGridViewTextBoxColumn.DataPropertyName = "Emp_ID"
+        Me.EmpIDDataGridViewTextBoxColumn.HeaderText = "รหัสพนักงาน"
+        Me.EmpIDDataGridViewTextBoxColumn.Name = "EmpIDDataGridViewTextBoxColumn"
+        '
+        'EmpFnameDataGridViewTextBoxColumn
+        '
+        Me.EmpFnameDataGridViewTextBoxColumn.DataPropertyName = "Emp_Fname"
+        Me.EmpFnameDataGridViewTextBoxColumn.HeaderText = "ชื่อ"
+        Me.EmpFnameDataGridViewTextBoxColumn.Name = "EmpFnameDataGridViewTextBoxColumn"
+        '
+        'EmpLnameDataGridViewTextBoxColumn
+        '
+        Me.EmpLnameDataGridViewTextBoxColumn.DataPropertyName = "Emp_Lname"
+        Me.EmpLnameDataGridViewTextBoxColumn.HeaderText = "นามสกุล"
+        Me.EmpLnameDataGridViewTextBoxColumn.Name = "EmpLnameDataGridViewTextBoxColumn"
+        '
+        'EmpGenderDataGridViewTextBoxColumn
+        '
+        Me.EmpGenderDataGridViewTextBoxColumn.DataPropertyName = "Emp_Gender"
+        Me.EmpGenderDataGridViewTextBoxColumn.HeaderText = "เพศ"
+        Me.EmpGenderDataGridViewTextBoxColumn.Name = "EmpGenderDataGridViewTextBoxColumn"
+        '
+        'Dep_Name
+        '
+        Me.Dep_Name.DataPropertyName = "Dep_Name"
+        Me.Dep_Name.HeaderText = "แผนก"
+        Me.Dep_Name.Name = "Dep_Name"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 27.0!)
@@ -1887,6 +1899,7 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Taskbar.ResumeLayout(False)
         Me.Tool.ResumeLayout(False)
+        CType(Me.DataTable1BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2053,9 +2066,11 @@ Partial Class Form1
     Friend WithEvents Label39 As Label
     Friend WithEvents EmployeeBindingSource As BindingSource
     Friend WithEvents EmployeeTableAdapter As Se_dentral_sqlTableAdapters.EmployeeTableAdapter
+    Friend WithEvents DataTable1BindingSource2 As BindingSource
+    Friend WithEvents DataTable1TableAdapter1 As Se_dentral_sqlTableAdapters.DataTable1TableAdapter
     Friend WithEvents EmpIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EmpFnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EmpLnameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EmpGenderDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents EmpDepDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Dep_Name As DataGridViewTextBoxColumn
 End Class
