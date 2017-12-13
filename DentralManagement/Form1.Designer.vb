@@ -155,6 +155,10 @@ Partial Class Form1
         Me.UsereditBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.cb_add_access = New System.Windows.Forms.ComboBox()
         Me.btn_add = New System.Windows.Forms.Button()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label39 = New System.Windows.Forms.Label()
         CType(Me.Sedentral_sql, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.U.SuspendLayout()
         Me.Admin.SuspendLayout()
@@ -214,6 +218,10 @@ Partial Class Form1
         '
         'Admin
         '
+        Me.Admin.Controls.Add(Me.Label39)
+        Me.Admin.Controls.Add(Me.Label38)
+        Me.Admin.Controls.Add(Me.Label37)
+        Me.Admin.Controls.Add(Me.Label36)
         Me.Admin.Controls.Add(Me.btn_add)
         Me.Admin.Controls.Add(Me.cb_add_access)
         Me.Admin.Controls.Add(Me.cb_add_emp)
@@ -1543,6 +1551,42 @@ Partial Class Form1
         Me.btn_add.Text = "Add/Save"
         Me.btn_add.UseVisualStyleBackColor = True
         '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(201, 347)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(53, 27)
+        Me.Label36.TabIndex = 7
+        Me.Label36.Text = "Label36"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(282, 347)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(54, 27)
+        Me.Label37.TabIndex = 8
+        Me.Label37.Text = "Label37"
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(214, 396)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(54, 27)
+        Me.Label38.TabIndex = 9
+        Me.Label38.Text = "Label38"
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(325, 408)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(54, 27)
+        Me.Label39.TabIndex = 10
+        Me.Label39.Text = "Label39"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 27.0!)
@@ -1738,4 +1782,8 @@ Partial Class Form1
     Friend WithEvents UsereditBindingSource1 As BindingSource
     Friend WithEvents tb_add_pass As TextBox
     Friend WithEvents tb_add_user As TextBox
+    Friend WithEvents Label36 As Label
+    Friend WithEvents Label39 As Label
+    Friend WithEvents Label38 As Label
+    Friend WithEvents Label37 As Label
 End Class

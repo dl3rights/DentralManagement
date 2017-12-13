@@ -8,6 +8,9 @@ Public Class Form1
     Dim User_ID As String
     Dim User_name As String
     Dim Priv_Class As String
+    Dim tble_ucp As New DataTable("Table")
+
+    Dim index As Integer
     'Dim Menu_Selected As String
 
     'SQL SERVER CONNECTION'
@@ -22,6 +25,8 @@ Public Class Form1
         SetStyle(ControlStyles.AllPaintingInWmPaint, True)
         SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         UpdateStyles()
+
+        tble_ucp = data_User.DataSource
 
         Default_Gray = Color.FromArgb(126, 139, 154)
         btn_admin.BackColor = Default_Gray
@@ -239,27 +244,23 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
-        Dim newDataRow As DataGridViewRow
-        Dim Index As Integer = e.RowIndex
-        newDataRow = DataGridView1.Rows(Index)
+    Private Sub btn_add_Click(sender As Object, e As DataGridViewCellEventArgs) Handles btn_add.Click
 
-        ' get data from textboxes to the row
-
-        newDataRow.Cells(0).Value = tb_add_user.Text
-        newDataRow.Cells(1).Value = tb_add_pass.Text
-        newDataRow.Cells(2).Value = cb_add_emp.SelectedText
-        newDataRow.Cells(3).Value = cb_add_access.SelectedText
+        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text)
     End Sub
 
     Private Sub data_User_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles data_User.CellContentClick
-        Dim Index As Integer = e.RowIndex
+        index = e.RowIndex
         Dim selectedRow As DataGridViewRow
         selectedRow = data_User.Rows(Index)
         tb_add_user.Text = selectedRow.Cells(0).Value.ToString()
         tb_add_pass.Text = selectedRow.Cells(1).Value.ToString()
         cb_add_emp.SelectedText = selectedRow.Cells(2).Value.ToString
         cb_add_access.SelectedText = selectedRow.Cells(3).Value.ToString()
+    End Sub
+
+    Private Sub cb_add_emp_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_add_emp.SelectedIndexChanged
+        'Label36
     End Sub
 
     Private Sub Set_Button_Hold(Menu_Selected As String)
