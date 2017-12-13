@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="sedentralDataSet1" targetNamespace="http://tempuri.org/sedentralDataSet11.xsd" xmlns:mstns="http://tempuri.org/sedentralDataSet11.xsd" xmlns="http://tempuri.org/sedentralDataSet11.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="Se_dentral_sql" targetNamespace="http://tempuri.org/Se_dentral_sql1.xsd" xmlns:mstns="http://tempuri.org/Se_dentral_sql1.xsd" xmlns="http://tempuri.org/Se_dentral_sql1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="sedentralConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sedentralConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DentralManagement.My.MySettings.GlobalReference.Default.sedentralConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="sqlconn" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sqlconn (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DentralManagement.My.MySettings.GlobalReference.Default.sqlconn" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AppointTableAdapter" GeneratorDataComponentClassName="AppointTableAdapter" Name="Appoint" UserDataComponentName="AppointTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="sedentralConnectionString (MySettings)" DbObjectName="sedentral.dbo.Appoint" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectName="sedentral.dbo.Appoint" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Appoint] WHERE (([Appoint_ID] = @Original_Appoint_ID) AND ((@IsNull_Appoint_Date = 1 AND [Appoint_Date] IS NULL) OR ([Appoint_Date] = @Original_Appoint_Date)) AND ((@IsNull_Appoint_Time = 1 AND [Appoint_Time] IS NULL) OR ([Appoint_Time] = @Original_Appoint_Time)) AND ((@IsNull_Appoint_Status = 1 AND [Appoint_Status] IS NULL) OR ([Appoint_Status] = @Original_Appoint_Status)) AND ((@IsNull_Appoint_Empoy = 1 AND [Appoint_Empoy] IS NULL) OR ([Appoint_Empoy] = @Original_Appoint_Empoy)) AND ((@IsNull_Appoint_Patient = 1 AND [Appoint_Patient] IS NULL) OR ([Appoint_Patient] = @Original_Appoint_Patient)))</CommandText>
@@ -87,7 +87,7 @@ SELECT Appoint_ID, Appoint_Date, Appoint_Time, Appoint_Status, Appoint_Empoy, Ap
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DepartmentTableAdapter" GeneratorDataComponentClassName="DepartmentTableAdapter" Name="Department" UserDataComponentName="DepartmentTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="sedentralConnectionString (MySettings)" DbObjectName="sedentral.dbo.Department" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectName="sedentral.dbo.Department" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Department] WHERE (([Dep_ID] = @Original_Dep_ID) AND ((@IsNull_Dep_Name = 1 AND [Dep_Name] IS NULL) OR ([Dep_Name] = @Original_Dep_Name)) AND ((@IsNull_Count = 1 AND [Count] IS NULL) OR ([Count] = @Original_Count)))</CommandText>
@@ -144,7 +144,7 @@ SELECT Dep_ID, Dep_Name, Count FROM Department WHERE (Dep_ID = @Dep_ID)</Command
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmployeeTableAdapter" GeneratorDataComponentClassName="EmployeeTableAdapter" Name="Employee" UserDataComponentName="EmployeeTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="sedentralConnectionString (MySettings)" DbObjectName="sedentral.dbo.Employee" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectName="sedentral.dbo.Employee" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Employee] WHERE (([Emp_ID] = @Original_Emp_ID) AND ((@IsNull_Emp_Fname = 1 AND [Emp_Fname] IS NULL) OR ([Emp_Fname] = @Original_Emp_Fname)) AND ((@IsNull_Emp_Lname = 1 AND [Emp_Lname] IS NULL) OR ([Emp_Lname] = @Original_Emp_Lname)) AND ((@IsNull_Emp_Gender = 1 AND [Emp_Gender] IS NULL) OR ([Emp_Gender] = @Original_Emp_Gender)) AND ((@IsNull_Emp_Salary = 1 AND [Emp_Salary] IS NULL) OR ([Emp_Salary] = @Original_Emp_Salary)) AND ((@IsNull_Emp_Dep = 1 AND [Emp_Dep] IS NULL) OR ([Emp_Dep] = @Original_Emp_Dep)))</CommandText>
@@ -222,7 +222,7 @@ SELECT Emp_ID, Emp_Fname, Emp_Lname, Emp_Gender, Emp_Salary, Emp_Dep FROM Employ
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="List_Medi_drugTableAdapter" GeneratorDataComponentClassName="List_Medi_drugTableAdapter" Name="List_Medi_drug" UserDataComponentName="List_Medi_drugTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="sedentralConnectionString (MySettings)" DbObjectName="sedentral.dbo.List_Medi_drug" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectName="sedentral.dbo.List_Medi_drug" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[List_Medi_drug] WHERE (([List_Id] = @Original_List_Id) AND ((@IsNull_List_id_report = 1 AND [List_id_report] IS NULL) OR ([List_id_report] = @Original_List_id_report)) AND ((@IsNull_List_Medi_drug = 1 AND [List_Medi_drug] IS NULL) OR ([List_Medi_drug] = @Original_List_Medi_drug)) AND ((@IsNull_List_count = 1 AND [List_count] IS NULL) OR ([List_count] = @Original_List_count)))</CommandText>
@@ -286,7 +286,7 @@ SELECT List_Id, List_id_report, List_Medi_drug, List_count FROM List_Medi_drug W
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Medi_suppliesTableAdapter" GeneratorDataComponentClassName="Medi_suppliesTableAdapter" Name="Medi_supplies" UserDataComponentName="Medi_suppliesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="sedentralConnectionString (MySettings)" DbObjectName="sedentral.dbo.Medi_supplies" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectName="sedentral.dbo.Medi_supplies" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Medi_supplies] WHERE (([medi_supplies_Id] = @Original_medi_supplies_Id) AND ((@IsNull_medi_supplies_name = 1 AND [medi_supplies_name] IS NULL) OR ([medi_supplies_name] = @Original_medi_supplies_name)) AND ((@IsNull_medi_supplies_price = 1 AND [medi_supplies_price] IS NULL) OR ([medi_supplies_price] = @Original_medi_supplies_price)) AND ((@IsNull_medi_supplies_detail = 1 AND [medi_supplies_detail] IS NULL) OR ([medi_supplies_detail] = @Original_medi_supplies_detail)) AND ((@IsNull_medi_supplies_count = 1 AND [medi_supplies_count] IS NULL) OR ([medi_supplies_count] = @Original_medi_supplies_count)))</CommandText>
@@ -357,18 +357,18 @@ SELECT medi_supplies_Id, medi_supplies_name, medi_supplies_price, medi_supplies_
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PatientTableAdapter" GeneratorDataComponentClassName="PatientTableAdapter" Name="Patient" UserDataComponentName="PatientTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="sedentralConnectionString (MySettings)" DbObjectName="sedentral.dbo.Patient" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectName="sedentral.dbo.Patient" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Patient] WHERE (([patient_Id] = @Original_patient_Id) AND ((@IsNull_patient_Fname = 1 AND [patient_Fname] IS NULL) OR ([patient_Fname] = @Original_patient_Fname)) AND ((@IsNull_patient_Lname = 1 AND [patient_Lname] IS NULL) OR ([patient_Lname] = @Original_patient_Lname)) AND ((@IsNull_patient_Grender = 1 AND [patient_Grender] IS NULL) OR ([patient_Grender] = @Original_patient_Grender)) AND ((@IsNull_patient_Wight = 1 AND [patient_Wight] IS NULL) OR ([patient_Wight] = @Original_patient_Wight)) AND ((@IsNull_patient_Height = 1 AND [patient_Height] IS NULL) OR ([patient_Height] = @Original_patient_Height)) AND ((@IsNull_patient_allergic_druge = 1 AND [patient_allergic_druge] IS NULL) OR ([patient_allergic_druge] = @Original_patient_allergic_druge)) AND ((@IsNull_patient_Appoint_Id = 1 AND [patient_Appoint_Id] IS NULL) OR ([patient_Appoint_Id] = @Original_patient_Appoint_Id)) AND ((@IsNull_patient_report_history_Id = 1 AND [patient_report_history_Id] IS NULL) OR ([patient_report_history_Id] = @Original_patient_report_history_Id)) AND ((@IsNull_patient_id_card = 1 AND [patient_id_card] IS NULL) OR ([patient_id_card] = @Original_patient_id_card)) AND ((@IsNull_patient_nation = 1 AND [patient_nation] IS NULL) OR ([patient_nation] = @Original_patient_nation)) AND ((@IsNull_patient_ethnicity = 1 AND [patient_ethnicity] IS NULL) OR ([patient_ethnicity] = @Original_patient_ethnicity)) AND ((@IsNull_patient_regal = 1 AND [patient_regal] IS NULL) OR ([patient_regal] = @Original_patient_regal)) AND ((@IsNull_patient_tel = 1 AND [patient_tel] IS NULL) OR ([patient_tel] = @Original_patient_tel)) AND ((@IsNull_patient_tel_home = 1 AND [patient_tel_home] IS NULL) OR ([patient_tel_home] = @Original_patient_tel_home)) AND ((@IsNull_patient_status = 1 AND [patient_status] IS NULL) OR ([patient_status] = @Original_patient_status)) AND ((@IsNull_contact_fname = 1 AND [contact_fname] IS NULL) OR ([contact_fname] = @Original_contact_fname)) AND ((@IsNull_contact_lname = 1 AND [contact_lname] IS NULL) OR ([contact_lname] = @Original_contact_lname)) AND ((@IsNull_contact_tel = 1 AND [contact_tel] IS NULL) OR ([contact_tel] = @Original_contact_tel)) AND ((@IsNull_contact_status = 1 AND [contact_status] IS NULL) OR ([contact_status] = @Original_contact_status)))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[Patient] WHERE (([patient_Id] = @Original_patient_Id) AND ((@IsNull_patient_Fname = 1 AND [patient_Fname] IS NULL) OR ([patient_Fname] = @Original_patient_Fname)) AND ((@IsNull_patient_Lname = 1 AND [patient_Lname] IS NULL) OR ([patient_Lname] = @Original_patient_Lname)) AND ((@IsNull_patient_Gender = 1 AND [patient_Gender] IS NULL) OR ([patient_Gender] = @Original_patient_Gender)) AND ((@IsNull_patient_Wight = 1 AND [patient_Wight] IS NULL) OR ([patient_Wight] = @Original_patient_Wight)) AND ((@IsNull_patient_Height = 1 AND [patient_Height] IS NULL) OR ([patient_Height] = @Original_patient_Height)) AND ((@IsNull_patient_allergic_druge = 1 AND [patient_allergic_druge] IS NULL) OR ([patient_allergic_druge] = @Original_patient_allergic_druge)) AND ((@IsNull_patient_Appoint_Id = 1 AND [patient_Appoint_Id] IS NULL) OR ([patient_Appoint_Id] = @Original_patient_Appoint_Id)) AND ((@IsNull_patient_report_history_Id = 1 AND [patient_report_history_Id] IS NULL) OR ([patient_report_history_Id] = @Original_patient_report_history_Id)) AND ((@IsNull_patient_id_card = 1 AND [patient_id_card] IS NULL) OR ([patient_id_card] = @Original_patient_id_card)) AND ((@IsNull_patient_nation = 1 AND [patient_nation] IS NULL) OR ([patient_nation] = @Original_patient_nation)) AND ((@IsNull_patient_ethnicity = 1 AND [patient_ethnicity] IS NULL) OR ([patient_ethnicity] = @Original_patient_ethnicity)) AND ((@IsNull_patient_regal = 1 AND [patient_regal] IS NULL) OR ([patient_regal] = @Original_patient_regal)) AND ((@IsNull_patient_tel = 1 AND [patient_tel] IS NULL) OR ([patient_tel] = @Original_patient_tel)) AND ((@IsNull_patient_tel_home = 1 AND [patient_tel_home] IS NULL) OR ([patient_tel_home] = @Original_patient_tel_home)) AND ((@IsNull_patient_status = 1 AND [patient_status] IS NULL) OR ([patient_status] = @Original_patient_status)) AND ((@IsNull_contact_fname = 1 AND [contact_fname] IS NULL) OR ([contact_fname] = @Original_contact_fname)) AND ((@IsNull_contact_lname = 1 AND [contact_lname] IS NULL) OR ([contact_lname] = @Original_contact_lname)) AND ((@IsNull_contact_tel = 1 AND [contact_tel] IS NULL) OR ([contact_tel] = @Original_contact_tel)) AND ((@IsNull_contact_status = 1 AND [contact_status] IS NULL) OR ([contact_status] = @Original_contact_status)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Id" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Fname" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Fname" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Fname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Fname" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Lname" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Lname" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Lname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Lname" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Grender" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Grender" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Grender" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Grender" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Gender" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Gender" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Gender" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Gender" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Wight" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Wight" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Wight" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Wight" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Height" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Height" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -406,13 +406,13 @@ SELECT medi_supplies_Id, medi_supplies_name, medi_supplies_price, medi_supplies_
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Patient] ([patient_Id], [patient_Fname], [patient_Lname], [patient_Grender], [patient_Wight], [patient_Height], [patient_allergic_druge], [patient_Appoint_Id], [patient_report_history_Id], [patient_id_card], [patient_nation], [patient_ethnicity], [patient_regal], [patient_tel], [patient_tel_home], [patient_status], [contact_fname], [contact_lname], [contact_tel], [contact_status]) VALUES (@patient_Id, @patient_Fname, @patient_Lname, @patient_Grender, @patient_Wight, @patient_Height, @patient_allergic_druge, @patient_Appoint_Id, @patient_report_history_Id, @patient_id_card, @patient_nation, @patient_ethnicity, @patient_regal, @patient_tel, @patient_tel_home, @patient_status, @contact_fname, @contact_lname, @contact_tel, @contact_status);
-SELECT patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight, patient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_history_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, contact_status FROM Patient WHERE (patient_Id = @patient_Id)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[Patient] ([patient_Id], [patient_Fname], [patient_Lname], [patient_Gender], [patient_Wight], [patient_Height], [patient_allergic_druge], [patient_Appoint_Id], [patient_report_history_Id], [patient_id_card], [patient_nation], [patient_ethnicity], [patient_regal], [patient_tel], [patient_tel_home], [patient_status], [contact_fname], [contact_lname], [contact_tel], [contact_status]) VALUES (@patient_Id, @patient_Fname, @patient_Lname, @patient_Gender, @patient_Wight, @patient_Height, @patient_allergic_druge, @patient_Appoint_Id, @patient_report_history_Id, @patient_id_card, @patient_nation, @patient_ethnicity, @patient_regal, @patient_tel, @patient_tel_home, @patient_status, @contact_fname, @contact_lname, @contact_tel, @contact_status);
+SELECT patient_Id, patient_Fname, patient_Lname, patient_Gender, patient_Wight, patient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_history_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, contact_status FROM Patient WHERE (patient_Id = @patient_Id)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Id" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Fname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Fname" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Lname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Lname" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Grender" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Grender" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Gender" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Gender" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Wight" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Wight" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Height" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Height" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_allergic_druge" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_allergic_druge" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -434,19 +434,19 @@ SELECT patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight,
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight, patient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_history_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, contact_status FROM dbo.Patient</CommandText>
+                    <CommandText>SELECT patient_Id, patient_Fname, patient_Lname, patient_Gender, patient_Wight, patient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_history_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, contact_status FROM dbo.Patient</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Patient] SET [patient_Id] = @patient_Id, [patient_Fname] = @patient_Fname, [patient_Lname] = @patient_Lname, [patient_Grender] = @patient_Grender, [patient_Wight] = @patient_Wight, [patient_Height] = @patient_Height, [patient_allergic_druge] = @patient_allergic_druge, [patient_Appoint_Id] = @patient_Appoint_Id, [patient_report_history_Id] = @patient_report_history_Id, [patient_id_card] = @patient_id_card, [patient_nation] = @patient_nation, [patient_ethnicity] = @patient_ethnicity, [patient_regal] = @patient_regal, [patient_tel] = @patient_tel, [patient_tel_home] = @patient_tel_home, [patient_status] = @patient_status, [contact_fname] = @contact_fname, [contact_lname] = @contact_lname, [contact_tel] = @contact_tel, [contact_status] = @contact_status WHERE (([patient_Id] = @Original_patient_Id) AND ((@IsNull_patient_Fname = 1 AND [patient_Fname] IS NULL) OR ([patient_Fname] = @Original_patient_Fname)) AND ((@IsNull_patient_Lname = 1 AND [patient_Lname] IS NULL) OR ([patient_Lname] = @Original_patient_Lname)) AND ((@IsNull_patient_Grender = 1 AND [patient_Grender] IS NULL) OR ([patient_Grender] = @Original_patient_Grender)) AND ((@IsNull_patient_Wight = 1 AND [patient_Wight] IS NULL) OR ([patient_Wight] = @Original_patient_Wight)) AND ((@IsNull_patient_Height = 1 AND [patient_Height] IS NULL) OR ([patient_Height] = @Original_patient_Height)) AND ((@IsNull_patient_allergic_druge = 1 AND [patient_allergic_druge] IS NULL) OR ([patient_allergic_druge] = @Original_patient_allergic_druge)) AND ((@IsNull_patient_Appoint_Id = 1 AND [patient_Appoint_Id] IS NULL) OR ([patient_Appoint_Id] = @Original_patient_Appoint_Id)) AND ((@IsNull_patient_report_history_Id = 1 AND [patient_report_history_Id] IS NULL) OR ([patient_report_history_Id] = @Original_patient_report_history_Id)) AND ((@IsNull_patient_id_card = 1 AND [patient_id_card] IS NULL) OR ([patient_id_card] = @Original_patient_id_card)) AND ((@IsNull_patient_nation = 1 AND [patient_nation] IS NULL) OR ([patient_nation] = @Original_patient_nation)) AND ((@IsNull_patient_ethnicity = 1 AND [patient_ethnicity] IS NULL) OR ([patient_ethnicity] = @Original_patient_ethnicity)) AND ((@IsNull_patient_regal = 1 AND [patient_regal] IS NULL) OR ([patient_regal] = @Original_patient_regal)) AND ((@IsNull_patient_tel = 1 AND [patient_tel] IS NULL) OR ([patient_tel] = @Original_patient_tel)) AND ((@IsNull_patient_tel_home = 1 AND [patient_tel_home] IS NULL) OR ([patient_tel_home] = @Original_patient_tel_home)) AND ((@IsNull_patient_status = 1 AND [patient_status] IS NULL) OR ([patient_status] = @Original_patient_status)) AND ((@IsNull_contact_fname = 1 AND [contact_fname] IS NULL) OR ([contact_fname] = @Original_contact_fname)) AND ((@IsNull_contact_lname = 1 AND [contact_lname] IS NULL) OR ([contact_lname] = @Original_contact_lname)) AND ((@IsNull_contact_tel = 1 AND [contact_tel] IS NULL) OR ([contact_tel] = @Original_contact_tel)) AND ((@IsNull_contact_status = 1 AND [contact_status] IS NULL) OR ([contact_status] = @Original_contact_status)));
-SELECT patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight, patient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_history_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, contact_status FROM Patient WHERE (patient_Id = @patient_Id)</CommandText>
+                    <CommandText>UPDATE [dbo].[Patient] SET [patient_Id] = @patient_Id, [patient_Fname] = @patient_Fname, [patient_Lname] = @patient_Lname, [patient_Gender] = @patient_Gender, [patient_Wight] = @patient_Wight, [patient_Height] = @patient_Height, [patient_allergic_druge] = @patient_allergic_druge, [patient_Appoint_Id] = @patient_Appoint_Id, [patient_report_history_Id] = @patient_report_history_Id, [patient_id_card] = @patient_id_card, [patient_nation] = @patient_nation, [patient_ethnicity] = @patient_ethnicity, [patient_regal] = @patient_regal, [patient_tel] = @patient_tel, [patient_tel_home] = @patient_tel_home, [patient_status] = @patient_status, [contact_fname] = @contact_fname, [contact_lname] = @contact_lname, [contact_tel] = @contact_tel, [contact_status] = @contact_status WHERE (([patient_Id] = @Original_patient_Id) AND ((@IsNull_patient_Fname = 1 AND [patient_Fname] IS NULL) OR ([patient_Fname] = @Original_patient_Fname)) AND ((@IsNull_patient_Lname = 1 AND [patient_Lname] IS NULL) OR ([patient_Lname] = @Original_patient_Lname)) AND ((@IsNull_patient_Gender = 1 AND [patient_Gender] IS NULL) OR ([patient_Gender] = @Original_patient_Gender)) AND ((@IsNull_patient_Wight = 1 AND [patient_Wight] IS NULL) OR ([patient_Wight] = @Original_patient_Wight)) AND ((@IsNull_patient_Height = 1 AND [patient_Height] IS NULL) OR ([patient_Height] = @Original_patient_Height)) AND ((@IsNull_patient_allergic_druge = 1 AND [patient_allergic_druge] IS NULL) OR ([patient_allergic_druge] = @Original_patient_allergic_druge)) AND ((@IsNull_patient_Appoint_Id = 1 AND [patient_Appoint_Id] IS NULL) OR ([patient_Appoint_Id] = @Original_patient_Appoint_Id)) AND ((@IsNull_patient_report_history_Id = 1 AND [patient_report_history_Id] IS NULL) OR ([patient_report_history_Id] = @Original_patient_report_history_Id)) AND ((@IsNull_patient_id_card = 1 AND [patient_id_card] IS NULL) OR ([patient_id_card] = @Original_patient_id_card)) AND ((@IsNull_patient_nation = 1 AND [patient_nation] IS NULL) OR ([patient_nation] = @Original_patient_nation)) AND ((@IsNull_patient_ethnicity = 1 AND [patient_ethnicity] IS NULL) OR ([patient_ethnicity] = @Original_patient_ethnicity)) AND ((@IsNull_patient_regal = 1 AND [patient_regal] IS NULL) OR ([patient_regal] = @Original_patient_regal)) AND ((@IsNull_patient_tel = 1 AND [patient_tel] IS NULL) OR ([patient_tel] = @Original_patient_tel)) AND ((@IsNull_patient_tel_home = 1 AND [patient_tel_home] IS NULL) OR ([patient_tel_home] = @Original_patient_tel_home)) AND ((@IsNull_patient_status = 1 AND [patient_status] IS NULL) OR ([patient_status] = @Original_patient_status)) AND ((@IsNull_contact_fname = 1 AND [contact_fname] IS NULL) OR ([contact_fname] = @Original_contact_fname)) AND ((@IsNull_contact_lname = 1 AND [contact_lname] IS NULL) OR ([contact_lname] = @Original_contact_lname)) AND ((@IsNull_contact_tel = 1 AND [contact_tel] IS NULL) OR ([contact_tel] = @Original_contact_tel)) AND ((@IsNull_contact_status = 1 AND [contact_status] IS NULL) OR ([contact_status] = @Original_contact_status)));
+SELECT patient_Id, patient_Fname, patient_Lname, patient_Gender, patient_Wight, patient_Height, patient_allergic_druge, patient_Appoint_Id, patient_report_history_Id, patient_id_card, patient_nation, patient_ethnicity, patient_regal, patient_tel, patient_tel_home, patient_status, contact_fname, contact_lname, contact_tel, contact_status FROM Patient WHERE (patient_Id = @patient_Id)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Id" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Fname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Fname" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Lname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Lname" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Grender" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Grender" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Gender" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Gender" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Wight" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Wight" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_Height" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Height" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@patient_allergic_druge" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_allergic_druge" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -468,8 +468,8 @@ SELECT patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight,
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Fname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Fname" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Lname" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Lname" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Lname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Lname" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Grender" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Grender" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Grender" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Grender" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Gender" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Gender" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Gender" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Gender" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Wight" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Wight" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_patient_Wight" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="patient_Wight" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_patient_Height" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patient_Height" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -511,7 +511,7 @@ SELECT patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight,
               <Mapping SourceColumn="patient_Id" DataSetColumn="patient_Id" />
               <Mapping SourceColumn="patient_Fname" DataSetColumn="patient_Fname" />
               <Mapping SourceColumn="patient_Lname" DataSetColumn="patient_Lname" />
-              <Mapping SourceColumn="patient_Grender" DataSetColumn="patient_Grender" />
+              <Mapping SourceColumn="patient_Gender" DataSetColumn="patient_Gender" />
               <Mapping SourceColumn="patient_Wight" DataSetColumn="patient_Wight" />
               <Mapping SourceColumn="patient_Height" DataSetColumn="patient_Height" />
               <Mapping SourceColumn="patient_allergic_druge" DataSetColumn="patient_allergic_druge" />
@@ -533,7 +533,7 @@ SELECT patient_Id, patient_Fname, patient_Lname, patient_Grender, patient_Wight,
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="reportTableAdapter" GeneratorDataComponentClassName="reportTableAdapter" Name="report" UserDataComponentName="reportTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="sedentralConnectionString (MySettings)" DbObjectName="sedentral.dbo.report" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectName="sedentral.dbo.report" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[report] WHERE (([report_id] = @Original_report_id) AND ((@IsNull_report_patient = 1 AND [report_patient] IS NULL) OR ([report_patient] = @Original_report_patient)) AND ((@IsNull_report_detail = 1 AND [report_detail] IS NULL) OR ([report_detail] = @Original_report_detail)) AND ((@IsNull_report_drug = 1 AND [report_drug] IS NULL) OR ([report_drug] = @Original_report_drug)) AND ((@IsNull_report_date = 1 AND [report_date] IS NULL) OR ([report_date] = @Original_report_date)) AND ((@IsNull_report_sum_price = 1 AND [report_sum_price] IS NULL) OR ([report_sum_price] = @Original_report_sum_price)))</CommandText>
@@ -611,7 +611,7 @@ SELECT report_id, report_patient, report_detail, report_drug, report_date, repor
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UserTableAdapter" GeneratorDataComponentClassName="UserTableAdapter" Name="User" UserDataComponentName="UserTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="sedentralConnectionString (MySettings)" DbObjectName="sedentral.dbo.[User]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectName="sedentral.dbo.[User]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[User] WHERE (([User_ID] = @Original_User_ID) AND ((@IsNull_User_Pass = 1 AND [User_Pass] IS NULL) OR ([User_Pass] = @Original_User_Pass)) AND ((@IsNull_Fori_User_Id = 1 AND [Fori_User_Id] IS NULL) OR ([Fori_User_Id] = @Original_Fori_User_Id)) AND ((@IsNull_User_Access = 1 AND [User_Access] IS NULL) OR ([User_Access] = @Original_User_Access)))</CommandText>
@@ -673,21 +673,89 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="User_dataTableAdapter" GeneratorDataComponentClassName="User_dataTableAdapter" Name="User_data" UserDataComponentName="User_dataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        [User].User_ID, [User].User_Pass, Employee.Emp_Fname + ' ' + Employee.Emp_Lname AS พนักงาน, [User].User_Access, Employee.Emp_ID, [User].Fori_User_Id
+FROM            Employee INNER JOIN
+                         [User] ON Employee.Emp_ID = [User].Fori_User_Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="User_ID" DataSetColumn="User_ID" />
+              <Mapping SourceColumn="User_Pass" DataSetColumn="User_Pass" />
+              <Mapping SourceColumn="พนักงาน" DataSetColumn="พนักงาน" />
+              <Mapping SourceColumn="User_Access" DataSetColumn="User_Access" />
+              <Mapping SourceColumn="Emp_ID" DataSetColumn="Emp_ID" />
+              <Mapping SourceColumn="Fori_User_Id" DataSetColumn="Fori_User_Id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Emp_listTableAdapter" GeneratorDataComponentClassName="Emp_listTableAdapter" Name="Emp_list" UserDataComponentName="Emp_listTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="sqlconn (MySettings)" DbObjectName="sedentral.dbo.Employee" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Employee] WHERE (([Emp_ID] = @Original_Emp_ID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Emp_ID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Emp_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Employee] ([Emp_ID]) VALUES (@Emp_ID);
+SELECT Emp_Fname + ' ' + Emp_Lname AS พนักงาน, Emp_ID FROM Employee WHERE (Emp_ID = @Emp_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Emp_ID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Emp_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Emp_Fname + ' ' + Emp_Lname AS พนักงาน, Emp_ID
+FROM            Employee			</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Employee] SET [Emp_ID] = @Emp_ID WHERE (([Emp_ID] = @Original_Emp_ID));
+SELECT Emp_Fname + ' ' + Emp_Lname AS พนักงาน, Emp_ID FROM Employee WHERE (Emp_ID = @Emp_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Emp_ID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Emp_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Emp_ID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Emp_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="พนักงาน" DataSetColumn="พนักงาน" />
+              <Mapping SourceColumn="Emp_ID" DataSetColumn="Emp_ID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="sedentralDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="sedentralDataSet1" msprop:Generator_UserDSName="sedentralDataSet1">
+  <xs:element name="Se_dentral_sql" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Se_dentral_sql" msprop:Generator_UserDSName="Se_dentral_sql">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Appoint" msprop:Generator_TableClassName="AppointDataTable" msprop:Generator_TableVarName="tableAppoint" msprop:Generator_TablePropName="Appoint" msprop:Generator_RowDeletingName="AppointRowDeleting" msprop:Generator_RowChangingName="AppointRowChanging" msprop:Generator_RowEvHandlerName="AppointRowChangeEventHandler" msprop:Generator_RowDeletedName="AppointRowDeleted" msprop:Generator_UserTableName="Appoint" msprop:Generator_RowChangedName="AppointRowChanged" msprop:Generator_RowEvArgName="AppointRowChangeEvent" msprop:Generator_RowClassName="AppointRow">
+        <xs:element name="Appoint" msprop:Generator_TableClassName="AppointDataTable" msprop:Generator_TableVarName="tableAppoint" msprop:Generator_RowChangedName="AppointRowChanged" msprop:Generator_TablePropName="Appoint" msprop:Generator_RowDeletingName="AppointRowDeleting" msprop:Generator_RowChangingName="AppointRowChanging" msprop:Generator_RowEvHandlerName="AppointRowChangeEventHandler" msprop:Generator_RowDeletedName="AppointRowDeleted" msprop:Generator_RowClassName="AppointRow" msprop:Generator_UserTableName="Appoint" msprop:Generator_RowEvArgName="AppointRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Appoint_ID" msprop:Generator_ColumnVarNameInTable="columnAppoint_ID" msprop:Generator_ColumnPropNameInRow="Appoint_ID" msprop:Generator_ColumnPropNameInTable="Appoint_IDColumn" msprop:Generator_UserColumnName="Appoint_ID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="7" />
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -717,7 +785,7 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Department" msprop:Generator_TableClassName="DepartmentDataTable" msprop:Generator_TableVarName="tableDepartment" msprop:Generator_TablePropName="Department" msprop:Generator_RowDeletingName="DepartmentRowDeleting" msprop:Generator_RowChangingName="DepartmentRowChanging" msprop:Generator_RowEvHandlerName="DepartmentRowChangeEventHandler" msprop:Generator_RowDeletedName="DepartmentRowDeleted" msprop:Generator_UserTableName="Department" msprop:Generator_RowChangedName="DepartmentRowChanged" msprop:Generator_RowEvArgName="DepartmentRowChangeEvent" msprop:Generator_RowClassName="DepartmentRow">
+        <xs:element name="Department" msprop:Generator_TableClassName="DepartmentDataTable" msprop:Generator_TableVarName="tableDepartment" msprop:Generator_RowChangedName="DepartmentRowChanged" msprop:Generator_TablePropName="Department" msprop:Generator_RowDeletingName="DepartmentRowDeleting" msprop:Generator_RowChangingName="DepartmentRowChanging" msprop:Generator_RowEvHandlerName="DepartmentRowChangeEventHandler" msprop:Generator_RowDeletedName="DepartmentRowDeleted" msprop:Generator_RowClassName="DepartmentRow" msprop:Generator_UserTableName="Department" msprop:Generator_RowEvArgName="DepartmentRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Dep_ID" msprop:Generator_ColumnVarNameInTable="columnDep_ID" msprop:Generator_ColumnPropNameInRow="Dep_ID" msprop:Generator_ColumnPropNameInTable="Dep_IDColumn" msprop:Generator_UserColumnName="Dep_ID">
@@ -744,7 +812,7 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Employee" msprop:Generator_TableClassName="EmployeeDataTable" msprop:Generator_TableVarName="tableEmployee" msprop:Generator_TablePropName="Employee" msprop:Generator_RowDeletingName="EmployeeRowDeleting" msprop:Generator_RowChangingName="EmployeeRowChanging" msprop:Generator_RowEvHandlerName="EmployeeRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeRowDeleted" msprop:Generator_UserTableName="Employee" msprop:Generator_RowChangedName="EmployeeRowChanged" msprop:Generator_RowEvArgName="EmployeeRowChangeEvent" msprop:Generator_RowClassName="EmployeeRow">
+        <xs:element name="Employee" msprop:Generator_TableClassName="EmployeeDataTable" msprop:Generator_TableVarName="tableEmployee" msprop:Generator_RowChangedName="EmployeeRowChanged" msprop:Generator_TablePropName="Employee" msprop:Generator_RowDeletingName="EmployeeRowDeleting" msprop:Generator_RowChangingName="EmployeeRowChanging" msprop:Generator_RowEvHandlerName="EmployeeRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeRowDeleted" msprop:Generator_RowClassName="EmployeeRow" msprop:Generator_UserTableName="Employee" msprop:Generator_RowEvArgName="EmployeeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Emp_ID" msprop:Generator_ColumnVarNameInTable="columnEmp_ID" msprop:Generator_ColumnPropNameInRow="Emp_ID" msprop:Generator_ColumnPropNameInTable="Emp_IDColumn" msprop:Generator_UserColumnName="Emp_ID">
@@ -792,7 +860,7 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="List_Medi_drug" msprop:Generator_TableClassName="List_Medi_drugDataTable" msprop:Generator_TableVarName="tableList_Medi_drug" msprop:Generator_TablePropName="List_Medi_drug" msprop:Generator_RowDeletingName="List_Medi_drugRowDeleting" msprop:Generator_RowChangingName="List_Medi_drugRowChanging" msprop:Generator_RowEvHandlerName="List_Medi_drugRowChangeEventHandler" msprop:Generator_RowDeletedName="List_Medi_drugRowDeleted" msprop:Generator_UserTableName="List_Medi_drug" msprop:Generator_RowChangedName="List_Medi_drugRowChanged" msprop:Generator_RowEvArgName="List_Medi_drugRowChangeEvent" msprop:Generator_RowClassName="List_Medi_drugRow">
+        <xs:element name="List_Medi_drug" msprop:Generator_TableClassName="List_Medi_drugDataTable" msprop:Generator_TableVarName="tableList_Medi_drug" msprop:Generator_RowChangedName="List_Medi_drugRowChanged" msprop:Generator_TablePropName="List_Medi_drug" msprop:Generator_RowDeletingName="List_Medi_drugRowDeleting" msprop:Generator_RowChangingName="List_Medi_drugRowChanging" msprop:Generator_RowEvHandlerName="List_Medi_drugRowChangeEventHandler" msprop:Generator_RowDeletedName="List_Medi_drugRowDeleted" msprop:Generator_RowClassName="List_Medi_drugRow" msprop:Generator_UserTableName="List_Medi_drug" msprop:Generator_RowEvArgName="List_Medi_drugRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="List_Id" msprop:Generator_ColumnVarNameInTable="columnList_Id" msprop:Generator_ColumnPropNameInRow="List_Id" msprop:Generator_ColumnPropNameInTable="List_IdColumn" msprop:Generator_UserColumnName="List_Id">
@@ -826,7 +894,7 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Medi_supplies" msprop:Generator_TableClassName="Medi_suppliesDataTable" msprop:Generator_TableVarName="tableMedi_supplies" msprop:Generator_TablePropName="Medi_supplies" msprop:Generator_RowDeletingName="Medi_suppliesRowDeleting" msprop:Generator_RowChangingName="Medi_suppliesRowChanging" msprop:Generator_RowEvHandlerName="Medi_suppliesRowChangeEventHandler" msprop:Generator_RowDeletedName="Medi_suppliesRowDeleted" msprop:Generator_UserTableName="Medi_supplies" msprop:Generator_RowChangedName="Medi_suppliesRowChanged" msprop:Generator_RowEvArgName="Medi_suppliesRowChangeEvent" msprop:Generator_RowClassName="Medi_suppliesRow">
+        <xs:element name="Medi_supplies" msprop:Generator_TableClassName="Medi_suppliesDataTable" msprop:Generator_TableVarName="tableMedi_supplies" msprop:Generator_RowChangedName="Medi_suppliesRowChanged" msprop:Generator_TablePropName="Medi_supplies" msprop:Generator_RowDeletingName="Medi_suppliesRowDeleting" msprop:Generator_RowChangingName="Medi_suppliesRowChanging" msprop:Generator_RowEvHandlerName="Medi_suppliesRowChangeEventHandler" msprop:Generator_RowDeletedName="Medi_suppliesRowDeleted" msprop:Generator_RowClassName="Medi_suppliesRow" msprop:Generator_UserTableName="Medi_supplies" msprop:Generator_RowEvArgName="Medi_suppliesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="medi_supplies_Id" msprop:Generator_ColumnVarNameInTable="columnmedi_supplies_Id" msprop:Generator_ColumnPropNameInRow="medi_supplies_Id" msprop:Generator_ColumnPropNameInTable="medi_supplies_IdColumn" msprop:Generator_UserColumnName="medi_supplies_Id">
@@ -867,7 +935,7 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Patient" msprop:Generator_TableClassName="PatientDataTable" msprop:Generator_TableVarName="tablePatient" msprop:Generator_TablePropName="Patient" msprop:Generator_RowDeletingName="PatientRowDeleting" msprop:Generator_RowChangingName="PatientRowChanging" msprop:Generator_RowEvHandlerName="PatientRowChangeEventHandler" msprop:Generator_RowDeletedName="PatientRowDeleted" msprop:Generator_UserTableName="Patient" msprop:Generator_RowChangedName="PatientRowChanged" msprop:Generator_RowEvArgName="PatientRowChangeEvent" msprop:Generator_RowClassName="PatientRow">
+        <xs:element name="Patient" msprop:Generator_TableClassName="PatientDataTable" msprop:Generator_TableVarName="tablePatient" msprop:Generator_RowChangedName="PatientRowChanged" msprop:Generator_TablePropName="Patient" msprop:Generator_RowDeletingName="PatientRowDeleting" msprop:Generator_RowChangingName="PatientRowChanging" msprop:Generator_RowEvHandlerName="PatientRowChangeEventHandler" msprop:Generator_RowDeletedName="PatientRowDeleted" msprop:Generator_RowClassName="PatientRow" msprop:Generator_UserTableName="Patient" msprop:Generator_RowEvArgName="PatientRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="patient_Id" msprop:Generator_ColumnVarNameInTable="columnpatient_Id" msprop:Generator_ColumnPropNameInRow="patient_Id" msprop:Generator_ColumnPropNameInTable="patient_IdColumn" msprop:Generator_UserColumnName="patient_Id">
@@ -891,7 +959,7 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="patient_Grender" msprop:Generator_ColumnVarNameInTable="columnpatient_Grender" msprop:Generator_ColumnPropNameInRow="patient_Grender" msprop:Generator_ColumnPropNameInTable="patient_GrenderColumn" msprop:Generator_UserColumnName="patient_Grender" minOccurs="0">
+              <xs:element name="patient_Gender" msprop:Generator_ColumnVarNameInTable="columnpatient_Gender" msprop:Generator_ColumnPropNameInRow="patient_Gender" msprop:Generator_ColumnPropNameInTable="patient_GenderColumn" msprop:Generator_UserColumnName="patient_Gender" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
@@ -964,14 +1032,14 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
               <xs:element name="patient_tel" msprop:Generator_ColumnVarNameInTable="columnpatient_tel" msprop:Generator_ColumnPropNameInRow="patient_tel" msprop:Generator_ColumnPropNameInTable="patient_telColumn" msprop:Generator_UserColumnName="patient_tel" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="patient_tel_home" msprop:Generator_ColumnVarNameInTable="columnpatient_tel_home" msprop:Generator_ColumnPropNameInRow="patient_tel_home" msprop:Generator_ColumnPropNameInTable="patient_tel_homeColumn" msprop:Generator_UserColumnName="patient_tel_home" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="9" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -999,21 +1067,21 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
               <xs:element name="contact_tel" msprop:Generator_ColumnVarNameInTable="columncontact_tel" msprop:Generator_ColumnPropNameInRow="contact_tel" msprop:Generator_ColumnPropNameInTable="contact_telColumn" msprop:Generator_UserColumnName="contact_tel" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="contact_status" msprop:Generator_ColumnVarNameInTable="columncontact_status" msprop:Generator_ColumnPropNameInRow="contact_status" msprop:Generator_ColumnPropNameInTable="contact_statusColumn" msprop:Generator_UserColumnName="contact_status" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="report" msprop:Generator_TableClassName="reportDataTable" msprop:Generator_TableVarName="tablereport" msprop:Generator_TablePropName="report" msprop:Generator_RowDeletingName="reportRowDeleting" msprop:Generator_RowChangingName="reportRowChanging" msprop:Generator_RowEvHandlerName="reportRowChangeEventHandler" msprop:Generator_RowDeletedName="reportRowDeleted" msprop:Generator_UserTableName="report" msprop:Generator_RowChangedName="reportRowChanged" msprop:Generator_RowEvArgName="reportRowChangeEvent" msprop:Generator_RowClassName="reportRow">
+        <xs:element name="report" msprop:Generator_TableClassName="reportDataTable" msprop:Generator_TableVarName="tablereport" msprop:Generator_RowChangedName="reportRowChanged" msprop:Generator_TablePropName="report" msprop:Generator_RowDeletingName="reportRowDeleting" msprop:Generator_RowChangingName="reportRowChanging" msprop:Generator_RowEvHandlerName="reportRowChangeEventHandler" msprop:Generator_RowDeletedName="reportRowDeleted" msprop:Generator_RowClassName="reportRow" msprop:Generator_UserTableName="report" msprop:Generator_RowEvArgName="reportRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="report_id" msprop:Generator_ColumnVarNameInTable="columnreport_id" msprop:Generator_ColumnPropNameInRow="report_id" msprop:Generator_ColumnPropNameInTable="report_idColumn" msprop:Generator_UserColumnName="report_id">
@@ -1049,7 +1117,7 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="User" msprop:Generator_TableClassName="UserDataTable" msprop:Generator_TableVarName="tableUser" msprop:Generator_TablePropName="User" msprop:Generator_RowDeletingName="UserRowDeleting" msprop:Generator_RowChangingName="UserRowChanging" msprop:Generator_RowEvHandlerName="UserRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRowDeleted" msprop:Generator_UserTableName="User" msprop:Generator_RowChangedName="UserRowChanged" msprop:Generator_RowEvArgName="UserRowChangeEvent" msprop:Generator_RowClassName="UserRow">
+        <xs:element name="User" msprop:Generator_TableClassName="UserDataTable" msprop:Generator_TableVarName="tableUser" msprop:Generator_RowChangedName="UserRowChanged" msprop:Generator_TablePropName="User" msprop:Generator_RowDeletingName="UserRowDeleting" msprop:Generator_RowChangingName="UserRowChanging" msprop:Generator_RowEvHandlerName="UserRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRowDeleted" msprop:Generator_RowClassName="UserRow" msprop:Generator_UserTableName="User" msprop:Generator_RowEvArgName="UserRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="User_ID" msprop:Generator_ColumnVarNameInTable="columnUser_ID" msprop:Generator_ColumnPropNameInRow="User_ID" msprop:Generator_ColumnPropNameInTable="User_IDColumn" msprop:Generator_UserColumnName="User_ID">
@@ -1074,6 +1142,74 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
                 </xs:simpleType>
               </xs:element>
               <xs:element name="User_Access" msprop:Generator_ColumnVarNameInTable="columnUser_Access" msprop:Generator_ColumnPropNameInRow="User_Access" msprop:Generator_ColumnPropNameInTable="User_AccessColumn" msprop:Generator_UserColumnName="User_Access" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="User_data" msprop:Generator_TableClassName="User_dataDataTable" msprop:Generator_TableVarName="tableUser_data" msprop:Generator_TablePropName="User_data" msprop:Generator_RowDeletingName="User_dataRowDeleting" msprop:Generator_RowChangingName="User_dataRowChanging" msprop:Generator_RowEvHandlerName="User_dataRowChangeEventHandler" msprop:Generator_RowDeletedName="User_dataRowDeleted" msprop:Generator_UserTableName="User_data" msprop:Generator_RowChangedName="User_dataRowChanged" msprop:Generator_RowEvArgName="User_dataRowChangeEvent" msprop:Generator_RowClassName="User_dataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="User_ID" msprop:Generator_ColumnVarNameInTable="columnUser_ID" msprop:Generator_ColumnPropNameInRow="User_ID" msprop:Generator_ColumnPropNameInTable="User_IDColumn" msprop:Generator_UserColumnName="User_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_Pass" msprop:Generator_ColumnVarNameInTable="columnUser_Pass" msprop:Generator_ColumnPropNameInRow="User_Pass" msprop:Generator_ColumnPropNameInTable="User_PassColumn" msprop:Generator_UserColumnName="User_Pass" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="พนักงาน" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnพนักงาน" msprop:Generator_ColumnPropNameInRow="พนักงาน" msprop:Generator_ColumnPropNameInTable="พนักงานColumn" msprop:Generator_UserColumnName="พนักงาน" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_Access" msprop:Generator_ColumnVarNameInTable="columnUser_Access" msprop:Generator_ColumnPropNameInRow="User_Access" msprop:Generator_ColumnPropNameInTable="User_AccessColumn" msprop:Generator_UserColumnName="User_Access" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Emp_ID" msprop:Generator_ColumnVarNameInTable="columnEmp_ID" msprop:Generator_ColumnPropNameInRow="Emp_ID" msprop:Generator_ColumnPropNameInTable="Emp_IDColumn" msprop:Generator_UserColumnName="Emp_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fori_User_Id" msprop:Generator_ColumnVarNameInTable="columnFori_User_Id" msprop:Generator_ColumnPropNameInRow="Fori_User_Id" msprop:Generator_ColumnPropNameInTable="Fori_User_IdColumn" msprop:Generator_UserColumnName="Fori_User_Id" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Emp_list" msprop:Generator_TableClassName="Emp_listDataTable" msprop:Generator_TableVarName="tableEmp_list" msprop:Generator_TablePropName="Emp_list" msprop:Generator_RowDeletingName="Emp_listRowDeleting" msprop:Generator_RowChangingName="Emp_listRowChanging" msprop:Generator_RowEvHandlerName="Emp_listRowChangeEventHandler" msprop:Generator_RowDeletedName="Emp_listRowDeleted" msprop:Generator_UserTableName="Emp_list" msprop:Generator_RowChangedName="Emp_listRowChanged" msprop:Generator_RowEvArgName="Emp_listRowChangeEvent" msprop:Generator_RowClassName="Emp_listRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="พนักงาน" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnพนักงาน" msprop:Generator_ColumnPropNameInRow="พนักงาน" msprop:Generator_ColumnPropNameInTable="พนักงานColumn" msprop:Generator_UserColumnName="พนักงาน" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Emp_ID" msprop:Generator_ColumnVarNameInTable="columnEmp_ID" msprop:Generator_ColumnPropNameInRow="Emp_ID" msprop:Generator_ColumnPropNameInTable="Emp_IDColumn" msprop:Generator_UserColumnName="Emp_ID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
@@ -1117,15 +1253,23 @@ SELECT User_ID, User_Pass, Fori_User_Id, User_Access FROM [User] WHERE (User_ID 
       <xs:selector xpath=".//mstns:User" />
       <xs:field xpath="mstns:User_ID" />
     </xs:unique>
+    <xs:unique name="User_data_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:User_data" />
+      <xs:field xpath="mstns:User_ID" />
+      <xs:field xpath="mstns:Emp_ID" />
+    </xs:unique>
+    <xs:unique name="Emp_list_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Emp_list" />
+      <xs:field xpath="mstns:Emp_ID" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Appoint_Appoint" msdata:parent="Patient" msdata:child="Appoint" msdata:parentkey="patient_Id" msdata:childkey="Appoint_Patient" msprop:Generator_UserChildTable="Appoint" msprop:Generator_ChildPropName="GetAppointRows" msprop:Generator_UserRelationName="FK_Appoint_Appoint" msprop:Generator_RelationVarName="relationFK_Appoint_Appoint" msprop:Generator_UserParentTable="Patient" msprop:Generator_ParentPropName="PatientRow" />
-      <msdata:Relationship name="FK_Appoint_Employee" msdata:parent="Employee" msdata:child="Appoint" msdata:parentkey="Emp_ID" msdata:childkey="Appoint_Empoy" msprop:Generator_UserChildTable="Appoint" msprop:Generator_ChildPropName="GetAppointRows" msprop:Generator_UserRelationName="FK_Appoint_Employee" msprop:Generator_RelationVarName="relationFK_Appoint_Employee" msprop:Generator_UserParentTable="Employee" msprop:Generator_ParentPropName="EmployeeRow" />
-      <msdata:Relationship name="FK_List_Medi_drug_Medi_supplies" msdata:parent="Medi_supplies" msdata:child="List_Medi_drug" msdata:parentkey="medi_supplies_Id" msdata:childkey="List_Medi_drug" msprop:Generator_UserChildTable="List_Medi_drug" msprop:Generator_ChildPropName="GetList_Medi_drugRows" msprop:Generator_UserRelationName="FK_List_Medi_drug_Medi_supplies" msprop:Generator_RelationVarName="relationFK_List_Medi_drug_Medi_supplies" msprop:Generator_UserParentTable="Medi_supplies" msprop:Generator_ParentPropName="Medi_suppliesRow" />
-      <msdata:Relationship name="FK_Patient_Employee" msdata:parent="Employee" msdata:child="Patient" msdata:parentkey="Emp_ID" msdata:childkey="patient_Appoint_Id" msprop:Generator_UserChildTable="Patient" msprop:Generator_ChildPropName="GetPatientRows" msprop:Generator_UserRelationName="FK_Patient_Employee" msprop:Generator_ParentPropName="EmployeeRow" msprop:Generator_RelationVarName="relationFK_Patient_Employee" msprop:Generator_UserParentTable="Employee" />
-      <msdata:Relationship name="FK_report_report" msdata:parent="Patient" msdata:child="report" msdata:parentkey="patient_Id" msdata:childkey="report_patient" msprop:Generator_UserChildTable="report" msprop:Generator_ChildPropName="GetreportRows" msprop:Generator_UserRelationName="FK_report_report" msprop:Generator_ParentPropName="PatientRow" msprop:Generator_RelationVarName="relationFK_report_report" msprop:Generator_UserParentTable="Patient" />
-      <msdata:Relationship name="FK_User_Employee" msdata:parent="Employee" msdata:child="User" msdata:parentkey="Emp_ID" msdata:childkey="Fori_User_Id" msprop:Generator_UserChildTable="User" msprop:Generator_ChildPropName="GetUserRows" msprop:Generator_UserRelationName="FK_User_Employee" msprop:Generator_ParentPropName="EmployeeRow" msprop:Generator_RelationVarName="relationFK_User_Employee" msprop:Generator_UserParentTable="Employee" />
+      <msdata:Relationship name="FK_Employee_De" msdata:parent="Department" msdata:child="Employee" msdata:parentkey="Dep_ID" msdata:childkey="Emp_Dep" msprop:Generator_UserChildTable="Employee" msprop:Generator_ChildPropName="GetEmployeeRows" msprop:Generator_UserRelationName="FK_Employee_De" msprop:Generator_RelationVarName="relationFK_Employee_De" msprop:Generator_UserParentTable="Department" msprop:Generator_ParentPropName="DepartmentRow" />
+      <msdata:Relationship name="FK_List_Medi_drug_Medi_supplies" msdata:parent="Medi_supplies" msdata:child="List_Medi_drug" msdata:parentkey="medi_supplies_Id" msdata:childkey="List_Medi_drug" msprop:Generator_UserChildTable="List_Medi_drug" msprop:Generator_ChildPropName="GetList_Medi_drugRows" msprop:Generator_UserRelationName="FK_List_Medi_drug_Medi_supplies" msprop:Generator_ParentPropName="Medi_suppliesRow" msprop:Generator_RelationVarName="relationFK_List_Medi_drug_Medi_supplies" msprop:Generator_UserParentTable="Medi_supplies" />
+      <msdata:Relationship name="FK_report" msdata:parent="report" msdata:child="List_Medi_drug" msdata:parentkey="report_id" msdata:childkey="List_id_report" msprop:Generator_UserChildTable="List_Medi_drug" msprop:Generator_ChildPropName="GetList_Medi_drugRows" msprop:Generator_UserRelationName="FK_report" msprop:Generator_ParentPropName="reportRow" msprop:Generator_RelationVarName="relationFK_report" msprop:Generator_UserParentTable="report" />
+      <msdata:Relationship name="FK_Patient_Appoint" msdata:parent="Appoint" msdata:child="Patient" msdata:parentkey="Appoint_ID" msdata:childkey="patient_Appoint_Id" msprop:Generator_UserChildTable="Patient" msprop:Generator_ChildPropName="GetPatientRows" msprop:Generator_UserRelationName="FK_Patient_Appoint" msprop:Generator_RelationVarName="relationFK_Patient_Appoint" msprop:Generator_UserParentTable="Appoint" msprop:Generator_ParentPropName="AppointRow" />
+      <msdata:Relationship name="FK_report_report" msdata:parent="Patient" msdata:child="report" msdata:parentkey="patient_Id" msdata:childkey="report_patient" msprop:Generator_UserChildTable="report" msprop:Generator_ChildPropName="GetreportRows" msprop:Generator_UserRelationName="FK_report_report" msprop:Generator_RelationVarName="relationFK_report_report" msprop:Generator_UserParentTable="Patient" msprop:Generator_ParentPropName="PatientRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

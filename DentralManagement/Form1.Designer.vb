@@ -22,15 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.UsereditBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.UsereditBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.User_editTableAdapter = New DentralManagement.sedentral_sqlTableAdapters.user_editTableAdapter()
-        Me.DataTable1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataTable1TableAdapter = New DentralManagement.sedentral_sqlTableAdapters.DataTable1TableAdapter()
-        Me.DataTable1BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.UsereditBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.U = New DentralManagement.DblBufferedPanel()
         Me.Admin = New DentralManagement.DblBufferedPanel()
         Me.Label38 = New System.Windows.Forms.Label()
@@ -44,8 +36,6 @@ Partial Class Form1
         Me.tb_add_user = New System.Windows.Forms.TextBox()
         Me.admin_refresh = New System.Windows.Forms.Button()
         Me.data_User = New System.Windows.Forms.DataGridView()
-        Me.SedentralsqlBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Se_dentral_sql = New DentralManagement.Se_dentral_sql()
         Me.Drug2 = New DentralManagement.DblBufferedPanel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
@@ -161,22 +151,10 @@ Partial Class Form1
         Me.btn_Min = New System.Windows.Forms.Button()
         Me.btn_Exit = New System.Windows.Forms.Button()
         Me.btn_MaxRe = New System.Windows.Forms.Button()
-        Me.UserdataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.User_dataTableAdapter = New DentralManagement.Se_dentral_sqlTableAdapters.User_dataTableAdapter()
-        Me.UserIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UserPassDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.พนกงานDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UserAccessDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.UsereditBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UsereditBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataTable1BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UsereditBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Se_dentral_sql1 = New DentralManagement.Se_dentral_sql()
         Me.U.SuspendLayout()
         Me.Admin.SuspendLayout()
         CType(Me.data_User, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SedentralsqlBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Se_dentral_sql, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Drug2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Record_1.SuspendLayout()
@@ -202,36 +180,8 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Taskbar.SuspendLayout()
         Me.Tool.SuspendLayout()
-        CType(Me.UserdataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Se_dentral_sql1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'UsereditBindingSource1
-        '
-        Me.UsereditBindingSource1.DataMember = "user_edit"
-        '
-        'UsereditBindingSource
-        '
-        Me.UsereditBindingSource.DataMember = "user_edit"
-        '
-        'User_editTableAdapter
-        '
-        Me.User_editTableAdapter.ClearBeforeFill = True
-        '
-        'DataTable1BindingSource
-        '
-        Me.DataTable1BindingSource.DataMember = "DataTable1"
-        '
-        'DataTable1TableAdapter
-        '
-        Me.DataTable1TableAdapter.ClearBeforeFill = True
-        '
-        'DataTable1BindingSource1
-        '
-        Me.DataTable1BindingSource1.DataMember = "DataTable1"
-        '
-        'UsereditBindingSource2
-        '
-        Me.UsereditBindingSource2.DataMember = "user_edit"
         '
         'U
         '
@@ -329,9 +279,7 @@ Partial Class Form1
         '
         'cb_add_emp
         '
-        Me.cb_add_emp.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.UsereditBindingSource2, "Emp_ID", True))
-        Me.cb_add_emp.DataSource = Me.DataTable1BindingSource
-        Me.cb_add_emp.DisplayMember = "พนักงาน"
+        Me.cb_add_emp.DisplayMember = "Emp_ID"
         Me.cb_add_emp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_add_emp.FormattingEnabled = True
         Me.cb_add_emp.Location = New System.Drawing.Point(537, 284)
@@ -368,24 +316,11 @@ Partial Class Form1
         'data_User
         '
         Me.data_User.AllowUserToAddRows = False
-        Me.data_User.AutoGenerateColumns = False
         Me.data_User.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.data_User.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UserIDDataGridViewTextBoxColumn, Me.UserPassDataGridViewTextBoxColumn, Me.พนกงานDataGridViewTextBoxColumn, Me.UserAccessDataGridViewTextBoxColumn})
-        Me.data_User.DataSource = Me.UserdataBindingSource
         Me.data_User.Location = New System.Drawing.Point(304, 23)
         Me.data_User.Name = "data_User"
         Me.data_User.Size = New System.Drawing.Size(493, 257)
         Me.data_User.TabIndex = 0
-        '
-        'SedentralsqlBindingSource
-        '
-        Me.SedentralsqlBindingSource.DataSource = Me.Se_dentral_sql
-        Me.SedentralsqlBindingSource.Position = 0
-        '
-        'Se_dentral_sql
-        '
-        Me.Se_dentral_sql.DataSetName = "Se_dentral_sql"
-        Me.Se_dentral_sql.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Drug2
         '
@@ -1584,40 +1519,10 @@ Partial Class Form1
         Me.btn_MaxRe.TabIndex = 1
         Me.btn_MaxRe.UseVisualStyleBackColor = False
         '
-        'UserdataBindingSource
+        'Se_dentral_sql1
         '
-        Me.UserdataBindingSource.DataMember = "User_data"
-        Me.UserdataBindingSource.DataSource = Me.Se_dentral_sql
-        '
-        'User_dataTableAdapter
-        '
-        Me.User_dataTableAdapter.ClearBeforeFill = True
-        '
-        'UserIDDataGridViewTextBoxColumn
-        '
-        Me.UserIDDataGridViewTextBoxColumn.DataPropertyName = "User_ID"
-        Me.UserIDDataGridViewTextBoxColumn.HeaderText = "User_ID"
-        Me.UserIDDataGridViewTextBoxColumn.Name = "UserIDDataGridViewTextBoxColumn"
-        '
-        'UserPassDataGridViewTextBoxColumn
-        '
-        Me.UserPassDataGridViewTextBoxColumn.DataPropertyName = "User_Pass"
-        Me.UserPassDataGridViewTextBoxColumn.HeaderText = "User_Pass"
-        Me.UserPassDataGridViewTextBoxColumn.Name = "UserPassDataGridViewTextBoxColumn"
-        '
-        'พนกงานDataGridViewTextBoxColumn
-        '
-        Me.พนกงานDataGridViewTextBoxColumn.DataPropertyName = "พนักงาน"
-        Me.พนกงานDataGridViewTextBoxColumn.HeaderText = "พนักงาน"
-        Me.พนกงานDataGridViewTextBoxColumn.Name = "พนกงานDataGridViewTextBoxColumn"
-        Me.พนกงานDataGridViewTextBoxColumn.ReadOnly = True
-        Me.พนกงานDataGridViewTextBoxColumn.Width = 150
-        '
-        'UserAccessDataGridViewTextBoxColumn
-        '
-        Me.UserAccessDataGridViewTextBoxColumn.DataPropertyName = "User_Access"
-        Me.UserAccessDataGridViewTextBoxColumn.HeaderText = "User_Access"
-        Me.UserAccessDataGridViewTextBoxColumn.Name = "UserAccessDataGridViewTextBoxColumn"
+        Me.Se_dentral_sql1.DataSetName = "Se_dentral_sql"
+        Me.Se_dentral_sql1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Form1
         '
@@ -1640,17 +1545,10 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
-        CType(Me.UsereditBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UsereditBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataTable1BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UsereditBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.U.ResumeLayout(False)
         Me.Admin.ResumeLayout(False)
         Me.Admin.PerformLayout()
         CType(Me.data_User, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SedentralsqlBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Se_dentral_sql, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Drug2.ResumeLayout(False)
         Me.Drug2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1683,7 +1581,7 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Taskbar.ResumeLayout(False)
         Me.Tool.ResumeLayout(False)
-        CType(Me.UserdataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Se_dentral_sql1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1783,18 +1681,11 @@ Partial Class Form1
     Friend WithEvents Employee As DblBufferedPanel
     Friend WithEvents data_User As DataGridView
     Friend WithEvents admin_refresh As Button
-    Friend WithEvents UsereditBindingSource As BindingSource
-    Friend WithEvents User_editTableAdapter As sedentral_sqlTableAdapters.user_editTableAdapter
     Friend WithEvents btn_add As Button
     Friend WithEvents cb_add_access As ComboBox
     Friend WithEvents cb_add_emp As ComboBox
-    Friend WithEvents UsereditBindingSource1 As BindingSource
     Friend WithEvents tb_add_pass As TextBox
     Friend WithEvents tb_add_user As TextBox
-    Friend WithEvents DataTable1BindingSource As BindingSource
-    Friend WithEvents DataTable1TableAdapter As sedentral_sqlTableAdapters.DataTable1TableAdapter
-    Friend WithEvents UsereditBindingSource2 As BindingSource
-    Friend WithEvents DataTable1BindingSource1 As BindingSource
     Friend WithEvents Drug1 As DblBufferedPanel
     Friend WithEvents rec_fname As TextBox
     Friend WithEvents rec_relationship As TextBox
@@ -1823,12 +1714,5 @@ Partial Class Form1
     Friend WithEvents Label38 As Label
     Friend WithEvents Label37 As Label
     Friend WithEvents Label36 As Label
-    Friend WithEvents SedentralsqlBindingSource As BindingSource
-    Friend WithEvents Se_dentral_sql As Se_dentral_sql
-    Friend WithEvents UserdataBindingSource As BindingSource
-    Friend WithEvents User_dataTableAdapter As Se_dentral_sqlTableAdapters.User_dataTableAdapter
-    Friend WithEvents UserIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents UserPassDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents พนกงานDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents UserAccessDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Se_dentral_sql1 As Se_dentral_sql
 End Class
