@@ -1,6 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Threading
-Imports System.Threading.Thread
 Public Class Form1
 
     Dim MaxRe As Boolean = False
@@ -17,6 +15,10 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Sedentral_sql.user_edit' table. You can move, or remove it, as needed.
+        Me.User_editTableAdapter.Fill(Me.Sedentral_sql.user_edit)
+        'TODO: This line of code loads data into the 'Sedentral_sql.user_edit' table. You can move, or remove it, as needed.
+        Me.User_editTableAdapter.Fill(Me.Sedentral_sql.user_edit)
         SetStyle(ControlStyles.AllPaintingInWmPaint, True)
         SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         UpdateStyles()
@@ -24,12 +26,6 @@ Public Class Form1
         Default_Gray = Color.FromArgb(126, 139, 154)
         btn_admin.BackColor = Default_Gray
 
-
-        'Thread
-        Dim thrd As New Thread(AddressOf LoadBackgroundImage)
-        thrd.IsBackground = True
-        thrd.Start()
-        'End Thread
         connection.Open()
         'Login Load'
         Dim username_load_command As New SqlCommand("Select [User_ID] from [dbo].[User]", connection)
@@ -42,12 +38,6 @@ Public Class Form1
         Username.ValueMember = "User_ID"
         'End Login Load'
         connection.Close()
-    End Sub
-
-    Private Sub LoadBackgroundImage()
-        Menu_Tool.BackgroundImage = New Bitmap(My.Resources.Menu)
-        U.BackgroundImage = New Bitmap(My.Resources.Background1)
-        Taskbar.BackgroundImage = New Bitmap(My.Resources.Taskbar)
     End Sub
 
     Private Sub btn_Login_MouseDown(sender As Object, e As MouseEventArgs) Handles btn_Login.MouseDown
@@ -133,8 +123,7 @@ Public Class Form1
         Else
 
         End If
-        Record_1.Visible = False
-        Record_2.Visible = True
+        Set_Panel(Record_2)
     End Sub
 
     Private Sub btn_Login_Click(sender As Object, e As EventArgs) Handles btn_Login.Click
@@ -159,6 +148,7 @@ Public Class Form1
                 Dim lname As String = read_emp("Emp_Lname").ToString()
                 User_name = fname + " " + lname
                 usern.Text = User_name
+                Set_Panel(Home)
                 Login(True)
             End If
             read_emp.Close()
@@ -225,6 +215,51 @@ Public Class Form1
         Priv_Class = 0
         Password.Text = ""
         Login(False)
+    End Sub
+
+    Private Sub admin_refresh_Click(sender As Object, e As EventArgs) Handles admin_refresh.Click
+        data_User.DataSource = Nothing
+        data_User.DataSource = Sedentral_sql.user_edit.CopyToDataTable
+        data_User.Refresh()
+    End Sub
+
+    Private Sub UserBindingSource_CurrentChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btn_Min_Click(sender As Object, e As MouseEventArgs) Handles btn_Min.MouseClick
+
+    End Sub
+
+    Private Sub btn_Exit_Click(sender As Object, e As MouseEventArgs) Handles btn_Exit.MouseClick
+
+    End Sub
+
+    Private Sub btn_MaxRe_Click(sender As Object, e As MouseEventArgs) Handles btn_MaxRe.MouseClick
+
+    End Sub
+
+    Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
+        Dim newDataRow As DataGridViewRow
+        Dim Index As Integer = e.RowIndex
+        newDataRow = DataGridView1.Rows(Index)
+
+        ' get data from textboxes to the row
+
+        newDataRow.Cells(0).Value = tb_add_user.Text
+        newDataRow.Cells(1).Value = tb_add_pass.Text
+        newDataRow.Cells(2).Value = cb_add_emp.SelectedText
+        newDataRow.Cells(3).Value = cb_add_access.SelectedText
+    End Sub
+
+    Private Sub data_User_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles data_User.CellContentClick
+        Dim Index As Integer = e.RowIndex
+        Dim selectedRow As DataGridViewRow
+        selectedRow = data_User.Rows(Index)
+        tb_add_user.Text = selectedRow.Cells(0).Value.ToString()
+        tb_add_pass.Text = selectedRow.Cells(1).Value.ToString()
+        cb_add_emp.SelectedText = selectedRow.Cells(2).Value.ToString
+        cb_add_access.SelectedText = selectedRow.Cells(3).Value.ToString()
     End Sub
 
     Private Sub Set_Button_Hold(Menu_Selected As String)

@@ -22,10 +22,13 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Me.Sedentral_sql = New DentralManagement.sedentral_sql()
         Me.U = New DentralManagement.DblBufferedPanel()
         Me.Admin = New DentralManagement.DblBufferedPanel()
-        Me.Finan = New DentralManagement.DblBufferedPanel()
+        Me.admin_refresh = New System.Windows.Forms.Button()
+        Me.data_User = New System.Windows.Forms.DataGridView()
         Me.Drug = New DentralManagement.DblBufferedPanel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
@@ -37,6 +40,8 @@ Partial Class Form1
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.Button9 = New System.Windows.Forms.Button()
+        Me.Employee = New DentralManagement.DblBufferedPanel()
+        Me.Finan = New DentralManagement.DblBufferedPanel()
         Me.Record_2 = New DentralManagement.DblBufferedPanel()
         Me.Button_add = New DentralManagement.DblBufferedPanel()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -138,8 +143,22 @@ Partial Class Form1
         Me.btn_Min = New System.Windows.Forms.Button()
         Me.btn_Exit = New System.Windows.Forms.Button()
         Me.btn_MaxRe = New System.Windows.Forms.Button()
-        Me.Employee = New DentralManagement.DblBufferedPanel()
+        Me.UsereditBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.User_editTableAdapter = New DentralManagement.sedentral_sqlTableAdapters.user_editTableAdapter()
+        Me.UserIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UserPassDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.พนกงานDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UserAccessDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tb_add_user = New System.Windows.Forms.TextBox()
+        Me.tb_add_pass = New System.Windows.Forms.TextBox()
+        Me.cb_add_emp = New System.Windows.Forms.ComboBox()
+        Me.UsereditBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cb_add_access = New System.Windows.Forms.ComboBox()
+        Me.btn_add = New System.Windows.Forms.Button()
+        CType(Me.Sedentral_sql, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.U.SuspendLayout()
+        Me.Admin.SuspendLayout()
+        CType(Me.data_User, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Drug.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Record_2.SuspendLayout()
@@ -165,14 +184,21 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Taskbar.SuspendLayout()
         Me.Tool.SuspendLayout()
+        CType(Me.UsereditBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UsereditBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'Sedentral_sql
+        '
+        Me.Sedentral_sql.DataSetName = "sedentral_sql"
+        Me.Sedentral_sql.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'U
         '
-        Me.U.Controls.Add(Me.Employee)
         Me.U.Controls.Add(Me.Admin)
-        Me.U.Controls.Add(Me.Finan)
         Me.U.Controls.Add(Me.Drug)
+        Me.U.Controls.Add(Me.Employee)
+        Me.U.Controls.Add(Me.Finan)
         Me.U.Controls.Add(Me.Record_2)
         Me.U.Controls.Add(Me.Record_3)
         Me.U.Controls.Add(Me.Record_1)
@@ -188,19 +214,39 @@ Partial Class Form1
         '
         'Admin
         '
+        Me.Admin.Controls.Add(Me.btn_add)
+        Me.Admin.Controls.Add(Me.cb_add_access)
+        Me.Admin.Controls.Add(Me.cb_add_emp)
+        Me.Admin.Controls.Add(Me.tb_add_pass)
+        Me.Admin.Controls.Add(Me.tb_add_user)
+        Me.Admin.Controls.Add(Me.admin_refresh)
+        Me.Admin.Controls.Add(Me.data_User)
         Me.Admin.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Admin.Location = New System.Drawing.Point(200, 0)
         Me.Admin.Name = "Admin"
         Me.Admin.Size = New System.Drawing.Size(824, 723)
         Me.Admin.TabIndex = 0
         '
-        'Finan
+        'admin_refresh
         '
-        Me.Finan.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Finan.Location = New System.Drawing.Point(200, 0)
-        Me.Finan.Name = "Finan"
-        Me.Finan.Size = New System.Drawing.Size(824, 723)
-        Me.Finan.TabIndex = 23
+        Me.admin_refresh.Location = New System.Drawing.Point(214, 30)
+        Me.admin_refresh.Name = "admin_refresh"
+        Me.admin_refresh.Size = New System.Drawing.Size(78, 35)
+        Me.admin_refresh.TabIndex = 1
+        Me.admin_refresh.Text = "Refresh"
+        Me.admin_refresh.UseVisualStyleBackColor = True
+        '
+        'data_User
+        '
+        Me.data_User.AllowUserToAddRows = False
+        Me.data_User.AutoGenerateColumns = False
+        Me.data_User.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.data_User.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UserIDDataGridViewTextBoxColumn, Me.UserPassDataGridViewTextBoxColumn, Me.พนกงานDataGridViewTextBoxColumn, Me.UserAccessDataGridViewTextBoxColumn})
+        Me.data_User.DataSource = Me.UsereditBindingSource
+        Me.data_User.Location = New System.Drawing.Point(304, 23)
+        Me.data_User.Name = "data_User"
+        Me.data_User.Size = New System.Drawing.Size(493, 257)
+        Me.data_User.TabIndex = 0
         '
         'Drug
         '
@@ -222,6 +268,7 @@ Partial Class Form1
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(43, 184)
         Me.DataGridView1.Name = "DataGridView1"
@@ -317,6 +364,22 @@ Partial Class Form1
         Me.Button9.TabIndex = 14
         Me.Button9.Text = "ย้อนกลับ"
         Me.Button9.UseVisualStyleBackColor = True
+        '
+        'Employee
+        '
+        Me.Employee.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Employee.Location = New System.Drawing.Point(200, 0)
+        Me.Employee.Name = "Employee"
+        Me.Employee.Size = New System.Drawing.Size(824, 723)
+        Me.Employee.TabIndex = 1
+        '
+        'Finan
+        '
+        Me.Finan.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Finan.Location = New System.Drawing.Point(200, 0)
+        Me.Finan.Name = "Finan"
+        Me.Finan.Size = New System.Drawing.Size(824, 723)
+        Me.Finan.TabIndex = 23
         '
         'Record_2
         '
@@ -1393,13 +1456,92 @@ Partial Class Form1
         Me.btn_MaxRe.TabIndex = 1
         Me.btn_MaxRe.UseVisualStyleBackColor = False
         '
-        'Employee
+        'UsereditBindingSource
         '
-        Me.Employee.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Employee.Location = New System.Drawing.Point(200, 0)
-        Me.Employee.Name = "Employee"
-        Me.Employee.Size = New System.Drawing.Size(824, 723)
-        Me.Employee.TabIndex = 1
+        Me.UsereditBindingSource.DataMember = "user_edit"
+        Me.UsereditBindingSource.DataSource = Me.Sedentral_sql
+        '
+        'User_editTableAdapter
+        '
+        Me.User_editTableAdapter.ClearBeforeFill = True
+        '
+        'UserIDDataGridViewTextBoxColumn
+        '
+        Me.UserIDDataGridViewTextBoxColumn.DataPropertyName = "User_ID"
+        Me.UserIDDataGridViewTextBoxColumn.HeaderText = "User_ID"
+        Me.UserIDDataGridViewTextBoxColumn.Name = "UserIDDataGridViewTextBoxColumn"
+        '
+        'UserPassDataGridViewTextBoxColumn
+        '
+        Me.UserPassDataGridViewTextBoxColumn.DataPropertyName = "User_Pass"
+        Me.UserPassDataGridViewTextBoxColumn.HeaderText = "User_Pass"
+        Me.UserPassDataGridViewTextBoxColumn.Name = "UserPassDataGridViewTextBoxColumn"
+        '
+        'พนกงานDataGridViewTextBoxColumn
+        '
+        Me.พนกงานDataGridViewTextBoxColumn.DataPropertyName = "พนักงาน"
+        Me.พนกงานDataGridViewTextBoxColumn.HeaderText = "พนักงาน"
+        Me.พนกงานDataGridViewTextBoxColumn.Name = "พนกงานDataGridViewTextBoxColumn"
+        Me.พนกงานDataGridViewTextBoxColumn.ReadOnly = True
+        Me.พนกงานDataGridViewTextBoxColumn.Width = 150
+        '
+        'UserAccessDataGridViewTextBoxColumn
+        '
+        Me.UserAccessDataGridViewTextBoxColumn.DataPropertyName = "User_Access"
+        Me.UserAccessDataGridViewTextBoxColumn.HeaderText = "User_Access"
+        Me.UserAccessDataGridViewTextBoxColumn.Name = "UserAccessDataGridViewTextBoxColumn"
+        '
+        'tb_add_user
+        '
+        Me.tb_add_user.Location = New System.Drawing.Point(328, 286)
+        Me.tb_add_user.Multiline = True
+        Me.tb_add_user.Name = "tb_add_user"
+        Me.tb_add_user.Size = New System.Drawing.Size(100, 32)
+        Me.tb_add_user.TabIndex = 2
+        '
+        'tb_add_pass
+        '
+        Me.tb_add_pass.Location = New System.Drawing.Point(431, 286)
+        Me.tb_add_pass.Multiline = True
+        Me.tb_add_pass.Name = "tb_add_pass"
+        Me.tb_add_pass.Size = New System.Drawing.Size(100, 32)
+        Me.tb_add_pass.TabIndex = 3
+        '
+        'cb_add_emp
+        '
+        Me.cb_add_emp.DataSource = Me.UsereditBindingSource1
+        Me.cb_add_emp.DisplayMember = "พนักงาน"
+        Me.cb_add_emp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_add_emp.FormattingEnabled = True
+        Me.cb_add_emp.Location = New System.Drawing.Point(537, 284)
+        Me.cb_add_emp.Name = "cb_add_emp"
+        Me.cb_add_emp.Size = New System.Drawing.Size(155, 35)
+        Me.cb_add_emp.TabIndex = 4
+        Me.cb_add_emp.ValueMember = "Emp_ID"
+        '
+        'UsereditBindingSource1
+        '
+        Me.UsereditBindingSource1.DataMember = "user_edit"
+        Me.UsereditBindingSource1.DataSource = Me.Sedentral_sql
+        '
+        'cb_add_access
+        '
+        Me.cb_add_access.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_add_access.FormattingEnabled = True
+        Me.cb_add_access.Items.AddRange(New Object() {"0", "1", "2"})
+        Me.cb_add_access.Location = New System.Drawing.Point(698, 283)
+        Me.cb_add_access.Name = "cb_add_access"
+        Me.cb_add_access.Size = New System.Drawing.Size(102, 35)
+        Me.cb_add_access.TabIndex = 5
+        '
+        'btn_add
+        '
+        Me.btn_add.Location = New System.Drawing.Point(698, 324)
+        Me.btn_add.Name = "btn_add"
+        Me.btn_add.Size = New System.Drawing.Size(103, 35)
+        Me.btn_add.TabIndex = 6
+        Me.btn_add.Text = "Add/Save"
+        Me.btn_add.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -1422,7 +1564,11 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
+        CType(Me.Sedentral_sql, System.ComponentModel.ISupportInitialize).EndInit()
         Me.U.ResumeLayout(False)
+        Me.Admin.ResumeLayout(False)
+        Me.Admin.PerformLayout()
+        CType(Me.data_User, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Drug.ResumeLayout(False)
         Me.Drug.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1455,6 +1601,8 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Taskbar.ResumeLayout(False)
         Me.Tool.ResumeLayout(False)
+        CType(Me.UsereditBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UsereditBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1575,4 +1723,19 @@ Partial Class Form1
     Friend WithEvents btn_MaxRe As Button
     Friend WithEvents btn_logout As Button
     Friend WithEvents Employee As DblBufferedPanel
+    Friend WithEvents Sedentral_sql As sedentral_sql
+    Friend WithEvents data_User As DataGridView
+    Friend WithEvents admin_refresh As Button
+    Friend WithEvents UsereditBindingSource As BindingSource
+    Friend WithEvents User_editTableAdapter As sedentral_sqlTableAdapters.user_editTableAdapter
+    Friend WithEvents UserIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents UserPassDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents พนกงานDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents UserAccessDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents btn_add As Button
+    Friend WithEvents cb_add_access As ComboBox
+    Friend WithEvents cb_add_emp As ComboBox
+    Friend WithEvents UsereditBindingSource1 As BindingSource
+    Friend WithEvents tb_add_pass As TextBox
+    Friend WithEvents tb_add_user As TextBox
 End Class
