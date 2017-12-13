@@ -73,6 +73,10 @@ Partial Class Form1
         Me.พนกงานDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UserAccessDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UserdataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+<<<<<<< HEAD
+        Me.Se_dentral_sql = New DentralManagement.Se_dentral_sql()
+=======
+>>>>>>> dbf54e41c196e0949858320dd1147c3fb3f0cf30
         Me.Drug2 = New DentralManagement.DblBufferedPanel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
@@ -179,8 +183,11 @@ Partial Class Form1
         Me.btn_Exit = New System.Windows.Forms.Button()
         Me.btn_MaxRe = New System.Windows.Forms.Button()
         Me.User_dataTableAdapter = New DentralManagement.Se_dentral_sqlTableAdapters.User_dataTableAdapter()
+<<<<<<< HEAD
+=======
         Me.Medi_suppliesTableAdapter = New DentralManagement.Se_dentral_sqlTableAdapters.Medi_suppliesTableAdapter()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+>>>>>>> dbf54e41c196e0949858320dd1147c3fb3f0cf30
         CType(Me.UsereditBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsereditBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -195,6 +202,10 @@ Partial Class Form1
         Me.Admin.SuspendLayout()
         CType(Me.data_User, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UserdataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+<<<<<<< HEAD
+        CType(Me.Se_dentral_sql, System.ComponentModel.ISupportInitialize).BeginInit()
+=======
+>>>>>>> dbf54e41c196e0949858320dd1147c3fb3f0cf30
         Me.Drug2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Record_1.SuspendLayout()
@@ -221,7 +232,10 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Taskbar.SuspendLayout()
         Me.Tool.SuspendLayout()
+<<<<<<< HEAD
+=======
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+>>>>>>> dbf54e41c196e0949858320dd1147c3fb3f0cf30
         Me.SuspendLayout()
         '
         'UsereditBindingSource1
@@ -258,11 +272,16 @@ Partial Class Form1
         Me.U.Controls.Add(Me.Record_4)
         Me.U.Controls.Add(Me.Record_3)
         Me.U.Controls.Add(Me.Admin)
+        Me.U.Controls.Add(Me.Record_4)
         Me.U.Controls.Add(Me.Drug2)
         Me.U.Controls.Add(Me.Record_1)
         Me.U.Controls.Add(Me.Record_2)
         Me.U.Controls.Add(Me.Employee)
         Me.U.Controls.Add(Me.Drug1)
+<<<<<<< HEAD
+        Me.U.Controls.Add(Me.Record_3)
+=======
+>>>>>>> dbf54e41c196e0949858320dd1147c3fb3f0cf30
         Me.U.Controls.Add(Me.Home)
         Me.U.Controls.Add(Me.Menu_Tool)
         Me.U.Dock = System.Windows.Forms.DockStyle.Fill
@@ -621,6 +640,34 @@ Partial Class Form1
         Me.UserIDDataGridViewTextBoxColumn.DataPropertyName = "User_ID"
         Me.UserIDDataGridViewTextBoxColumn.HeaderText = "User_ID"
         Me.UserIDDataGridViewTextBoxColumn.Name = "UserIDDataGridViewTextBoxColumn"
+<<<<<<< HEAD
+        '
+        'UserPassDataGridViewTextBoxColumn
+        '
+        Me.UserPassDataGridViewTextBoxColumn.DataPropertyName = "User_Pass"
+        Me.UserPassDataGridViewTextBoxColumn.HeaderText = "User_Pass"
+        Me.UserPassDataGridViewTextBoxColumn.Name = "UserPassDataGridViewTextBoxColumn"
+        '
+        'พนกงานDataGridViewTextBoxColumn
+        '
+        Me.พนกงานDataGridViewTextBoxColumn.DataPropertyName = "พนักงาน"
+        Me.พนกงานDataGridViewTextBoxColumn.HeaderText = "พนักงาน"
+        Me.พนกงานDataGridViewTextBoxColumn.Name = "พนกงานDataGridViewTextBoxColumn"
+        Me.พนกงานDataGridViewTextBoxColumn.ReadOnly = True
+        Me.พนกงานDataGridViewTextBoxColumn.Width = 150
+        '
+        'UserAccessDataGridViewTextBoxColumn
+        '
+        Me.UserAccessDataGridViewTextBoxColumn.DataPropertyName = "User_Access"
+        Me.UserAccessDataGridViewTextBoxColumn.HeaderText = "User_Access"
+        Me.UserAccessDataGridViewTextBoxColumn.Name = "UserAccessDataGridViewTextBoxColumn"
+        '
+        'UserdataBindingSource
+        '
+        Me.UserdataBindingSource.DataMember = "User_data"
+        Me.UserdataBindingSource.DataSource = Me.Se_dentral_sql
+=======
+>>>>>>> dbf54e41c196e0949858320dd1147c3fb3f0cf30
         '
         'UserPassDataGridViewTextBoxColumn
         '
@@ -1737,6 +1784,8 @@ Partial Class Form1
         '
         Me.User_dataTableAdapter.ClearBeforeFill = True
         '
+<<<<<<< HEAD
+=======
         'Medi_suppliesTableAdapter
         '
         Me.Medi_suppliesTableAdapter.ClearBeforeFill = True
@@ -1749,6 +1798,7 @@ Partial Class Form1
         Me.DataGridView3.Size = New System.Drawing.Size(742, 352)
         Me.DataGridView3.TabIndex = 0
         '
+>>>>>>> dbf54e41c196e0949858320dd1147c3fb3f0cf30
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 27.0!)
@@ -1787,6 +1837,10 @@ Partial Class Form1
         Me.Admin.PerformLayout()
         CType(Me.data_User, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UserdataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+<<<<<<< HEAD
+        CType(Me.Se_dentral_sql, System.ComponentModel.ISupportInitialize).EndInit()
+=======
+>>>>>>> dbf54e41c196e0949858320dd1147c3fb3f0cf30
         Me.Drug2.ResumeLayout(False)
         Me.Drug2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1819,7 +1873,10 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Taskbar.ResumeLayout(False)
         Me.Tool.ResumeLayout(False)
+<<<<<<< HEAD
+=======
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+>>>>>>> dbf54e41c196e0949858320dd1147c3fb3f0cf30
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
