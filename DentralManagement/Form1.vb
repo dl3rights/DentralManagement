@@ -18,20 +18,20 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'Se_dentral_sql.DataTable1' table. You can move, or remove it, as needed.
-        Me.DataTable1TableAdapter1.FillEmpDep(Me.Se_dentral_sql.DataTable1)
-        'TODO: This line of code loads data into the 'Se_dentral_sql.Employee' table. You can move, or remove it, as needed.
-
-        'TODO: This line of code loads data into the 'Se_dentral_sql.Medi_supplies' table. You can move, or remove it, as needed.
-
+        'TODO: This line of code loads data into the 'Se_dentral_sql.Emp_dept' table. You can move, or remove it, as needed.
+        Me.Emp_deptTableAdapter.Fill(Me.Se_dentral_sql.Emp_dept)
+        'TODO: This line of code loads data into the 'Se_dentral_sql.Emp_list' table. You can move, or remove it, as needed.
+        Me.Emp_listTableAdapter.Fill(Me.Se_dentral_sql.Emp_list)
         'TODO: This line of code loads data into the 'Se_dentral_sql.User_data' table. You can move, or remove it, as needed.
-
-        'TODO: This line of code loads data into the 'Sedentral_sql.DataTable1' table. You can move, or remove it, as needed.
+        Me.User_dataTableAdapter.Fill(Me.Se_dentral_sql.User_data)
+        'TODO: This line of code loads data into the 'Se_dentral_sql.DataTable1' table. You can move, or remove it, as needed.
+        'Me.DataTable1TableAdapter1.FillEmpDep(Me.Se_dentral_sql.DataTable1)
+        'User_dataTableAdapter.Fill(Se_dentral_sql.User_data)
         SetStyle(ControlStyles.AllPaintingInWmPaint, True)
         SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         UpdateStyles()
 
-
+        'tble_ucp = Se_dentral_sql.User_data.CopyToDataTable
 
         Default_Gray = Color.FromArgb(126, 139, 154)
         btn_admin.BackColor = Default_Gray
@@ -196,8 +196,6 @@ Public Class Form1
         If Priv_Class = 2 Then
             Set_Button_Hold(5)
             Set_Panel(Admin)
-        Else
-
         End If
     End Sub
 
@@ -235,7 +233,8 @@ Public Class Form1
 
     Private Sub admin_refresh_Click(sender As Object, e As EventArgs) Handles admin_refresh.Click
         data_User.DataSource = Nothing
-        data_User.DataSource = Se_dentral_sql.User_data.CopyToDataTable
+        'data_User.DataSource = Se_dentral_sql.User_data.CopyToDataTable
+        'tble_ucp = Se_dentral_sql.User_data.CopyToDataTable
         data_User.Refresh()
     End Sub
 
@@ -256,11 +255,15 @@ Public Class Form1
     End Sub
 
     Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
-        Label36.Text = cb_add_emp.Text
-        Label37.Text = cb_add_emp.SelectedText
-        Label38.Text = cb_add_emp.SelectedValue
+        If (IsInDatagridview(tb_add_user.Text, tb_add_pass.Text, 0, 1, data_User)) Then
 
-        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, 5, cb_add_emp.SelectedValue)
+            ''// Code to display message.
+            MsgBox("Record Exists!", MsgBoxStyle.Information)
+
+        Else
+            tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, cb_add_emp.SelectedText, cb_add_access.SelectedIndex)
+
+        End If
         data_User.DataSource = tble_ucp
     End Sub
 
@@ -270,7 +273,7 @@ Public Class Form1
         selectedRow = data_User.Rows(index)
         tb_add_user.Text = selectedRow.Cells(0).Value.ToString()
         tb_add_pass.Text = selectedRow.Cells(1).Value.ToString()
-        cb_add_emp.SelectedValue = selectedRow.Cells(2).Value.ToString()
+        cb_add_emp.SelectedText = selectedRow.Cells(2).Value.ToString()
         cb_add_access.SelectedIndex = selectedRow.Cells(3).Value.ToString()
     End Sub
 
@@ -290,8 +293,8 @@ Public Class Form1
 
     End Sub
 
-    Private Sub TextBox3_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
-        Me.DataTable1TableAdapter1.FillByEmpDep(Me.Se_dentral_sql.DataTable1, TextBox3.Text)
+    Private Sub TextBox3_TextChanged_1(sender As Object, e As EventArgs) Handles search_emp.TextChanged
+        Me.Emp_deptTableAdapter.FillBy(Me.Se_dentral_sql.Emp_dept, search_emp.Text, search_emp.Text, search_emp.Text, search_emp.Text)
     End Sub
 
     Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellContentClick
@@ -334,6 +337,27 @@ Public Class Form1
             btn_admin.Image = Nothing
         End If
     End Sub
+
+    Function IsInDatagridview(ByVal cell1 As String, ByVal cell2 As String, ByVal rowCell1_ID As Integer, ByVal rowCell2_ID As Integer, ByRef dgv As DataGridView)
+
+        Dim isFound As Boolean = False
+
+        For Each rw As DataGridViewRow In dgv.Rows
+            If rw.Cells(rowCell1_ID).Value.ToString = cell1 Then
+                If rw.Cells(rowCell2_ID).Value.ToString = cell2 Then
+
+                    isFound = True
+                    Return isFound
+
+
+                End If
+            End If
+        Next
+
+        Return isFound
+
+    End Function
+
 End Class
 
 Public Class DblBufferedPanel
