@@ -18,17 +18,14 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Se_dentral_sql.User_data' table. You can move, or remove it, as needed.
+        Me.User_dataTableAdapter.Fill(Me.Se_dentral_sql.User_data)
         'TODO: This line of code loads data into the 'Sedentral_sql.DataTable1' table. You can move, or remove it, as needed.
-        Me.DataTable1TableAdapter.Fill(Me.Sedentral_sql.DataTable1)
-        'TODO: This line of code loads data into the 'Sedentral_sql.user_edit' table. You can move, or remove it, as needed.
-        Me.User_editTableAdapter.Fill(Me.Sedentral_sql.user_edit)
-        'TODO: This line of code loads data into the 'Sedentral_sql.user_edit' table. You can move, or remove it, as needed.
-        Me.User_editTableAdapter.Fill(Me.Sedentral_sql.user_edit)
         SetStyle(ControlStyles.AllPaintingInWmPaint, True)
         SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         UpdateStyles()
 
-        tble_ucp = Sedentral_sql.user_edit.CopyToDataTable
+        tble_ucp = Se_dentral_sql.User_data.CopyToDataTable
 
         Default_Gray = Color.FromArgb(126, 139, 154)
         btn_admin.BackColor = Default_Gray
@@ -145,6 +142,9 @@ Public Class Form1
                 Priv_Class = 2
                 btn_admin.BackColor = TransparencyKey
                 btn_admin.Cursor = Cursors.Hand
+            Else
+                btn_admin.BackColor = Default_Gray
+                btn_admin.Cursor = Cursors.Default
             End If
 
             Dim load_name As New SqlCommand("Select [Emp_Fname],[Emp_Lname] from [dbo].[Employee] Where [Emp_ID] = '" & read("Fori_User_Id").ToString & "'", connection)
@@ -229,7 +229,7 @@ Public Class Form1
 
     Private Sub admin_refresh_Click(sender As Object, e As EventArgs) Handles admin_refresh.Click
         data_User.DataSource = Nothing
-        data_User.DataSource = Sedentral_sql.user_edit.CopyToDataTable
+        data_User.DataSource = Se_dentral_sql.User_data.CopyToDataTable
         data_User.Refresh()
     End Sub
 
@@ -250,9 +250,11 @@ Public Class Form1
     End Sub
 
     Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
+        Label36.Text = cb_add_emp.Text
+        Label37.Text = cb_add_emp.SelectedText
+        Label38.Text = cb_add_emp.SelectedValue
 
-
-        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, 0, cb_add_access.SelectedIndex)
+        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, 5, cb_add_emp.SelectedValue)
         data_User.DataSource = tble_ucp
     End Sub
 

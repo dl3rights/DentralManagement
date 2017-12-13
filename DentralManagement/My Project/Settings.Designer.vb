@@ -64,6 +64,17 @@ Namespace My
                 Return CType(Me("sqlconn"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-2VLCN07;Initial Catalog=sedentral;Persist Security Info=True;"& _ 
+            "User ID=se_admin;Password=Dentis1234")>  _
+        Public ReadOnly Property sedentralConnectionString() As String
+            Get
+                Return CType(Me("sedentralConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
