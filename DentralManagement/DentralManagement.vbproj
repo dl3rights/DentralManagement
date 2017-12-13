@@ -121,6 +121,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Se_dentral_sql1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Se_dentral_sql1.vb">
+      <DependentUpon>Se_dentral_sql1.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
