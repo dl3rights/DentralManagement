@@ -126,7 +126,7 @@ Public Class Form1
         Dim read_record As SqlDataReader = tb_search_command.ExecuteReader()
 
         If read_record.Read() Then
-            cc.Text = read_record("patient_Fname").ToString
+            rec_fname.Text = read_record("patient_Fname").ToString
         Else
 
         End If
@@ -156,6 +156,7 @@ Public Class Form1
                 User_name = fname + " " + lname
                 usern.Text = User_name
                 Set_Panel(Home)
+                Set_Button_Hold(0)
                 Login(True)
             End If
             read_emp.Close()
@@ -189,6 +190,8 @@ Public Class Form1
         If Priv_Class = 2 Then
             Set_Button_Hold(5)
             Set_Panel(Admin)
+        Else
+
         End If
     End Sub
 
@@ -249,7 +252,7 @@ Public Class Form1
     Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
 
 
-        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, cb_add_emp., cb_add_access.SelectedIndex)
+        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, 0, cb_add_access.SelectedIndex)
         data_User.DataSource = tble_ucp
     End Sub
 

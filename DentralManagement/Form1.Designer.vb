@@ -33,35 +33,33 @@ Partial Class Form1
         Me.DataTable1BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.UsereditBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.U = New DentralManagement.DblBufferedPanel()
-        Me.Admin = New DentralManagement.DblBufferedPanel()
-        Me.btn_add = New System.Windows.Forms.Button()
-        Me.cb_add_access = New System.Windows.Forms.ComboBox()
-        Me.cb_add_emp = New System.Windows.Forms.ComboBox()
-        Me.tb_add_pass = New System.Windows.Forms.TextBox()
-        Me.tb_add_user = New System.Windows.Forms.TextBox()
-        Me.admin_refresh = New System.Windows.Forms.Button()
-        Me.data_User = New System.Windows.Forms.DataGridView()
-        Me.UserIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UserPassDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.พนักงาน = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.UserAccessDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Drug2 = New DentralManagement.DblBufferedPanel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Employee = New DentralManagement.DblBufferedPanel()
-        Me.Finan = New DentralManagement.DblBufferedPanel()
         Me.Record_2 = New DentralManagement.DblBufferedPanel()
         Me.Button_add = New DentralManagement.DblBufferedPanel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Detail = New DentralManagement.DblBufferedPanel()
+        Me.rec_other_relation = New System.Windows.Forms.TextBox()
+        Me.rec_other_tel2 = New System.Windows.Forms.TextBox()
+        Me.rec_other_tel1 = New System.Windows.Forms.TextBox()
+        Me.rec_other_lname = New System.Windows.Forms.TextBox()
+        Me.rec_other_fname = New System.Windows.Forms.TextBox()
+        Me.rec_access_health = New System.Windows.Forms.TextBox()
+        Me.rec_allergic = New System.Windows.Forms.TextBox()
+        Me.rec_tel_job = New System.Windows.Forms.TextBox()
+        Me.rec_address_job = New System.Windows.Forms.TextBox()
+        Me.rec_tel2 = New System.Windows.Forms.TextBox()
+        Me.rec_tel1 = New System.Windows.Forms.TextBox()
+        Me.rec_address = New System.Windows.Forms.TextBox()
+        Me.rec_ligion = New System.Windows.Forms.TextBox()
+        Me.rac_nation = New System.Windows.Forms.TextBox()
+        Me.rec_race = New System.Windows.Forms.TextBox()
+        Me.rec_relationship = New System.Windows.Forms.TextBox()
+        Me.rec_job = New System.Windows.Forms.TextBox()
+        Me.rec_blood = New System.Windows.Forms.ComboBox()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.rec_age = New System.Windows.Forms.TextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.rec_name = New System.Windows.Forms.TextBox()
+        Me.rec_fname = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -88,16 +86,6 @@ Partial Class Form1
         Me.Label17 = New System.Windows.Forms.Label()
         Me.rec_id_card = New System.Windows.Forms.Label()
         Me.label00123 = New System.Windows.Forms.Label()
-        Me.Record_3 = New DentralManagement.DblBufferedPanel()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.lname = New System.Windows.Forms.Label()
-        Me.fname = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.ชื่อ = New System.Windows.Forms.Label()
         Me.Record_1 = New DentralManagement.DblBufferedPanel()
         Me.btn_search_rec = New System.Windows.Forms.Button()
         Me.tb_idcard_search = New System.Windows.Forms.TextBox()
@@ -108,6 +96,42 @@ Partial Class Form1
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
+        Me.Admin = New DentralManagement.DblBufferedPanel()
+        Me.btn_add = New System.Windows.Forms.Button()
+        Me.cb_add_access = New System.Windows.Forms.ComboBox()
+        Me.cb_add_emp = New System.Windows.Forms.ComboBox()
+        Me.tb_add_pass = New System.Windows.Forms.TextBox()
+        Me.tb_add_user = New System.Windows.Forms.TextBox()
+        Me.admin_refresh = New System.Windows.Forms.Button()
+        Me.data_User = New System.Windows.Forms.DataGridView()
+        Me.UserIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UserPassDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.พนักงาน = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.UserAccessDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Employee = New DentralManagement.DblBufferedPanel()
+        Me.Finan = New DentralManagement.DblBufferedPanel()
+        Me.Drug1 = New DentralManagement.DblBufferedPanel()
+        Me.Drug2 = New DentralManagement.DblBufferedPanel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Record_3 = New DentralManagement.DblBufferedPanel()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.lname = New System.Windows.Forms.Label()
+        Me.fname = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.ชื่อ = New System.Windows.Forms.Label()
         Me.Record_4 = New DentralManagement.DblBufferedPanel()
         Me.Home = New DentralManagement.DblBufferedPanel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -136,30 +160,7 @@ Partial Class Form1
         Me.btn_Min = New System.Windows.Forms.Button()
         Me.btn_Exit = New System.Windows.Forms.Button()
         Me.btn_MaxRe = New System.Windows.Forms.Button()
-        Me.Drug1 = New DentralManagement.DblBufferedPanel()
-        Me.rec_fname = New System.Windows.Forms.TextBox()
-        Me.rec_name = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.rec_age = New System.Windows.Forms.TextBox()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.rec_blood = New System.Windows.Forms.ComboBox()
-        Me.rec_job = New System.Windows.Forms.TextBox()
-        Me.rec_relationship = New System.Windows.Forms.TextBox()
-        Me.rec_race = New System.Windows.Forms.TextBox()
-        Me.rac_nation = New System.Windows.Forms.TextBox()
-        Me.rec_ligion = New System.Windows.Forms.TextBox()
-        Me.rec_address = New System.Windows.Forms.TextBox()
-        Me.rec_tel1 = New System.Windows.Forms.TextBox()
-        Me.rec_tel2 = New System.Windows.Forms.TextBox()
-        Me.rec_address_job = New System.Windows.Forms.TextBox()
-        Me.rec_tel_job = New System.Windows.Forms.TextBox()
-        Me.rec_allergic = New System.Windows.Forms.TextBox()
-        Me.rec_access_health = New System.Windows.Forms.TextBox()
-        Me.rec_other_fname = New System.Windows.Forms.TextBox()
-        Me.rec_other_lname = New System.Windows.Forms.TextBox()
-        Me.rec_other_tel1 = New System.Windows.Forms.TextBox()
-        Me.rec_other_tel2 = New System.Windows.Forms.TextBox()
-        Me.rec_other_relation = New System.Windows.Forms.TextBox()
+        Me.user_update = New System.Windows.Forms.Button()
         CType(Me.Sedentral_sql, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsereditBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsereditBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,17 +168,17 @@ Partial Class Form1
         CType(Me.DataTable1BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsereditBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.U.SuspendLayout()
+        Me.Record_2.SuspendLayout()
+        Me.Button_add.SuspendLayout()
+        Me.Detail.SuspendLayout()
+        Me.Record_1.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Admin.SuspendLayout()
         CType(Me.data_User, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Drug2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Record_2.SuspendLayout()
-        Me.Button_add.SuspendLayout()
-        Me.Detail.SuspendLayout()
         Me.Record_3.SuspendLayout()
-        Me.Record_1.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Home.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Menu_Tool.SuspendLayout()
@@ -236,11 +237,11 @@ Partial Class Form1
         '
         'U
         '
-        Me.U.Controls.Add(Me.Record_2)
+        Me.U.Controls.Add(Me.Admin)
         Me.U.Controls.Add(Me.Record_1)
+        Me.U.Controls.Add(Me.Record_2)
         Me.U.Controls.Add(Me.Employee)
         Me.U.Controls.Add(Me.Finan)
-        Me.U.Controls.Add(Me.Admin)
         Me.U.Controls.Add(Me.Drug1)
         Me.U.Controls.Add(Me.Drug2)
         Me.U.Controls.Add(Me.Record_3)
@@ -253,252 +254,6 @@ Partial Class Form1
         Me.U.Size = New System.Drawing.Size(1024, 723)
         Me.U.TabIndex = 1
         Me.U.Visible = False
-        '
-        'Admin
-        '
-        Me.Admin.Controls.Add(Me.btn_add)
-        Me.Admin.Controls.Add(Me.cb_add_access)
-        Me.Admin.Controls.Add(Me.cb_add_emp)
-        Me.Admin.Controls.Add(Me.tb_add_pass)
-        Me.Admin.Controls.Add(Me.tb_add_user)
-        Me.Admin.Controls.Add(Me.admin_refresh)
-        Me.Admin.Controls.Add(Me.data_User)
-        Me.Admin.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Admin.Location = New System.Drawing.Point(200, 0)
-        Me.Admin.Name = "Admin"
-        Me.Admin.Size = New System.Drawing.Size(824, 723)
-        Me.Admin.TabIndex = 0
-        '
-        'btn_add
-        '
-        Me.btn_add.Location = New System.Drawing.Point(698, 324)
-        Me.btn_add.Name = "btn_add"
-        Me.btn_add.Size = New System.Drawing.Size(103, 35)
-        Me.btn_add.TabIndex = 6
-        Me.btn_add.Text = "Add/Save"
-        Me.btn_add.UseVisualStyleBackColor = True
-        '
-        'cb_add_access
-        '
-        Me.cb_add_access.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cb_add_access.FormattingEnabled = True
-        Me.cb_add_access.Items.AddRange(New Object() {"0", "1", "2"})
-        Me.cb_add_access.Location = New System.Drawing.Point(698, 283)
-        Me.cb_add_access.Name = "cb_add_access"
-        Me.cb_add_access.Size = New System.Drawing.Size(102, 35)
-        Me.cb_add_access.TabIndex = 5
-        '
-        'cb_add_emp
-        '
-        Me.cb_add_emp.DataSource = Me.DataTable1BindingSource
-        Me.cb_add_emp.DisplayMember = "พนักงาน"
-        Me.cb_add_emp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cb_add_emp.FormattingEnabled = True
-        Me.cb_add_emp.Location = New System.Drawing.Point(537, 284)
-        Me.cb_add_emp.Name = "cb_add_emp"
-        Me.cb_add_emp.Size = New System.Drawing.Size(155, 35)
-        Me.cb_add_emp.TabIndex = 4
-        Me.cb_add_emp.ValueMember = "Emp_ID"
-        '
-        'tb_add_pass
-        '
-        Me.tb_add_pass.Location = New System.Drawing.Point(431, 286)
-        Me.tb_add_pass.Multiline = True
-        Me.tb_add_pass.Name = "tb_add_pass"
-        Me.tb_add_pass.Size = New System.Drawing.Size(100, 32)
-        Me.tb_add_pass.TabIndex = 3
-        '
-        'tb_add_user
-        '
-        Me.tb_add_user.Location = New System.Drawing.Point(328, 286)
-        Me.tb_add_user.Multiline = True
-        Me.tb_add_user.Name = "tb_add_user"
-        Me.tb_add_user.Size = New System.Drawing.Size(100, 32)
-        Me.tb_add_user.TabIndex = 2
-        '
-        'admin_refresh
-        '
-        Me.admin_refresh.Location = New System.Drawing.Point(214, 30)
-        Me.admin_refresh.Name = "admin_refresh"
-        Me.admin_refresh.Size = New System.Drawing.Size(78, 35)
-        Me.admin_refresh.TabIndex = 1
-        Me.admin_refresh.Text = "Refresh"
-        Me.admin_refresh.UseVisualStyleBackColor = True
-        '
-        'data_User
-        '
-        Me.data_User.AllowUserToAddRows = False
-        Me.data_User.AutoGenerateColumns = False
-        Me.data_User.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.data_User.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UserIDDataGridViewTextBoxColumn, Me.UserPassDataGridViewTextBoxColumn, Me.พนักงาน, Me.UserAccessDataGridViewTextBoxColumn})
-        Me.data_User.DataSource = Me.UsereditBindingSource
-        Me.data_User.Location = New System.Drawing.Point(304, 23)
-        Me.data_User.Name = "data_User"
-        Me.data_User.Size = New System.Drawing.Size(493, 257)
-        Me.data_User.TabIndex = 0
-        '
-        'UserIDDataGridViewTextBoxColumn
-        '
-        Me.UserIDDataGridViewTextBoxColumn.DataPropertyName = "User_ID"
-        Me.UserIDDataGridViewTextBoxColumn.HeaderText = "User_ID"
-        Me.UserIDDataGridViewTextBoxColumn.Name = "UserIDDataGridViewTextBoxColumn"
-        '
-        'UserPassDataGridViewTextBoxColumn
-        '
-        Me.UserPassDataGridViewTextBoxColumn.DataPropertyName = "User_Pass"
-        Me.UserPassDataGridViewTextBoxColumn.HeaderText = "User_Pass"
-        Me.UserPassDataGridViewTextBoxColumn.Name = "UserPassDataGridViewTextBoxColumn"
-        '
-        'พนักงาน
-        '
-        Me.พนักงาน.DataPropertyName = "Emp_ID"
-        Me.พนักงาน.DataSource = Me.DataTable1BindingSource1
-        Me.พนักงาน.DisplayMember = "พนักงาน"
-        Me.พนักงาน.HeaderText = "พนักงาน"
-        Me.พนักงาน.Name = "พนักงาน"
-        Me.พนักงาน.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.พนักงาน.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.พนักงาน.ValueMember = "Emp_ID"
-        Me.พนักงาน.Width = 150
-        '
-        'UserAccessDataGridViewTextBoxColumn
-        '
-        Me.UserAccessDataGridViewTextBoxColumn.DataPropertyName = "User_Access"
-        Me.UserAccessDataGridViewTextBoxColumn.HeaderText = "User_Access"
-        Me.UserAccessDataGridViewTextBoxColumn.Name = "UserAccessDataGridViewTextBoxColumn"
-        '
-        'Drug2
-        '
-        Me.Drug2.Controls.Add(Me.DataGridView1)
-        Me.Drug2.Controls.Add(Me.DateTimePicker1)
-        Me.Drug2.Controls.Add(Me.Label34)
-        Me.Drug2.Controls.Add(Me.CheckBox1)
-        Me.Drug2.Controls.Add(Me.Button6)
-        Me.Drug2.Controls.Add(Me.Button7)
-        Me.Drug2.Controls.Add(Me.Button8)
-        Me.Drug2.Controls.Add(Me.TextBox2)
-        Me.Drug2.Controls.Add(Me.Label35)
-        Me.Drug2.Controls.Add(Me.Button9)
-        Me.Drug2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Drug2.Location = New System.Drawing.Point(200, 0)
-        Me.Drug2.Name = "Drug2"
-        Me.Drug2.Size = New System.Drawing.Size(824, 723)
-        Me.Drug2.TabIndex = 166
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(43, 184)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(682, 150)
-        Me.DataGridView1.TabIndex = 22
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(273, 395)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(140, 34)
-        Me.DateTimePicker1.TabIndex = 21
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(230, 392)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(37, 27)
-        Me.Label34.TabIndex = 20
-        Me.Label34.Text = "วันที่"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(43, 391)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(169, 31)
-        Me.CheckBox1.TabIndex = 19
-        Me.CheckBox1.Text = "ลงเวลานัดหมายครั้งต่อไป"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button6.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(631, 436)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(94, 34)
-        Me.Button6.TabIndex = 18
-        Me.Button6.Text = "เสร็จสิ้น"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button7.Font = New System.Drawing.Font("RSU TEXT", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(140, 340)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(91, 30)
-        Me.Button7.TabIndex = 17
-        Me.Button7.Text = "ลบรายการ"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button8.Font = New System.Drawing.Font("RSU TEXT", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(43, 340)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(91, 30)
-        Me.Button8.TabIndex = 13
-        Me.Button8.Text = "เพิ่มรายการ"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(140, 147)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(193, 34)
-        Me.TextBox2.TabIndex = 16
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label35.Location = New System.Drawing.Point(38, 147)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(96, 27)
-        Me.Label35.TabIndex = 15
-        Me.Label35.Text = "ใบรายการเลขที่"
-        '
-        'Button9
-        '
-        Me.Button9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button9.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(30, 24)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(104, 33)
-        Me.Button9.TabIndex = 14
-        Me.Button9.Text = "ย้อนกลับ"
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Employee
-        '
-        Me.Employee.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Employee.Location = New System.Drawing.Point(200, 0)
-        Me.Employee.Name = "Employee"
-        Me.Employee.Size = New System.Drawing.Size(824, 723)
-        Me.Employee.TabIndex = 1
-        '
-        'Finan
-        '
-        Me.Finan.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Finan.Location = New System.Drawing.Point(200, 0)
-        Me.Finan.Name = "Finan"
-        Me.Finan.Size = New System.Drawing.Size(824, 723)
-        Me.Finan.TabIndex = 23
         '
         'Record_2
         '
@@ -585,6 +340,194 @@ Partial Class Form1
         Me.Detail.Name = "Detail"
         Me.Detail.Size = New System.Drawing.Size(824, 573)
         Me.Detail.TabIndex = 121
+        '
+        'rec_other_relation
+        '
+        Me.rec_other_relation.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_other_relation.Location = New System.Drawing.Point(140, 478)
+        Me.rec_other_relation.Name = "rec_other_relation"
+        Me.rec_other_relation.Size = New System.Drawing.Size(139, 25)
+        Me.rec_other_relation.TabIndex = 189
+        '
+        'rec_other_tel2
+        '
+        Me.rec_other_tel2.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_other_tel2.Location = New System.Drawing.Point(368, 447)
+        Me.rec_other_tel2.Name = "rec_other_tel2"
+        Me.rec_other_tel2.Size = New System.Drawing.Size(139, 25)
+        Me.rec_other_tel2.TabIndex = 188
+        '
+        'rec_other_tel1
+        '
+        Me.rec_other_tel1.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_other_tel1.Location = New System.Drawing.Point(109, 447)
+        Me.rec_other_tel1.Name = "rec_other_tel1"
+        Me.rec_other_tel1.Size = New System.Drawing.Size(139, 25)
+        Me.rec_other_tel1.TabIndex = 187
+        '
+        'rec_other_lname
+        '
+        Me.rec_other_lname.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_other_lname.Location = New System.Drawing.Point(338, 410)
+        Me.rec_other_lname.Name = "rec_other_lname"
+        Me.rec_other_lname.Size = New System.Drawing.Size(139, 25)
+        Me.rec_other_lname.TabIndex = 186
+        '
+        'rec_other_fname
+        '
+        Me.rec_other_fname.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_other_fname.Location = New System.Drawing.Point(92, 413)
+        Me.rec_other_fname.Name = "rec_other_fname"
+        Me.rec_other_fname.Size = New System.Drawing.Size(139, 25)
+        Me.rec_other_fname.TabIndex = 185
+        '
+        'rec_access_health
+        '
+        Me.rec_access_health.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_access_health.Location = New System.Drawing.Point(164, 314)
+        Me.rec_access_health.Name = "rec_access_health"
+        Me.rec_access_health.Size = New System.Drawing.Size(139, 25)
+        Me.rec_access_health.TabIndex = 184
+        '
+        'rec_allergic
+        '
+        Me.rec_allergic.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_allergic.Location = New System.Drawing.Point(170, 282)
+        Me.rec_allergic.Name = "rec_allergic"
+        Me.rec_allergic.Size = New System.Drawing.Size(139, 25)
+        Me.rec_allergic.TabIndex = 183
+        '
+        'rec_tel_job
+        '
+        Me.rec_tel_job.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_tel_job.Location = New System.Drawing.Point(164, 251)
+        Me.rec_tel_job.Name = "rec_tel_job"
+        Me.rec_tel_job.Size = New System.Drawing.Size(139, 25)
+        Me.rec_tel_job.TabIndex = 182
+        '
+        'rec_address_job
+        '
+        Me.rec_address_job.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_address_job.Location = New System.Drawing.Point(153, 220)
+        Me.rec_address_job.Name = "rec_address_job"
+        Me.rec_address_job.Size = New System.Drawing.Size(593, 25)
+        Me.rec_address_job.TabIndex = 181
+        '
+        'rec_tel2
+        '
+        Me.rec_tel2.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_tel2.Location = New System.Drawing.Point(368, 190)
+        Me.rec_tel2.Name = "rec_tel2"
+        Me.rec_tel2.Size = New System.Drawing.Size(163, 25)
+        Me.rec_tel2.TabIndex = 180
+        '
+        'rec_tel1
+        '
+        Me.rec_tel1.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_tel1.Location = New System.Drawing.Point(109, 189)
+        Me.rec_tel1.Name = "rec_tel1"
+        Me.rec_tel1.Size = New System.Drawing.Size(139, 25)
+        Me.rec_tel1.TabIndex = 179
+        '
+        'rec_address
+        '
+        Me.rec_address.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_address.Location = New System.Drawing.Point(128, 159)
+        Me.rec_address.Name = "rec_address"
+        Me.rec_address.Size = New System.Drawing.Size(620, 25)
+        Me.rec_address.TabIndex = 178
+        '
+        'rec_ligion
+        '
+        Me.rec_ligion.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_ligion.Location = New System.Drawing.Point(579, 129)
+        Me.rec_ligion.Name = "rec_ligion"
+        Me.rec_ligion.Size = New System.Drawing.Size(146, 25)
+        Me.rec_ligion.TabIndex = 177
+        '
+        'rac_nation
+        '
+        Me.rac_nation.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rac_nation.Location = New System.Drawing.Point(328, 129)
+        Me.rac_nation.Name = "rac_nation"
+        Me.rac_nation.Size = New System.Drawing.Size(139, 25)
+        Me.rac_nation.TabIndex = 176
+        '
+        'rec_race
+        '
+        Me.rec_race.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_race.Location = New System.Drawing.Point(115, 129)
+        Me.rec_race.Name = "rec_race"
+        Me.rec_race.Size = New System.Drawing.Size(139, 25)
+        Me.rec_race.TabIndex = 175
+        '
+        'rec_relationship
+        '
+        Me.rec_relationship.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_relationship.Location = New System.Drawing.Point(600, 98)
+        Me.rec_relationship.Name = "rec_relationship"
+        Me.rec_relationship.Size = New System.Drawing.Size(146, 25)
+        Me.rec_relationship.TabIndex = 174
+        '
+        'rec_job
+        '
+        Me.rec_job.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_job.Location = New System.Drawing.Point(316, 98)
+        Me.rec_job.Name = "rec_job"
+        Me.rec_job.Size = New System.Drawing.Size(146, 25)
+        Me.rec_job.TabIndex = 173
+        '
+        'rec_blood
+        '
+        Me.rec_blood.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_blood.FormattingEnabled = True
+        Me.rec_blood.Items.AddRange(New Object() {"A", "B", "O", "AB"})
+        Me.rec_blood.Location = New System.Drawing.Point(115, 97)
+        Me.rec_blood.Name = "rec_blood"
+        Me.rec_blood.Size = New System.Drawing.Size(98, 26)
+        Me.rec_blood.TabIndex = 172
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CalendarFont = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(381, 61)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(117, 34)
+        Me.DateTimePicker2.TabIndex = 171
+        '
+        'rec_age
+        '
+        Me.rec_age.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_age.Location = New System.Drawing.Point(556, 63)
+        Me.rec_age.Name = "rec_age"
+        Me.rec_age.Size = New System.Drawing.Size(83, 25)
+        Me.rec_age.TabIndex = 170
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"ชาย", "หญิง"})
+        Me.ComboBox1.Location = New System.Drawing.Point(86, 64)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(98, 26)
+        Me.ComboBox1.TabIndex = 168
+        '
+        'rec_name
+        '
+        Me.rec_name.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_name.Location = New System.Drawing.Point(341, 33)
+        Me.rec_name.Name = "rec_name"
+        Me.rec_name.Size = New System.Drawing.Size(146, 25)
+        Me.rec_name.TabIndex = 167
+        '
+        'rec_fname
+        '
+        Me.rec_fname.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
+        Me.rec_fname.Location = New System.Drawing.Point(85, 33)
+        Me.rec_fname.Name = "rec_fname"
+        Me.rec_fname.Size = New System.Drawing.Size(146, 25)
+        Me.rec_fname.TabIndex = 166
         '
         'Label24
         '
@@ -845,6 +788,357 @@ Partial Class Form1
         Me.label00123.TabIndex = 119
         Me.label00123.Text = "เลขบัตรประชาชน :"
         '
+        'Record_1
+        '
+        Me.Record_1.Controls.Add(Me.btn_search_rec)
+        Me.Record_1.Controls.Add(Me.tb_idcard_search)
+        Me.Record_1.Controls.Add(Me.Label28)
+        Me.Record_1.Controls.Add(Me.Label29)
+        Me.Record_1.Controls.Add(Me.PictureBox4)
+        Me.Record_1.Controls.Add(Me.PictureBox5)
+        Me.Record_1.Controls.Add(Me.Button3)
+        Me.Record_1.Controls.Add(Me.TextBox1)
+        Me.Record_1.Controls.Add(Me.Label30)
+        Me.Record_1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Record_1.Location = New System.Drawing.Point(200, 0)
+        Me.Record_1.Name = "Record_1"
+        Me.Record_1.Size = New System.Drawing.Size(824, 723)
+        Me.Record_1.TabIndex = 166
+        '
+        'btn_search_rec
+        '
+        Me.btn_search_rec.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btn_search_rec.Location = New System.Drawing.Point(633, 134)
+        Me.btn_search_rec.Name = "btn_search_rec"
+        Me.btn_search_rec.Size = New System.Drawing.Size(127, 33)
+        Me.btn_search_rec.TabIndex = 16
+        Me.btn_search_rec.Text = "ค้นหาเเฟ้มข้อมูล"
+        Me.btn_search_rec.UseVisualStyleBackColor = True
+        '
+        'tb_idcard_search
+        '
+        Me.tb_idcard_search.Location = New System.Drawing.Point(254, 134)
+        Me.tb_idcard_search.Name = "tb_idcard_search"
+        Me.tb_idcard_search.Size = New System.Drawing.Size(360, 34)
+        Me.tb_idcard_search.TabIndex = 15
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(76, 229)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(108, 27)
+        Me.Label28.TabIndex = 13
+        Me.Label28.Text = "รายการดำเนินการ"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(76, 138)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(178, 27)
+        Me.Label29.TabIndex = 14
+        Me.Label29.Text = "รหัสบัตรประจำตัวประชาชน : "
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox4.Location = New System.Drawing.Point(20, 203)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(774, 2)
+        Me.PictureBox4.TabIndex = 11
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox5.Location = New System.Drawing.Point(20, 99)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(774, 2)
+        Me.PictureBox5.TabIndex = 12
+        Me.PictureBox5.TabStop = False
+        '
+        'Button3
+        '
+        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button3.Location = New System.Drawing.Point(633, 39)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(86, 33)
+        Me.Button3.TabIndex = 10
+        Me.Button3.Text = "ค้นหา"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(254, 39)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(360, 34)
+        Me.TextBox1.TabIndex = 9
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(148, 41)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(100, 27)
+        Me.Label30.TabIndex = 8
+        Me.Label30.Text = "ใบรายการนัด : "
+        '
+        'Admin
+        '
+        Me.Admin.Controls.Add(Me.user_update)
+        Me.Admin.Controls.Add(Me.btn_add)
+        Me.Admin.Controls.Add(Me.cb_add_access)
+        Me.Admin.Controls.Add(Me.cb_add_emp)
+        Me.Admin.Controls.Add(Me.tb_add_pass)
+        Me.Admin.Controls.Add(Me.tb_add_user)
+        Me.Admin.Controls.Add(Me.admin_refresh)
+        Me.Admin.Controls.Add(Me.data_User)
+        Me.Admin.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Admin.Location = New System.Drawing.Point(200, 0)
+        Me.Admin.Name = "Admin"
+        Me.Admin.Size = New System.Drawing.Size(824, 723)
+        Me.Admin.TabIndex = 0
+        '
+        'btn_add
+        '
+        Me.btn_add.Location = New System.Drawing.Point(698, 324)
+        Me.btn_add.Name = "btn_add"
+        Me.btn_add.Size = New System.Drawing.Size(103, 35)
+        Me.btn_add.TabIndex = 6
+        Me.btn_add.Text = "Add/Save"
+        Me.btn_add.UseVisualStyleBackColor = True
+        '
+        'cb_add_access
+        '
+        Me.cb_add_access.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_add_access.FormattingEnabled = True
+        Me.cb_add_access.Items.AddRange(New Object() {"0", "1", "2"})
+        Me.cb_add_access.Location = New System.Drawing.Point(698, 283)
+        Me.cb_add_access.Name = "cb_add_access"
+        Me.cb_add_access.Size = New System.Drawing.Size(102, 35)
+        Me.cb_add_access.TabIndex = 5
+        '
+        'cb_add_emp
+        '
+        Me.cb_add_emp.DataSource = Me.DataTable1BindingSource
+        Me.cb_add_emp.DisplayMember = "พนักงาน"
+        Me.cb_add_emp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_add_emp.FormattingEnabled = True
+        Me.cb_add_emp.Location = New System.Drawing.Point(537, 284)
+        Me.cb_add_emp.Name = "cb_add_emp"
+        Me.cb_add_emp.Size = New System.Drawing.Size(155, 35)
+        Me.cb_add_emp.TabIndex = 4
+        Me.cb_add_emp.ValueMember = "Emp_ID"
+        '
+        'tb_add_pass
+        '
+        Me.tb_add_pass.Location = New System.Drawing.Point(431, 286)
+        Me.tb_add_pass.Multiline = True
+        Me.tb_add_pass.Name = "tb_add_pass"
+        Me.tb_add_pass.Size = New System.Drawing.Size(100, 32)
+        Me.tb_add_pass.TabIndex = 3
+        '
+        'tb_add_user
+        '
+        Me.tb_add_user.Location = New System.Drawing.Point(328, 286)
+        Me.tb_add_user.Multiline = True
+        Me.tb_add_user.Name = "tb_add_user"
+        Me.tb_add_user.Size = New System.Drawing.Size(100, 32)
+        Me.tb_add_user.TabIndex = 2
+        '
+        'admin_refresh
+        '
+        Me.admin_refresh.Location = New System.Drawing.Point(214, 30)
+        Me.admin_refresh.Name = "admin_refresh"
+        Me.admin_refresh.Size = New System.Drawing.Size(78, 35)
+        Me.admin_refresh.TabIndex = 1
+        Me.admin_refresh.Text = "Refresh"
+        Me.admin_refresh.UseVisualStyleBackColor = True
+        '
+        'data_User
+        '
+        Me.data_User.AllowUserToAddRows = False
+        Me.data_User.AutoGenerateColumns = False
+        Me.data_User.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.data_User.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UserIDDataGridViewTextBoxColumn, Me.UserPassDataGridViewTextBoxColumn, Me.พนักงาน, Me.UserAccessDataGridViewTextBoxColumn})
+        Me.data_User.DataSource = Me.UsereditBindingSource
+        Me.data_User.Location = New System.Drawing.Point(304, 23)
+        Me.data_User.Name = "data_User"
+        Me.data_User.Size = New System.Drawing.Size(493, 257)
+        Me.data_User.TabIndex = 0
+        '
+        'UserIDDataGridViewTextBoxColumn
+        '
+        Me.UserIDDataGridViewTextBoxColumn.DataPropertyName = "User_ID"
+        Me.UserIDDataGridViewTextBoxColumn.HeaderText = "User_ID"
+        Me.UserIDDataGridViewTextBoxColumn.Name = "UserIDDataGridViewTextBoxColumn"
+        '
+        'UserPassDataGridViewTextBoxColumn
+        '
+        Me.UserPassDataGridViewTextBoxColumn.DataPropertyName = "User_Pass"
+        Me.UserPassDataGridViewTextBoxColumn.HeaderText = "User_Pass"
+        Me.UserPassDataGridViewTextBoxColumn.Name = "UserPassDataGridViewTextBoxColumn"
+        '
+        'พนักงาน
+        '
+        Me.พนักงาน.DataPropertyName = "Emp_ID"
+        Me.พนักงาน.DataSource = Me.DataTable1BindingSource1
+        Me.พนักงาน.DisplayMember = "พนักงาน"
+        Me.พนักงาน.HeaderText = "พนักงาน"
+        Me.พนักงาน.Name = "พนักงาน"
+        Me.พนักงาน.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.พนักงาน.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.พนักงาน.ValueMember = "Emp_ID"
+        Me.พนักงาน.Width = 150
+        '
+        'UserAccessDataGridViewTextBoxColumn
+        '
+        Me.UserAccessDataGridViewTextBoxColumn.DataPropertyName = "User_Access"
+        Me.UserAccessDataGridViewTextBoxColumn.HeaderText = "User_Access"
+        Me.UserAccessDataGridViewTextBoxColumn.Name = "UserAccessDataGridViewTextBoxColumn"
+        '
+        'Employee
+        '
+        Me.Employee.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Employee.Location = New System.Drawing.Point(200, 0)
+        Me.Employee.Name = "Employee"
+        Me.Employee.Size = New System.Drawing.Size(824, 723)
+        Me.Employee.TabIndex = 1
+        '
+        'Finan
+        '
+        Me.Finan.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Finan.Location = New System.Drawing.Point(200, 0)
+        Me.Finan.Name = "Finan"
+        Me.Finan.Size = New System.Drawing.Size(824, 723)
+        Me.Finan.TabIndex = 23
+        '
+        'Drug1
+        '
+        Me.Drug1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Drug1.Location = New System.Drawing.Point(200, 0)
+        Me.Drug1.Name = "Drug1"
+        Me.Drug1.Size = New System.Drawing.Size(824, 723)
+        Me.Drug1.TabIndex = 7
+        '
+        'Drug2
+        '
+        Me.Drug2.Controls.Add(Me.DataGridView1)
+        Me.Drug2.Controls.Add(Me.DateTimePicker1)
+        Me.Drug2.Controls.Add(Me.Label34)
+        Me.Drug2.Controls.Add(Me.CheckBox1)
+        Me.Drug2.Controls.Add(Me.Button6)
+        Me.Drug2.Controls.Add(Me.Button7)
+        Me.Drug2.Controls.Add(Me.Button8)
+        Me.Drug2.Controls.Add(Me.TextBox2)
+        Me.Drug2.Controls.Add(Me.Label35)
+        Me.Drug2.Controls.Add(Me.Button9)
+        Me.Drug2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Drug2.Location = New System.Drawing.Point(200, 0)
+        Me.Drug2.Name = "Drug2"
+        Me.Drug2.Size = New System.Drawing.Size(824, 723)
+        Me.Drug2.TabIndex = 166
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(43, 184)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(682, 150)
+        Me.DataGridView1.TabIndex = 22
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(273, 395)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(140, 34)
+        Me.DateTimePicker1.TabIndex = 21
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(230, 392)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(37, 27)
+        Me.Label34.TabIndex = 20
+        Me.Label34.Text = "วันที่"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.Location = New System.Drawing.Point(43, 391)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(169, 31)
+        Me.CheckBox1.TabIndex = 19
+        Me.CheckBox1.Text = "ลงเวลานัดหมายครั้งต่อไป"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button6.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(631, 436)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(94, 34)
+        Me.Button6.TabIndex = 18
+        Me.Button6.Text = "เสร็จสิ้น"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button7.Font = New System.Drawing.Font("RSU TEXT", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(140, 340)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(91, 30)
+        Me.Button7.TabIndex = 17
+        Me.Button7.Text = "ลบรายการ"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button8.Font = New System.Drawing.Font("RSU TEXT", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Location = New System.Drawing.Point(43, 340)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(91, 30)
+        Me.Button8.TabIndex = 13
+        Me.Button8.Text = "เพิ่มรายการ"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(140, 147)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(193, 34)
+        Me.TextBox2.TabIndex = 16
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(38, 147)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(96, 27)
+        Me.Label35.TabIndex = 15
+        Me.Label35.Text = "ใบรายการเลขที่"
+        '
+        'Button9
+        '
+        Me.Button9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button9.Font = New System.Drawing.Font("RSU TEXT", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.Location = New System.Drawing.Point(30, 24)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(104, 33)
+        Me.Button9.TabIndex = 14
+        Me.Button9.Text = "ย้อนกลับ"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
         'Record_3
         '
         Me.Record_3.Controls.Add(Me.Button4)
@@ -953,102 +1247,6 @@ Partial Class Form1
         Me.ชื่อ.Size = New System.Drawing.Size(32, 31)
         Me.ชื่อ.TabIndex = 11
         Me.ชื่อ.Text = "ชื่อ"
-        '
-        'Record_1
-        '
-        Me.Record_1.Controls.Add(Me.btn_search_rec)
-        Me.Record_1.Controls.Add(Me.tb_idcard_search)
-        Me.Record_1.Controls.Add(Me.Label28)
-        Me.Record_1.Controls.Add(Me.Label29)
-        Me.Record_1.Controls.Add(Me.PictureBox4)
-        Me.Record_1.Controls.Add(Me.PictureBox5)
-        Me.Record_1.Controls.Add(Me.Button3)
-        Me.Record_1.Controls.Add(Me.TextBox1)
-        Me.Record_1.Controls.Add(Me.Label30)
-        Me.Record_1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Record_1.Location = New System.Drawing.Point(200, 0)
-        Me.Record_1.Name = "Record_1"
-        Me.Record_1.Size = New System.Drawing.Size(824, 723)
-        Me.Record_1.TabIndex = 166
-        '
-        'btn_search_rec
-        '
-        Me.btn_search_rec.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btn_search_rec.Location = New System.Drawing.Point(633, 134)
-        Me.btn_search_rec.Name = "btn_search_rec"
-        Me.btn_search_rec.Size = New System.Drawing.Size(127, 33)
-        Me.btn_search_rec.TabIndex = 16
-        Me.btn_search_rec.Text = "ค้นหาเเฟ้มข้อมูล"
-        Me.btn_search_rec.UseVisualStyleBackColor = True
-        '
-        'tb_idcard_search
-        '
-        Me.tb_idcard_search.Location = New System.Drawing.Point(254, 134)
-        Me.tb_idcard_search.Name = "tb_idcard_search"
-        Me.tb_idcard_search.Size = New System.Drawing.Size(360, 34)
-        Me.tb_idcard_search.TabIndex = 15
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(76, 229)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(108, 27)
-        Me.Label28.TabIndex = 13
-        Me.Label28.Text = "รายการดำเนินการ"
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(76, 138)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(178, 27)
-        Me.Label29.TabIndex = 14
-        Me.Label29.Text = "รหัสบัตรประจำตัวประชาชน : "
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox4.Location = New System.Drawing.Point(20, 203)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(774, 2)
-        Me.PictureBox4.TabIndex = 11
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox5.Location = New System.Drawing.Point(20, 99)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(774, 2)
-        Me.PictureBox5.TabIndex = 12
-        Me.PictureBox5.TabStop = False
-        '
-        'Button3
-        '
-        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Button3.Location = New System.Drawing.Point(633, 39)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(86, 33)
-        Me.Button3.TabIndex = 10
-        Me.Button3.Text = "ค้นหา"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(254, 39)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(360, 34)
-        Me.TextBox1.TabIndex = 9
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(148, 41)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(100, 27)
-        Me.Label30.TabIndex = 8
-        Me.Label30.Text = "ใบรายการนัด : "
         '
         'Record_4
         '
@@ -1368,201 +1566,14 @@ Partial Class Form1
         Me.btn_MaxRe.TabIndex = 1
         Me.btn_MaxRe.UseVisualStyleBackColor = False
         '
-        'Drug1
+        'user_update
         '
-        Me.Drug1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Drug1.Location = New System.Drawing.Point(200, 0)
-        Me.Drug1.Name = "Drug1"
-        Me.Drug1.Size = New System.Drawing.Size(824, 723)
-        Me.Drug1.TabIndex = 7
-        '
-        'rec_fname
-        '
-        Me.rec_fname.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_fname.Location = New System.Drawing.Point(85, 33)
-        Me.rec_fname.Name = "rec_fname"
-        Me.rec_fname.Size = New System.Drawing.Size(146, 25)
-        Me.rec_fname.TabIndex = 166
-        '
-        'rec_name
-        '
-        Me.rec_name.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_name.Location = New System.Drawing.Point(341, 33)
-        Me.rec_name.Name = "rec_name"
-        Me.rec_name.Size = New System.Drawing.Size(146, 25)
-        Me.rec_name.TabIndex = 167
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"ชาย", "หญิง"})
-        Me.ComboBox1.Location = New System.Drawing.Point(86, 64)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(98, 26)
-        Me.ComboBox1.TabIndex = 168
-        '
-        'rec_age
-        '
-        Me.rec_age.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_age.Location = New System.Drawing.Point(556, 63)
-        Me.rec_age.Name = "rec_age"
-        Me.rec_age.Size = New System.Drawing.Size(83, 25)
-        Me.rec_age.TabIndex = 170
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.CalendarFont = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.DateTimePicker2.Location = New System.Drawing.Point(381, 61)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(117, 34)
-        Me.DateTimePicker2.TabIndex = 171
-        '
-        'rec_blood
-        '
-        Me.rec_blood.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_blood.FormattingEnabled = True
-        Me.rec_blood.Items.AddRange(New Object() {"A", "B", "O", "AB"})
-        Me.rec_blood.Location = New System.Drawing.Point(115, 97)
-        Me.rec_blood.Name = "rec_blood"
-        Me.rec_blood.Size = New System.Drawing.Size(98, 26)
-        Me.rec_blood.TabIndex = 172
-        '
-        'rec_job
-        '
-        Me.rec_job.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_job.Location = New System.Drawing.Point(316, 98)
-        Me.rec_job.Name = "rec_job"
-        Me.rec_job.Size = New System.Drawing.Size(146, 25)
-        Me.rec_job.TabIndex = 173
-        '
-        'rec_relationship
-        '
-        Me.rec_relationship.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_relationship.Location = New System.Drawing.Point(600, 98)
-        Me.rec_relationship.Name = "rec_relationship"
-        Me.rec_relationship.Size = New System.Drawing.Size(146, 25)
-        Me.rec_relationship.TabIndex = 174
-        '
-        'rec_race
-        '
-        Me.rec_race.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_race.Location = New System.Drawing.Point(115, 129)
-        Me.rec_race.Name = "rec_race"
-        Me.rec_race.Size = New System.Drawing.Size(139, 25)
-        Me.rec_race.TabIndex = 175
-        '
-        'rac_nation
-        '
-        Me.rac_nation.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rac_nation.Location = New System.Drawing.Point(328, 129)
-        Me.rac_nation.Name = "rac_nation"
-        Me.rac_nation.Size = New System.Drawing.Size(139, 25)
-        Me.rac_nation.TabIndex = 176
-        '
-        'rec_ligion
-        '
-        Me.rec_ligion.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_ligion.Location = New System.Drawing.Point(579, 129)
-        Me.rec_ligion.Name = "rec_ligion"
-        Me.rec_ligion.Size = New System.Drawing.Size(146, 25)
-        Me.rec_ligion.TabIndex = 177
-        '
-        'rec_address
-        '
-        Me.rec_address.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_address.Location = New System.Drawing.Point(128, 159)
-        Me.rec_address.Name = "rec_address"
-        Me.rec_address.Size = New System.Drawing.Size(620, 25)
-        Me.rec_address.TabIndex = 178
-        '
-        'rec_tel1
-        '
-        Me.rec_tel1.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_tel1.Location = New System.Drawing.Point(109, 189)
-        Me.rec_tel1.Name = "rec_tel1"
-        Me.rec_tel1.Size = New System.Drawing.Size(139, 25)
-        Me.rec_tel1.TabIndex = 179
-        '
-        'rec_tel2
-        '
-        Me.rec_tel2.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_tel2.Location = New System.Drawing.Point(368, 190)
-        Me.rec_tel2.Name = "rec_tel2"
-        Me.rec_tel2.Size = New System.Drawing.Size(163, 25)
-        Me.rec_tel2.TabIndex = 180
-        '
-        'rec_address_job
-        '
-        Me.rec_address_job.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_address_job.Location = New System.Drawing.Point(153, 220)
-        Me.rec_address_job.Name = "rec_address_job"
-        Me.rec_address_job.Size = New System.Drawing.Size(593, 25)
-        Me.rec_address_job.TabIndex = 181
-        '
-        'rec_tel_job
-        '
-        Me.rec_tel_job.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_tel_job.Location = New System.Drawing.Point(164, 251)
-        Me.rec_tel_job.Name = "rec_tel_job"
-        Me.rec_tel_job.Size = New System.Drawing.Size(139, 25)
-        Me.rec_tel_job.TabIndex = 182
-        '
-        'rec_allergic
-        '
-        Me.rec_allergic.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_allergic.Location = New System.Drawing.Point(170, 282)
-        Me.rec_allergic.Name = "rec_allergic"
-        Me.rec_allergic.Size = New System.Drawing.Size(139, 25)
-        Me.rec_allergic.TabIndex = 183
-        '
-        'rec_access_health
-        '
-        Me.rec_access_health.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_access_health.Location = New System.Drawing.Point(164, 314)
-        Me.rec_access_health.Name = "rec_access_health"
-        Me.rec_access_health.Size = New System.Drawing.Size(139, 25)
-        Me.rec_access_health.TabIndex = 184
-        '
-        'rec_other_fname
-        '
-        Me.rec_other_fname.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_other_fname.Location = New System.Drawing.Point(92, 413)
-        Me.rec_other_fname.Name = "rec_other_fname"
-        Me.rec_other_fname.Size = New System.Drawing.Size(139, 25)
-        Me.rec_other_fname.TabIndex = 185
-        '
-        'rec_other_lname
-        '
-        Me.rec_other_lname.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_other_lname.Location = New System.Drawing.Point(338, 410)
-        Me.rec_other_lname.Name = "rec_other_lname"
-        Me.rec_other_lname.Size = New System.Drawing.Size(139, 25)
-        Me.rec_other_lname.TabIndex = 186
-        '
-        'rec_other_tel1
-        '
-        Me.rec_other_tel1.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_other_tel1.Location = New System.Drawing.Point(109, 447)
-        Me.rec_other_tel1.Name = "rec_other_tel1"
-        Me.rec_other_tel1.Size = New System.Drawing.Size(139, 25)
-        Me.rec_other_tel1.TabIndex = 187
-        '
-        'rec_other_tel2
-        '
-        Me.rec_other_tel2.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_other_tel2.Location = New System.Drawing.Point(368, 447)
-        Me.rec_other_tel2.Name = "rec_other_tel2"
-        Me.rec_other_tel2.Size = New System.Drawing.Size(139, 25)
-        Me.rec_other_tel2.TabIndex = 188
-        '
-        'rec_other_relation
-        '
-        Me.rec_other_relation.Font = New System.Drawing.Font("RSU TEXT", 12.0!)
-        Me.rec_other_relation.Location = New System.Drawing.Point(140, 478)
-        Me.rec_other_relation.Name = "rec_other_relation"
-        Me.rec_other_relation.Size = New System.Drawing.Size(139, 25)
-        Me.rec_other_relation.TabIndex = 189
+        Me.user_update.Location = New System.Drawing.Point(698, 365)
+        Me.user_update.Name = "user_update"
+        Me.user_update.Size = New System.Drawing.Size(102, 36)
+        Me.user_update.TabIndex = 7
+        Me.user_update.Text = "Update"
+        Me.user_update.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -1592,23 +1603,23 @@ Partial Class Form1
         CType(Me.DataTable1BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsereditBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.U.ResumeLayout(False)
+        Me.Record_2.ResumeLayout(False)
+        Me.Record_2.PerformLayout()
+        Me.Button_add.ResumeLayout(False)
+        Me.Detail.ResumeLayout(False)
+        Me.Detail.PerformLayout()
+        Me.Record_1.ResumeLayout(False)
+        Me.Record_1.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Admin.ResumeLayout(False)
         Me.Admin.PerformLayout()
         CType(Me.data_User, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Drug2.ResumeLayout(False)
         Me.Drug2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Record_2.ResumeLayout(False)
-        Me.Record_2.PerformLayout()
-        Me.Button_add.ResumeLayout(False)
-        Me.Detail.ResumeLayout(False)
-        Me.Detail.PerformLayout()
         Me.Record_3.ResumeLayout(False)
         Me.Record_3.PerformLayout()
-        Me.Record_1.ResumeLayout(False)
-        Me.Record_1.PerformLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Home.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Menu_Tool.ResumeLayout(False)
@@ -1767,4 +1778,5 @@ Partial Class Form1
     Friend WithEvents rec_allergic As TextBox
     Friend WithEvents rec_tel_job As TextBox
     Friend WithEvents rec_address_job As TextBox
+    Friend WithEvents user_update As Button
 End Class
