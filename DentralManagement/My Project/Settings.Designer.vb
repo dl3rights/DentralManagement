@@ -58,7 +58,7 @@ Namespace My
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=""192.168.6.11, 1433"";Initial Catalog=sedentral;Persist Security Info="& _ 
-            "True;User ID=se_admin")>  _
+            "True;User ID=se_admin;Password=Dentis1234")>  _
         Public ReadOnly Property sqlconn() As String
             Get
                 Return CType(Me("sqlconn"),String)
