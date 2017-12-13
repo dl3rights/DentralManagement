@@ -126,7 +126,7 @@ Public Class Form1
         Dim read_record As SqlDataReader = tb_search_command.ExecuteReader()
 
         If read_record.Read() Then
-            rec_fname.Text = read_record("patient_Fname").ToString
+            cc.Text = read_record("patient_Fname").ToString
         Else
 
         End If
@@ -172,7 +172,7 @@ Public Class Form1
 
     Private Sub btn_drug_Click(sender As Object, e As EventArgs) Handles btn_drug.Click
         Set_Button_Hold(2)
-        Set_Panel(Drug)
+        Set_Panel(Drug2)
     End Sub
 
     Private Sub btn_finan_Click(sender As Object, e As EventArgs) Handles btn_finan.Click
@@ -198,7 +198,7 @@ Public Class Form1
         Record_3.Visible = False
         Record_4.Visible = False
         Admin.Visible = False
-        Drug.Visible = False
+        Drug2.Visible = False
         Finan.Visible = False
         Admin.Visible = False
         Home.Visible = False
@@ -249,7 +249,7 @@ Public Class Form1
     Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
 
 
-        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, cb_add_emp.FindStringExact(cb_add_emp.ValueMember), cb_add_access.SelectedIndex)
+        tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, cb_add_emp., cb_add_access.SelectedIndex)
         data_User.DataSource = tble_ucp
     End Sub
 
@@ -261,6 +261,14 @@ Public Class Form1
         tb_add_pass.Text = selectedRow.Cells(1).Value.ToString()
         cb_add_emp.SelectedValue = selectedRow.Cells(2).Value.ToString()
         cb_add_access.SelectedIndex = selectedRow.Cells(3).Value.ToString()
+    End Sub
+
+    Private Sub rec_relationship_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles rec_tel2.TextChanged
+
     End Sub
 
     Private Sub Set_Button_Hold(Menu_Selected As String)
