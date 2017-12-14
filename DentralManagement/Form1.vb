@@ -18,6 +18,14 @@ Public Class Form1
 
     'END SQL SERVER CONNECTION'
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Se_dentral_sql3.Finan' table. You can move, or remove it, as needed.
+        Me.FinanTableAdapter.Fillless(Me.Se_dentral_sql3.Finan)
+        'TODO: This line of code loads data into the 'Se_dentral_sql1.Medi_supplies' table. You can move, or remove it, as needed.
+        Me.Medi_suppliesTableAdapter.Fill(Me.Se_dentral_sql1.Medi_supplies)
+
+        'TODO: This line of code loads data into the 'Se_dentral_sql1.Finan' table. You can move, or remove it, as needed.
+        Me.FinanTableAdapter.FillBy(Me.Se_dentral_sql1.Finan)
+
         'TODO: This line of code loads data into the 'Se_dentral_sql.Emp_dept' table. You can move, or remove it, as needed.
         Me.Emp_deptTableAdapter.Fill(Me.Se_dentral_sql.Emp_dept)
         'TODO: This line of code loads data into the 'Se_dentral_sql.Emp_list' table. You can move, or remove it, as needed.
@@ -31,7 +39,7 @@ Public Class Form1
         SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         UpdateStyles()
 
-        'tble_ucp = Se_dentral_sql.User_data.CopyToDataTable
+        tble_ucp = Se_dentral_sql.User_data.CopyToDataTable
 
         Default_Gray = Color.FromArgb(126, 139, 154)
         btn_admin.BackColor = Default_Gray
@@ -129,11 +137,30 @@ Public Class Form1
         Dim read_record As SqlDataReader = tb_search_command.ExecuteReader()
 
         If read_record.Read() Then
+            rec_id_card.Text = text_search
             rec_fname.Text = read_record("patient_Fname").ToString
+            rec_lname.Text = read_record("patient_Lname").ToString
+            cb_rec_sex.Text = read_record("patient_Grender").ToString
+            rec_fname.Text = read_record("patient_Wight").ToString
+            rec_fname.Text = read_record("patient_Height").ToString
+            rec_fname.Text = read_record("patient_allergic_druge").ToString
+            rec_fname.Text = read_record("patient_id_card").ToString
+            rec_fname.Text = read_record("patient_nation").ToString
+            rec_fname.Text = read_record("patient_ethicty").ToString
+            rec_fname.Text = read_record("patient_regal").ToString
+            rec_fname.Text = read_record("patient_tel").ToString
+            rec_fname.Text = read_record("patient_tel_home").ToString
+            rec_fname.Text = read_record("contact_fname").ToString
+            rec_fname.Text = read_record("contact_lname").ToString
+            rec_fname.Text = read_record("contact_tel").ToString
+            rec_fname.Text = read_record("contact_relation").ToString
         Else
-
+            rec_id_card.Text = text_search + " ไม่พบในรายการ จะเพิ่มรายการหรือไม่?"
+            Button_add.Visible = True
         End If
         Set_Panel(Record_2)
+        connection.Close()
+
     End Sub
 
     Private Sub btn_Login_Click(sender As Object, e As EventArgs) Handles btn_Login.Click
@@ -179,7 +206,7 @@ Public Class Form1
 
     Private Sub btn_drug_Click(sender As Object, e As EventArgs) Handles btn_drug.Click
         Set_Button_Hold(2)
-        Set_Panel(Drug2)
+        Set_Panel(Drug1)
     End Sub
 
     Private Sub btn_finan_Click(sender As Object, e As EventArgs) Handles btn_finan.Click
@@ -203,9 +230,10 @@ Public Class Form1
         Record_1.Visible = False
         Record_2.Visible = False
         Record_3.Visible = False
-        Record_4.Visible = False
-        Admin.Visible = False
+        Drug1.Visible = False
+        Record_5.Visible = False
         Drug2.Visible = False
+        Admin.Visible = False
         Finan.Visible = False
         Admin.Visible = False
         Home.Visible = False
@@ -233,8 +261,8 @@ Public Class Form1
 
     Private Sub admin_refresh_Click(sender As Object, e As EventArgs) Handles admin_refresh.Click
         data_User.DataSource = Nothing
-        'data_User.DataSource = Se_dentral_sql.User_data.CopyToDataTable
-        'tble_ucp = Se_dentral_sql.User_data.CopyToDataTable
+        data_User.DataSource = Se_dentral_sql.User_data.CopyToDataTable
+        tble_ucp = Se_dentral_sql.User_data.CopyToDataTable
         data_User.Refresh()
     End Sub
 
@@ -261,7 +289,7 @@ Public Class Form1
             MsgBox("Record Exists!", MsgBoxStyle.Information)
 
         Else
-            tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, cb_add_emp.SelectedText, cb_add_access.SelectedIndex)
+            tble_ucp.Rows.Add(tb_add_user.Text, tb_add_pass.Text, cb_add_emp.DisplayMember, cb_add_access.SelectedIndex)
 
         End If
         data_User.DataSource = tble_ucp
@@ -285,11 +313,11 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles manag.Click
+    Private Sub Button10_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles add_1.Click
+    Private Sub Button12_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -297,7 +325,7 @@ Public Class Form1
         Me.Emp_deptTableAdapter.FillBy(Me.Se_dentral_sql.Emp_dept, search_emp.Text, search_emp.Text, search_emp.Text, search_emp.Text)
     End Sub
 
-    Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellContentClick
+    Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView4.CellClick
 
     End Sub
 
@@ -336,6 +364,85 @@ Public Class Form1
         Else
             btn_admin.Image = Nothing
         End If
+    End Sub
+
+    Private Sub user_update_Click(sender As Object, e As EventArgs) Handles user_update.Click
+        'data_User.Update((DataTable) UserdataBindingSource.DataSource)
+    End Sub
+
+    Private Sub user_edits_1(sender As Object, e As EventArgs) Handles user_edits.Click
+        Dim newData As DataGridViewRow
+        newData = data_User.Rows(index)
+        newData.Cells(0).Value = tb_add_user.Text
+        newData.Cells(1).Value = tb_add_pass.Text
+        newData.Cells(2).Value = cb_add_emp.SelectedText
+        newData.Cells(3).Value = cb_add_access.SelectedIndex
+    End Sub
+
+    Private Sub user_remove_Click(sender As Object, e As EventArgs) Handles user_remove.Click
+        Dim nD As DataGridViewRow = data_User.Rows(index)
+    End Sub
+
+    Private Sub rec_btn_add_Click(sender As Object, e As EventArgs) Handles rec_btn_add.Click
+        Detail.Visible = True
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim text_search As String = tb_list.Text
+        connection.Open()
+        Dim tb_search_command As New SqlCommand("Select * from [dbo].[report] where [report_id] = '" & text_search & "'", connection)
+        Dim read_report As SqlDataReader = tb_search_command.ExecuteReader()
+
+        If read_report.Read() Then
+            tb_detail.Text = read_report("report_detail").ToString()
+            Set_Panel(Record_3)
+        Else
+            MsgBox("ไม่พบรายการรักษารหัสนี้")
+        End If
+        connection.Close()
+
+    End Sub
+
+    Private Sub rec_next_Click(sender As Object, e As EventArgs) Handles rec_next.Click
+
+        connection.Open()
+        Dim rec_3_1 As New SqlCommand("SELECT count(*) FROM report", connection)
+        Dim read_report As Int16 = rec_3_1.ExecuteScalar()
+
+        Label33.Text = read_report + 1
+
+
+        connection.Close()
+        Set_Panel(Record_3)
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Set_Panel(Record_5)
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        connection.Open()
+        Dim rec_3_1 As New SqlCommand("SELECT count(*) FROM report", connection)
+        Dim read_report As Int16 = rec_3_1.ExecuteScalar()
+
+        Label33.Text = read_report + 1
+
+
+        connection.Close()
+        Set_Panel(Record_3)
+    End Sub
+
+    Private Sub CountToolStripButton_Click(sender As Object, e As EventArgs)
+        Try
+            Me.ReportTableAdapter.Count(Me.Se_dentral_sql3.report)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub ToolStripLabel1_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Function IsInDatagridview(ByVal cell1 As String, ByVal cell2 As String, ByVal rowCell1_ID As Integer, ByVal rowCell2_ID As Integer, ByRef dgv As DataGridView)
